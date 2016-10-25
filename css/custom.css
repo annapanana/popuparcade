@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.shared-column {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
+.box {
+  width: 90%;
+  height: 90%;
+  padding: 10px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+
+/*Temporary Colors*/
+.pink {
+  background-color: rgb(235, 104, 179);
+
+}
+
+.green {
+  background-color: rgb(169, 235, 127);
+}
