@@ -1,55 +1,54 @@
-
-
-.container {
-  margin-top: 30px;
-}
-
-.filter-bar {
+body {
   display: flex;
-  flex-flow: row;
-  justify-content: flex-end;
+  min-height: 100vh;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
-.btn {
-  margin: 10px;
-  height: 100%;
-  background-color: white;
-  box-shadow: none;
-  border: black solid;
-  /*border-radius: 40%;*/
+main {
+  flex: 1 0 auto;
 }
 
-.btn:hover {
-  background-color: yellow;
+.brand-logo {
+  font-family: 'Josefin Sans', sans-serif;
+  margin-left: 20px;
 }
 
-.card {
-  box-shadow: none;
-  border-style: solid;
-  background-color: rgba(255, 255, 255, 0.75);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  font-family: 'Josefin Sans', sans-serif;
 }
 
-nav {
-  box-shadow: none;
+.site-logo {
+  height:60px;
+  float:left;
+  padding-left: 20px;
+  padding-bottom:10px;
 }
 
-.nav-wrapper {
-  background-color: rgb(40, 40, 40);
+.footer-text {
+  padding-top: 5px;
+  float:right;
+  margin-right: 20px;
+  padding-right: 5px;
+  padding-left: 5px;
+  font-size: 18px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
 }
 
-h5 {
-  color: black;
-  text-transform: none;
+.custom-card-title {
+  position: absolute !important;
+  top: 0;
+  right: 0;
 }
 
-.thumb {
-  padding: 10px;
-}
-
-.bg_img {
-  position: fixed;
-  width: 100%;
-  height: auto;
-  bottom: 0px;
-  z-index: -1;
+.custom-carousel-layout {
+  position: absolute !important;
+  bottom: 20px;
+  left: 43%;
 }
