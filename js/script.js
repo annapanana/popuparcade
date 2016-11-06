@@ -7,4 +7,8 @@ $(function(){
       $('.carousel').carousel('next');
       setTimeout(autoplay, 4500);
   }
+
+  // Initialize collapse button
+  $(".button-collapse").sideNav();
+
 });
