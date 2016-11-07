@@ -8,7 +8,9 @@ $(function(){
     fade: true,
     cssEase: 'linear',
     autoplay: true,
-    autoplaySpeed: 3000
+    autoplaySpeed: 3000,
+    prevArrow: false,
+    nextArrow: false
   });
 
   $('.mini-carousel').slick({
