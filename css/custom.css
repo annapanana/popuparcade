@@ -56,3 +56,11 @@ h6{
 .chip {
   margin-bottom: 10px;
 }
+
+.project-page-images {
+  width: 100%;
+}
+
+.slick-slide {
+  margin: 10px;
+}
