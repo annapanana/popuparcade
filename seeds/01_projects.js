@@ -17,5 +17,8 @@ exports.seed = function(knex, Promise) {
           page_url: ''
         })
       ]);
+    })
+    .then(() => {
+      return knex.raw("SELECT setval('projects_id_seq', (SELECT MAX(id) FROM projects))");
     });
 };
