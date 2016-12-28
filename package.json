@@ -1,8 +1,15 @@
 {
   "name": "popuparcade",
   "version": "1.0.0",
-  "description": "",
+  "description": "anna's personal portfolio",
   "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "knex": "^0.12.6",
+    "pg": "^6.1.2"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
