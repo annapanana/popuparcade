@@ -7,10 +7,13 @@ exports.up = function(knex, Promise) {
     table.text('description').notNullable().defaultTo('no description');
     table.text('type').notNullable().defaultTo('no type');
     table.text('page_url').notNullable().defaultTo('no url');
+    table.text('role').notNullable().defaultTo('no roll');
+    table.text('date').notNullable().defaultTo('no date');
+    table.text('live_link');
     table.timestamps(true, true);
   });
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('books');
+  return knex.schema.dropTable('projects');
 };
