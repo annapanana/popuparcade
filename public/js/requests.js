@@ -81,7 +81,7 @@ function openModal(target) {
   });
 }
 
-function updateEntry(target) {
+function updateEntry() {
   //PATCH REQUEST
   console.log("update entry");
   let newName = $("#entry_name").val();
@@ -113,6 +113,18 @@ function updateEntry(target) {
   })
 }
 
-function deleteEntry() {
+function deleteEntry(target) {
   //DELETE REQUEST
+  let id = '/archive/' + $(target).attr('id');
+  $.ajax({
+    type: 'DELETE',
+    url: id,
+    success: function(result) {
+      console.log('delete successful!', result);
+      getArchive();
+    },
+    fail: function(err) {
+      console.error(err);
+    }
+  });
 }
