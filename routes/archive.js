@@ -75,8 +75,15 @@ router.get('/archive', (req, res, next) => {
             return newResult;
           })
       ])
-      .then((allData) => { //QUESTION - whe does it work to res.send here?
-        res.send(allData);
+      .then((allData) => { //QUESTION - why does it work to res.send here?
+        var vettedData = [];
+        for (var i = 0; i < allData.length; i++) {
+          if (allData[i]) {
+            vettedData.push(allData[i]);
+          }
+        }
+        // NOTE - hardcoding the first entry may be buggy in the future
+        res.send(vettedData[0]);
       });
     })
     .catch((err) => {
@@ -237,6 +244,8 @@ router.patch('/archive/:id', (req, res, next) => {
   const id = req.params.id;
   const {name, brief, description, type, role, page_url, live_link, date} = req.body;
   const updatedEntry = {name, brief, description, type, role, page_url, live_link, date};
+
+  // TODO: Images, Videos and Tags functionality
 
   knex('projects')
     .where('id', id)
