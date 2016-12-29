@@ -29,7 +29,6 @@ router.get('/archive', (req, res, next) => {
                 }
               }
             }
-            // console.log(newResult);
           })
           .catch((err) => {
             next(err);
@@ -47,19 +46,17 @@ router.get('/archive', (req, res, next) => {
                 }
               }
             }
-            // console.log(newResult);
           }),
-        // // Get Tags
+        // Get Tags
         knex('tags')
           .innerJoin('projects_tags', 'tags.id', 'projects_tags.tag_id')
           .innerJoin('projects', 'projects.id', 'projects_tags.project_id')
           .then((tag_results) => {
-            // console.log(tag_results);
             let tags = [];
             for (let i = 0; i < tag_results.length; i++) {
               let tagPair = {
                 // the name the tag
-                name: tag_results[i].tag_name,
+                tag_name: tag_results[i].tag_name,
                 // project id
                 project_id: tag_results[i].project_id
               };
@@ -71,14 +68,14 @@ router.get('/archive', (req, res, next) => {
                 if(tags[i].project_id === newResult[j].id) {
                   let thisTag = "tag_" + i;
                   //TODO add all tags to proj as an array
-                  newResult[j][thisTag] = tags[i].name;
+                  newResult[j][thisTag] = tags[i].tag_name;
                 }
               }
             }
             return newResult;
           })
       ])
-      .then((allData) => {
+      .then((allData) => { //QUESTION - whe does it work to res.send here?
         res.send(allData);
       });
     })
@@ -92,7 +89,46 @@ router.get('/archive/:id', (req, res, next) => {
   knex('projects')
     .where('id', id)
     .then((result) => {
-      res.send(result[0]);
+      let newResult = result[0];
+      Promise.all([
+        // Get Image Links
+        knex('images')
+          .where('project_id', id)
+          .then((img_result) => {
+            var images = [];
+            for (var i = 0; i < img_result.length; i++) {
+              images.push(img_result[i].url);
+            }
+            newResult.images = images;
+            console.log(images);
+          }),
+        // Get Video Links
+        knex('videos')
+          .where('project_id', id)
+          .then((vid_result) => {
+            var videos = [];
+            for (var i = 0; i < vid_result.length; i++) {
+              videos.push(vid_result[i].url);
+            }
+            newResult.videos = videos;
+          }),
+          // Get Tags
+          knex('tags')
+          .innerJoin('projects_tags', 'tags.id', 'projects_tags.tag_id')
+          .where('project_id', id)
+          .then((tag_result) => {
+            let tags = [];
+            for (let i = 0; i < tag_result.length; i++) {
+              tags.push(tag_result[i].tag_name);
+            }
+            newResult.tags = tags;
+            return newResult;
+          })
+
+      ])
+      .then((allData) => {
+        res.send(allData);
+      });
     })
     .catch((err) => {
       next(err);
