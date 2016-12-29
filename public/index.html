@@ -2,76 +2,130 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Pop Up Arcade</title>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
-    <!-- Import jQuery -->
-    <script src="js/jquery-2.2.4.min.js"></script>
-    <!-- Import Materialize Functionality -->
-    <script type="text/javascript" src="js/materialize.min.js" defer></script>
-    <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="css/custom.css" media="screen" title="no title">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans" rel="stylesheet">
-    <!-- Custom JS functionality -->
-    <script src="js/script.js" defer></script>
+    <title>Anna's Portfolio</title>
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css" defer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js" defer></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles/materilize-overwrite.css">
+    <link rel="stylesheet" href="styles/custom.css">
+    <!-- Custom JS -->
+    <script type="text/javascript" src="js/requests.js" defer></script>
   </head>
   <body>
-    <!-- Navbar -->
-    <nav>
-      <div class="nav-wrapper teal lighten-3">
-        <a href="index.html" class="brand-logo white-text">Anna Lotko's Portfolio</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="work.html">Work</a></li>
-          <li><a href="about.html">About</a></li>
-          <li class="active"><a href="index.html">Home</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <!-- Main Content -->
     <div class="container">
-      <div class="row"><br></div>
-      <div class="row center">
-        <div class="col s12 l12">
-          <div class="carousel carousel-slider" data-indicators="true">
-            <a class="carousel-item" href="#one!"><img src="img/banner-features/banner-features_01.png"></a>
-            <a class="carousel-item" href="#two!"><img src="img/banner-features/banner-features_02.png"></a>
-            <a class="carousel-item" href="#three!"><img src="img/banner-features/banner-features_03.png"></a>
-            <span class="card-title custom-carousel-layout"><a href="featured.html" class="btn waves-effect white grey-text darken-text-2">explore</a></span>
+      <h4 class="center-align">Portfolio Dashboard</h4>
+      <div class="row" id="archive_container">
+        <h5>Current Content</h5>
+      </div>
+
+
+      <!-- TODO Put this in modal -->
+      <!-- <div class="row">
+        <div class="row">
+          <div class="col l4">
+            <input class="text-input" type="text" name="name" id="name" value="">
+            <label for="name">Project Name</label>
+          </div>
+          <div class="col l4">
+            <input class="text-input" type="text" name="date" id="date" value="">
+            <label for="date">Date Completed</label>
+          </div>
+          <div class="col l4">
+            <input class="text-input" type="text" name="role" id="role" value="">
+            <label for="role">Role</label>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col l6 s12 center">
-          <a href="work.html">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/nav_image_archive.png" alt="archive" />
-                <span class="card-title custom-card-title">ARCHIVE</span>
-              </div>
-            </div>
-          </a>
+        <div class="row">
+          <div class="input-field col l6">
+            <label for="brief">Brief</label>
+            <textarea id="brief" class="materialize-textarea"></textarea>
+          </div>
+          <div class="input-field col l6">
+            <label for="description">Description</label>
+            <textarea id="description" class="materialize-textarea"></textarea>
+          </div>
         </div>
-        <div class="col l6 s12 center">
-          <a href="about.html">
-            <div class="card">
-              <div class="card-image">
-                <img src="img/nav_image_about.png" alt="about-anna" />
-                <span class="card-title custom-card-title">ABOUT</span>
-              </div>
+        <div class="row">
+          <div class="col l12">
+            <div class="vertical-align">
+              <input type="radio" name="web" id="type_web" value="">
+              <label for="type_web">Web</label>
+              <input type="radio" name="game" id="type_game" value="">
+              <label for="type_game">Game</label>
+              <input type="radio" name="sandbox" id="type_sandbox" value="">
+              <label for="type_sandbox">Sandbox</label>
             </div>
-          </a>
+          </div>
+          <div class="col l6">
+            <input type="text" class="text-input" name="live_link" id="live_link" value="">
+            <label for="live_link">Live Link</label>
+          </div>
         </div>
+        <div class="row">
+          <div class="col l6">
+            <h6>Tags</h6>
+            <input type="radio" name="javascript" id="javascript" value="">
+            <label for="javascript">javascript</label>
+            <input type="radio" name="htmlcss" id="htmlcss" value="">
+            <label for="htmlcss">html/css</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col l6">
+            <h6>Images</h6>
+            <input class="text-input" type="text" name="name" id="image_url" value="">
+            <label for="image_url">Image URL</label>
+            <br>
+            <input type="checkbox" id="is_primary_gallery" />
+            <label for="is_primary_gallery">Primary Gallery?</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col l6">
+            <h6>Videos</h6>
+            <input class="text-input" type="text" name="name" id="video_url" value="">
+            <label for="video_url">Video URL</label>
+          </div>
+        </div>
+      </div> -->
+
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h3 class="center">Edit Entry</h3>
+          <!-- Name -->
+          <label for="entry_name">Name</label>
+          <input type="text" name="entry_name" id="entry_name" value="">
+          <!-- Brief -->
+          <label for="entry_brief">Brief</label>
+          <input type="text" name="entry_brief" id="entry_brief" value="">
+          <!-- Desciption -->
+          <label for="entry_description">Description</label>
+          <input type="text" name="entry_description" id="entry_description" value="">
+          <!-- Type -->
+          <!-- TODO enable admin to edit type -->
+          <!-- Role -->
+          <label for="entry_role">Role</label>
+          <input type="text" name="entry_role" id="entry_role" value="">
+          <!-- Date -->
+          <label for="entry_date">Date</label>
+          <input type="text" name="entry_date" id="entry_date" value="">
+          <!-- Live Link -->
+          <label for="entry_live_link">Live Link</label>
+          <input type="text" name="entry_live_link" id="entry_live_link" value="">
+          <!-- Image URLS -->
+          <!-- TODO grab image URLS -->
+          <!-- Video URLS -->
+          <!-- TODO grab video URLS -->
+        </div>
+
+        <div class="modal-footer">
+          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id="save_entry">Save</a>
+        </div>
+
       </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="page-footer teal lighten-3">
-      <a href="index.html"><img class="site-logo" src="img/lotko_logo.svg" alt="lotko logo" /></a>
-      <h6 class="footer-text white-text">This site was designed and developed by Anna Lotko</h6>
-    </footer>
   </body>
 </html>

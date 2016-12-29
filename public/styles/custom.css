@@ -1,0 +1,9 @@
+.text-input {
+  margin-bottom: 5px !important;
+}
+
+.vertical-align {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
