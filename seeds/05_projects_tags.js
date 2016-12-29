@@ -11,11 +11,11 @@ exports.seed = function(knex, Promise) {
         }),
         knex('projects_tags').insert({
           project_id: 1,
-          tag_id: 6
+          tag_id: 2
         }),
         knex('projects_tags').insert({
           project_id: 2,
-          tag_id: 4
+          tag_id: 1
         }),
       ]);
     })

@@ -14,6 +14,11 @@ exports.seed = function(knex, Promise) {
           project_id: 2,
           url: 'this is an image url',
           is_primary_gallery: false
+        }),
+        knex('images').insert({
+          project_id: 2,
+          url: 'HI ALAN',
+          is_primary_gallery: false
         })
       ]);
     })
