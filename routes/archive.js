@@ -5,60 +5,85 @@ const router = express.Router();
 const knex = require('../knex');
 
 router.get('/archive', (req, res, next) => {
+
   knex('projects')
     .orderBy('id')
     .then((result) => {
-      let newResult = []; 
+      let idArr = [];
       for (var i = 0; i < result.length; i++) {
-        console.log(i);
-        let curResult = result[i];
-        Promise.all([
-          // Get Image Links
-          knex('images')
-            .where('project_id', curResult.id)
-            .then((img_result) => {
-              let images = [];
-              for (var i = 0; i < img_result.length; i++) {
-                images.push(img_result[i].url);
-              }
-              curResult.project_images = images;
-            })
-            .catch((err) => {
-              next(err);
-            }),
-          // Get Video Links
-          knex('videos')
-            .where('project_id', curResult.id)
-            .then((video_result) => {
-              let videos = [];
-              for (var i = 0; i < video_result.length; i++) {
-                videos.push(video_result[i].url);
-              }
-              curResult.project_videos = videos;
-            })
-            .catch((err) => {
-              next(err);
-            }),
-          // Get Tags
-          knex('tags')
-            .innerJoin('projects_tags', 'tags.id', 'projects_tags.tag_id')
-            .then((tag_results)  => {
-              let tags = [];
-              for (var i = 0; i < tag_results.length; i++) {
-                tags.push(tag_results[i].name);
-              }
-              curResult.project_tags = tags;
-            })
-            .catch((err) => {
-              next(err);
-            })
-        ])
-        .then(() => {
-          console.log(curResult);
-          newResult.push(curResult);
-        });
+        idArr.push(result[i].id);
       }
-      res.send(newResult);
+      Promise.all([
+        // Get Image Links
+        knex('images')
+          .whereIn('project_id', idArr)
+          .then((img_result) => {
+            // For each result, create an array of images from the image results that match the project id
+            for (var i = 0; i < result.length; i++) {
+              result[i].images = img_result.filter((img) => {
+                if (img.project_id === result[i].id) {
+                  return img;
+                }
+              });
+              // Extract only the URL from the image object stored in the image array
+              result[i].images = result[i].images.map(img => img.url);
+            }
+          })
+          .catch((err) => {
+            next(err);
+          }),
+        // Get Video Links
+        knex('videos')
+          .whereIn('project_id', idArr)
+          .then((vid_result) => {
+            // For each result, create an array of videos from the video results that match the project id
+            for (var i = 0; i < result.length; i++) {
+              result[i].videos = vid_result.filter((vid) => {
+                if (vid.project_id === result[i].id) {
+                  return vid;
+                }
+              });
+              // Extract only the URL from the video object stored in the video array
+              result[i].videos = result[i].videos.map(vid => vid.url);
+            }
+          }),
+        // Get Tags
+        knex('tags')
+          .innerJoin('projects_tags', 'tags.id', 'projects_tags.tag_id')
+          .innerJoin('projects', 'projects.id', 'projects_tags.project_id')
+          .then((tag_results) => {
+            let tags = [];
+            // Build an array of tag names paired with project ids
+            for (let i = 0; i < tag_results.length; i++) {
+              let tagPair = {
+                tag_name: tag_results[i].tag_name,
+                project_id: tag_results[i].project_id
+              };
+              tags.push(tagPair);
+            }
+            for (var i = 0; i < result.length; i++) {
+              // For each result, create an array of tags from the tag pairs array that match the project id
+              result[i].tags = tags.filter((tag) => {
+                if (tag.project_id === result[i].id) {
+                  return tag;
+                }
+              });
+              // Extract only the name of the tag from the tag object stored in the tag array
+              result[i].tags = result[i].tags.map(tag => tag.tag_name);
+            }
+            return result;
+          })
+      ])
+      .then((allData) => { //QUESTION - why does it work to res.send here?
+        var vettedData = [];
+        for (var i = 0; i < allData.length; i++) {
+          if (allData[i]) {
+            vettedData.push(allData[i]);
+          }
+        }
+        // NOTE - hardcoding the first entry may be buggy in the future
+        res.send(vettedData[0]);
+      });
     })
     .catch((err) => {
       next(err);
@@ -70,7 +95,45 @@ router.get('/archive/:id', (req, res, next) => {
   knex('projects')
     .where('id', id)
     .then((result) => {
-      res.send(result[0]);
+      Promise.all([
+        // Get Image Links
+        knex('images')
+          .where('project_id', id)
+          .then((img_result) => {
+            var images = [];
+            for (var i = 0; i < img_result.length; i++) {
+              images.push(img_result[i].url);
+            }
+            result.images = images;
+            console.log(images);
+          }),
+        // Get Video Links
+        knex('videos')
+          .where('project_id', id)
+          .then((vid_result) => {
+            var videos = [];
+            for (var i = 0; i < vid_result.length; i++) {
+              videos.push(vid_result[i].url);
+            }
+            result.videos = videos;
+          }),
+          // Get Tags
+          knex('tags')
+          .innerJoin('projects_tags', 'tags.id', 'projects_tags.tag_id')
+          .where('project_id', id)
+          .then((tag_result) => {
+            let tags = [];
+            for (let i = 0; i < tag_result.length; i++) {
+              tags.push(tag_result[i].tag_name);
+            }
+            result.tags = tags;
+            return result;
+          })
+
+      ])
+      .then((allData) => {
+        res.send(allData);
+      });
     })
     .catch((err) => {
       next(err);
@@ -80,10 +143,96 @@ router.get('/archive/:id', (req, res, next) => {
 router.post('/archive', (req, res, next) => {
   let newEntry = req.body;
 
+  let newImagesEntry = [];
+  // images must be passed as a string of urls sepatated by commas
+  let imageSet = req.body.images.split(',');
+  for (let i = 0; i < imageSet.length; i++) {
+    let singleEntry = {
+      project_id: null,
+      url: imageSet[i]
+    };
+    newImagesEntry.push(singleEntry);
+  }
+
+  let newVideosEntry = [];
+  // videos must be passed as a string of urls sepatated by commas
+  let videoSet = req.body.videos.split(',');
+  for (let i = 0; i < videoSet.length; i++) {
+    let singleEntry = {
+      project_id: null,
+      url: videoSet[i]
+    };
+    newVideosEntry.push(singleEntry);
+  }
+
+  let tagSet = req.body.tags.split(',');
+
+  // Data Structure:
+  //images - url, project_id, is_primary_gallery
+  //videos - url, project_id
+  //projects_tags - project_id from project insertion, tag_id (from tag name)
+
+  // Delete images, videos and tags from new entry before pushing
+  delete newEntry.images;
+  delete newEntry.videos;
+  delete newEntry.tags;
   knex('projects')
     .insert(newEntry, '*')
     .then((result) => {
-      res.send(result[0]);
+      // Populate ID for img/vids from projects entry
+      let id = result[0].id;
+      for (let i = 0; i < newImagesEntry.length; i++) {
+        newImagesEntry[i].project_id = id;
+      }
+      for (let i = 0; i < newVideosEntry.length; i++) {
+        newVideosEntry[i].project_id = id;
+      }
+      Promise.all([
+        knex('images')
+          .insert(newImagesEntry, '*')
+          .then((img_result) => {
+            // console.log("imgs", img_result);
+          }),
+        knex('videos')
+          .insert(newVideosEntry, '*')
+          .then((vid_result) => {
+            // console.log("vids", vid_result);
+          }),
+        //get the ids of the tags according to their names from tags
+        knex('tags')
+          .innerJoin('projects_tags', 'tags.id', 'projects_tags.tag_id')
+          .whereIn('tag_name', tagSet)
+          .then((tag_result) => {
+
+            let newProjectsTagsEntry = [];
+            for (var i = 0; i < tag_result.length; i++) {
+              let singleEntry = {
+                project_id: id,
+                tag_id: tag_result[i].tag_id
+              };
+              newProjectsTagsEntry.push(singleEntry);
+            }
+            //push tag id and project id into project_tags
+            knex('projects_tags')
+              .insert(newProjectsTagsEntry, '*')
+              .then((projects_tags_result) => {
+                // console.log(projects_tags_result);
+              })
+              .catch((err) => {
+                next(err);
+              });
+          })
+          .catch((err) => {
+            next(err);
+          })
+      ])
+      .then(() => {
+        // console.log("result", result[0]);
+        res.send(result[0]);
+      })
+      .catch((err) => {
+        next(err);
+      });
     })
     .catch((err) => {
       next(err);
@@ -94,6 +243,8 @@ router.patch('/archive/:id', (req, res, next) => {
   const id = req.params.id;
   const {name, brief, description, type, role, page_url, live_link, date} = req.body;
   const updatedEntry = {name, brief, description, type, role, page_url, live_link, date};
+
+  // TODO: Images, Videos and Tags functionality
 
   knex('projects')
     .where('id', id)
