@@ -8,10 +8,11 @@ router.get('/archive', (req, res, next) => {
   knex('projects')
     .orderBy('id')
     .then((result) => {
-      // let newResult = [];
+      let newResult = []; 
       for (var i = 0; i < result.length; i++) {
+        console.log(i);
         let curResult = result[i];
-        return Promise.all([
+        Promise.all([
           // Get Image Links
           knex('images')
             .where('project_id', curResult.id)
@@ -53,9 +54,11 @@ router.get('/archive', (req, res, next) => {
             })
         ])
         .then(() => {
-          res.send(result);
-        })
+          console.log(curResult);
+          newResult.push(curResult);
+        });
       }
+      res.send(newResult);
     })
     .catch((err) => {
       next(err);

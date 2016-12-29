@@ -11,7 +11,7 @@ exports.seed = function(knex, Promise) {
           is_primary_gallery: true
         }),
         knex('images').insert({
-          project_id: 1,
+          project_id: 2,
           url: 'this is an image url',
           is_primary_gallery: false
         })

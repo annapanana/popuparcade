@@ -15,6 +15,17 @@ exports.seed = function(knex, Promise) {
           date: 'December, 2016',
           live_link: 'https://fridge-face.herokuapp.com',
           page_url: ''
+        }),
+        knex('projects').insert({
+          id: 2,
+          name: 'GFTI',
+          brief: 'GFTI is a web-based postcard making tool.',
+          description: 'Greetings from the Internet (gfti) is a web-based postcard making tool that allows users to search for an image, modify a greetings graphic and include a custom message. The aesthetic of gfti is an homage to Teich greetings postcards. Gfti uses the Flickr API to supply users with images and the Lob API to send postcards.',
+          type: 'web',
+          role: 'Designer and Developer',
+          date: 'November, 2016',
+          live_link: 'http://greetingsfromtheinternet.surge.sh/',
+          page_url: ''
         })
       ]);
     })
