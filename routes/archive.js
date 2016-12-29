@@ -9,7 +9,6 @@ router.get('/archive', (req, res, next) => {
   knex('projects')
     .orderBy('id')
     .then((result) => {
-      let newResult = result;
       let idArr = [];
       for (var i = 0; i < result.length; i++) {
         idArr.push(result[i].id);
@@ -17,17 +16,17 @@ router.get('/archive', (req, res, next) => {
       Promise.all([
         // Get Image Links
         knex('images')
-          .whereIn('project_id', idArr) //select more than one id?
+          .whereIn('project_id', idArr)
           .then((img_result) => {
-            for (var i = 0; i < img_result.length; i++) {
-              // if the project_id on this img_result, matches the id on a newResult, add the URL of this image to that new Result
-              for (var j = 0; j < newResult.length; j++) {
-                if (img_result[i].project_id === newResult[j].id) {
-                  let thisImg = "image_url" + i;
-                  //TODO add all img to proj as an array
-                  newResult[j][thisImg] = img_result[i].url;
+            // For each result, create an array of images from the image results that match the project id
+            for (var i = 0; i < result.length; i++) {
+              result[i].images = img_result.filter((img) => {
+                if (img.project_id === result[i].id) {
+                  return img;
                 }
-              }
+              });
+              // Extract only the URL from the image object stored in the image array
+              result[i].images = result[i].images.map(img => img.url);
             }
           })
           .catch((err) => {
@@ -37,14 +36,15 @@ router.get('/archive', (req, res, next) => {
         knex('videos')
           .whereIn('project_id', idArr)
           .then((vid_result) => {
-            for (var i = 0; i < vid_result.length; i++) {
-              for (var j = 0; j < newResult.length; j++) {
-                if (vid_result[i].project_id === newResult[j].id) {
-                  let thisVid = "video_url" + i;
-                  //TODO add all vids to proj as an array
-                  newResult[j][thisVid] = vid_result[i].url;
+            // For each result, create an array of videos from the video results that match the project id
+            for (var i = 0; i < result.length; i++) {
+              result[i].videos = vid_result.filter((vid) => {
+                if (vid.project_id === result[i].id) {
+                  return vid;
                 }
-              }
+              });
+              // Extract only the URL from the video object stored in the video array
+              result[i].videos = result[i].videos.map(vid => vid.url);
             }
           }),
         // Get Tags
@@ -53,26 +53,25 @@ router.get('/archive', (req, res, next) => {
           .innerJoin('projects', 'projects.id', 'projects_tags.project_id')
           .then((tag_results) => {
             let tags = [];
+            // Build an array of tag names paired with project ids
             for (let i = 0; i < tag_results.length; i++) {
               let tagPair = {
-                // the name the tag
                 tag_name: tag_results[i].tag_name,
-                // project id
                 project_id: tag_results[i].project_id
               };
               tags.push(tagPair);
             }
-
-            for (let i = 0; i < tags.length; i++) {
-              for (let j = 0; j < newResult.length; j++) {
-                if(tags[i].project_id === newResult[j].id) {
-                  let thisTag = "tag_" + i;
-                  //TODO add all tags to proj as an array
-                  newResult[j][thisTag] = tags[i].tag_name;
+            for (var i = 0; i < result.length; i++) {
+              // For each result, create an array of tags from the tag pairs array that match the project id
+              result[i].tags = tags.filter((tag) => {
+                if (tag.project_id === result[i].id) {
+                  return tag;
                 }
-              }
+              });
+              // Extract only the name of the tag from the tag object stored in the tag array
+              result[i].tags = result[i].tags.map(tag => tag.tag_name);
             }
-            return newResult;
+            return result;
           })
       ])
       .then((allData) => { //QUESTION - why does it work to res.send here?
@@ -96,7 +95,6 @@ router.get('/archive/:id', (req, res, next) => {
   knex('projects')
     .where('id', id)
     .then((result) => {
-      let newResult = result[0];
       Promise.all([
         // Get Image Links
         knex('images')
@@ -106,7 +104,7 @@ router.get('/archive/:id', (req, res, next) => {
             for (var i = 0; i < img_result.length; i++) {
               images.push(img_result[i].url);
             }
-            newResult.images = images;
+            result.images = images;
             console.log(images);
           }),
         // Get Video Links
@@ -117,7 +115,7 @@ router.get('/archive/:id', (req, res, next) => {
             for (var i = 0; i < vid_result.length; i++) {
               videos.push(vid_result[i].url);
             }
-            newResult.videos = videos;
+            result.videos = videos;
           }),
           // Get Tags
           knex('tags')
@@ -128,8 +126,8 @@ router.get('/archive/:id', (req, res, next) => {
             for (let i = 0; i < tag_result.length; i++) {
               tags.push(tag_result[i].tag_name);
             }
-            newResult.tags = tags;
-            return newResult;
+            result.tags = tags;
+            return result;
           })
 
       ])
@@ -169,6 +167,7 @@ router.post('/archive', (req, res, next) => {
 
   let tagSet = req.body.tags.split(',');
 
+  // Data Structure:
   //images - url, project_id, is_primary_gallery
   //videos - url, project_id
   //projects_tags - project_id from project insertion, tag_id (from tag name)
@@ -180,7 +179,7 @@ router.post('/archive', (req, res, next) => {
   knex('projects')
     .insert(newEntry, '*')
     .then((result) => {
-      //populate ID for img/vids from projects entry
+      // Populate ID for img/vids from projects entry
       let id = result[0].id;
       for (let i = 0; i < newImagesEntry.length; i++) {
         newImagesEntry[i].project_id = id;

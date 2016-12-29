@@ -29,11 +29,12 @@ function getArchive() {
     type: 'GET',
     url: '/archive',
     success: function(result) {
+      console.log(result);
       $("#archive_container").children().remove();
       for (var i = 0; i < result.length; i++) {
         displayEntry(result[i]);
       }
-      console.log(result);
+
       $(".delete-button").click(function(e) {
         deleteEntry(e.target);
       });
