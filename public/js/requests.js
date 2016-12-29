@@ -1,6 +1,6 @@
 'use strict';
 
-var currentEntry;
+var currentEntry = null;
 
 $(function() {
   getArchive();
@@ -16,18 +16,22 @@ $(function() {
   $("#save_entry").click(function() {
     updateEntry();
   });
+
+  $("#new_entry").click(function(e) {
+    openModal(e.target);
+  });
 });
 
 
 function getArchive() {
-  //GET REQUES
+  //GET REQUEST
   $.ajax({
     type: 'GET',
     url: '/archive',
     success: function(result) {
       $("#archive_container").children().remove();
       for (var i = 0; i < result.length; i++) {
-        displayEntry(result[i])
+        displayEntry(result[i]);
       }
       console.log(result);
       $(".delete-button").click(function(e) {
@@ -72,12 +76,26 @@ function displayEntry(entryContent) {
   $("#archive_container").append(newEntry);
 }
 
-function addEntry() {
-  //POST REQUEST
-}
+// function addEntry() {
+//   //POST REQUEST
+//   openModal();
+// }
 
 function openModal(target) {
-  let id = '/archive/' + $(target).attr('id');
+  console.log($(target).attr("id"));
+  if ($(target).attr("id") === "new_entry") {
+      //Set Header to Create Entry
+      $("#modal_header").text("Add New Entry");
+  } else {
+    //Set Header to Edit Entry
+    populateModal(target);
+    $("#modal_header").text("Edit Entry");
+  }
+  // if (target === "")
+}
+
+function populateModal(curId) {
+  let id = '/archive/' + $(curId).attr('id');
   currentEntry = id;
   $.ajax({
     type: 'GET',
@@ -92,6 +110,7 @@ function openModal(target) {
       $("#entry_role").val(result.role);
       $("#entry_date").val(result.date);
       $("#entry_live_link").val(result.live_link);
+
     },
     fail: function(err) {
       console.error(err);
@@ -101,6 +120,7 @@ function openModal(target) {
 
 function updateEntry() {
   //PATCH REQUEST
+
   console.log("update entry");
   let newName = $("#entry_name").val();
   let newBrief = $("#entry_brief").val();
@@ -108,9 +128,15 @@ function updateEntry() {
   let newRole = $("#entry_role").val();
   let newDate = $("#entry_date").val();
   let newLink = $("#entry_live_link").val();
-
+  let requestType;
+  if (currentEntry !== null) {
+    requestType = 'PATCH';
+  } else {
+    requestType = 'POST';
+    currentEntry = '/archive';
+  }
   $.ajax({
-    type: 'PATCH',
+    type: requestType,
     url: currentEntry,
     contentType: 'application/json',
     data: JSON.stringify({
@@ -124,6 +150,7 @@ function updateEntry() {
     success: function(result) {
       console.log('patch successful!', result);
       getArchive();
+      currentEntry = null;
     },
     fail: function(err) {
       console.error('error...', err);
