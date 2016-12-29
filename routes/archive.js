@@ -138,10 +138,95 @@ router.get('/archive/:id', (req, res, next) => {
 router.post('/archive', (req, res, next) => {
   let newEntry = req.body;
 
+  let newImagesEntry = [];
+  // images must be passed as a string of urls sepatated by commas
+  let imageSet = req.body.images.split(',');
+  for (let i = 0; i < imageSet.length; i++) {
+    let singleEntry = {
+      project_id: null,
+      url: imageSet[i]
+    };
+    newImagesEntry.push(singleEntry);
+  }
+
+  let newVideosEntry = [];
+  // videos must be passed as a string of urls sepatated by commas
+  let videoSet = req.body.videos.split(',');
+  for (let i = 0; i < videoSet.length; i++) {
+    let singleEntry = {
+      project_id: null,
+      url: videoSet[i]
+    };
+    newVideosEntry.push(singleEntry);
+  }
+
+  let tagSet = req.body.tags.split(',');
+
+  //images - url, project_id, is_primary_gallery
+  //videos - url, project_id
+  //projects_tags - project_id from project insertion, tag_id (from tag name)
+
+  // Delete images, videos and tags from new entry before pushing
+  delete newEntry.images;
+  delete newEntry.videos;
+  delete newEntry.tags;
   knex('projects')
     .insert(newEntry, '*')
     .then((result) => {
-      res.send(result[0]);
+      //populate ID for img/vids from projects entry
+      let id = result[0].id;
+      for (let i = 0; i < newImagesEntry.length; i++) {
+        newImagesEntry[i].project_id = id;
+      }
+      for (let i = 0; i < newVideosEntry.length; i++) {
+        newVideosEntry[i].project_id = id;
+      }
+      Promise.all([
+        knex('images')
+          .insert(newImagesEntry, '*')
+          .then((img_result) => {
+            // console.log("imgs", img_result);
+          }),
+        knex('videos')
+          .insert(newVideosEntry, '*')
+          .then((vid_result) => {
+            // console.log("vids", vid_result);
+          }),
+        //get the ids of the tags according to their names from tags
+        knex('tags')
+          .innerJoin('projects_tags', 'tags.id', 'projects_tags.tag_id')
+          .whereIn('tag_name', tagSet)
+          .then((tag_result) => {
+
+            let newProjectsTagsEntry = [];
+            for (var i = 0; i < tag_result.length; i++) {
+              let singleEntry = {
+                project_id: id,
+                tag_id: tag_result[i].tag_id
+              };
+              newProjectsTagsEntry.push(singleEntry);
+            }
+            //push tag id and project id into project_tags
+            knex('projects_tags')
+              .insert(newProjectsTagsEntry, '*')
+              .then((projects_tags_result) => {
+                // console.log(projects_tags_result);
+              })
+              .catch((err) => {
+                next(err);
+              });
+          })
+          .catch((err) => {
+            next(err);
+          })
+      ])
+      .then(() => {
+        // console.log("result", result[0]);
+        res.send(result[0]);
+      })
+      .catch((err) => {
+        next(err);
+      });
     })
     .catch((err) => {
       next(err);
