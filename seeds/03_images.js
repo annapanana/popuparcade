@@ -9,6 +9,11 @@ exports.seed = function(knex, Promise) {
           project_id: 1,
           url: 'http://www.pets4homes.co.uk/images/articles/1646/large/kitten-emergencies-signs-to-look-out-for-537479947ec1c.jpg.jpg',
           is_primary_gallery: true
+        }),
+        knex('images').insert({
+          project_id: 1,
+          url: 'this is an image url',
+          is_primary_gallery: false
         })
       ]);
     })

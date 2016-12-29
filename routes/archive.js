@@ -8,7 +8,54 @@ router.get('/archive', (req, res, next) => {
   knex('projects')
     .orderBy('id')
     .then((result) => {
-      res.send(result);
+      // let newResult = [];
+      for (var i = 0; i < result.length; i++) {
+        let curResult = result[i];
+        return Promise.all([
+          // Get Image Links
+          knex('images')
+            .where('project_id', curResult.id)
+            .then((img_result) => {
+              let images = [];
+              for (var i = 0; i < img_result.length; i++) {
+                images.push(img_result[i].url);
+              }
+              curResult.project_images = images;
+            })
+            .catch((err) => {
+              next(err);
+            }),
+          // Get Video Links
+          knex('videos')
+            .where('project_id', curResult.id)
+            .then((video_result) => {
+              let videos = [];
+              for (var i = 0; i < video_result.length; i++) {
+                videos.push(video_result[i].url);
+              }
+              curResult.project_videos = videos;
+            })
+            .catch((err) => {
+              next(err);
+            }),
+          // Get Tags
+          knex('tags')
+            .innerJoin('projects_tags', 'tags.id', 'projects_tags.tag_id')
+            .then((tag_results)  => {
+              let tags = [];
+              for (var i = 0; i < tag_results.length; i++) {
+                tags.push(tag_results[i].name);
+              }
+              curResult.project_tags = tags;
+            })
+            .catch((err) => {
+              next(err);
+            })
+        ])
+        .then(() => {
+          res.send(result);
+        })
+      }
     })
     .catch((err) => {
       next(err);
