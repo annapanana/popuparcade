@@ -1,14 +1,30 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Admin Entry</title>
-  </head>
-  <body>
-    <table>
-      <thead>
-        
-      </thead>
-    </table>
-  </body>
-</html>
+<tr>
+  <td>{{name}}</td>
+  <td>{{date}}</td>
+  <td>{{role}}</td>
+  <td>{{brief}}</td>
+  <td>{{description}}</td>
+  <td>{{live_link}}</td>
+  <td>{{type}}</td>
+  <td>
+    <ul>
+      {{#each tags}}
+      <li>{{tag}}</li>
+      {{/each}}
+    </ul>
+  </td>
+  <td>
+    <ul>
+      {{#each images}}
+      <li>{{image}}</li>
+      {{/each}}
+    </ul>
+  </td>
+  <td>
+    <ul>
+      {{#each videos}}
+      <li>{{video}}</li>
+      {{/each}}
+    </ul>
+  </td>
+</tr>

@@ -5,6 +5,9 @@
     <title>Anna's Portfolio</title>
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!-- Handlebars -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js" defer></script>
+    <script type="text/javascript" src="js/handlebars-1.0.rc.1.min.js" defer></script>
     <!-- Materialize -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" defer>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css" defer>
@@ -27,7 +30,43 @@
 
     <div class="container">
       <!-- <h4 class="center-align">Portfolio Dashboard</h4> -->
-      <div class="row" id="archive_container"></div>
+      <div class="row">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Date</th>
+              <th>Role</th>
+              <th>Brief</th>
+              <th>Description</th>
+              <th>Live Link</th>
+              <th>Type</th>
+              <th>Tags</th>
+              <th>Image URLs</th>
+              <th>Video URLs</th>
+            </tr>
+          </thead>
+          <tbody id="archive_container">
+            <tr>
+              <td>Fridge Face</td>
+              <td>December, 2016</td>
+              <td>Designer/Developer</td>
+              <td>Fridge Face is a friendly inventory management system for communal refrigerators.</td>
+              <td>Fridge Face is a friendly inventory management system for communal refrigerators. The app enables community members to view all fridge contents, filter food by categories, check expiration dates and receive announcements. Register to get started with Fridge Face for your community refrigerator, today!</td>
+              <td>https://fridge-face.herokuapp.com</td>
+              <td>Game</td>
+              <td>
+                <ul>
+                  <li>web</li>
+                  <li>galvanize</li>
+                </ul>
+              </td>
+              <td>thisisaurl.com</td>
+              <td>thisisanotherurl.com</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
 
       <!-- TODO Put this in modal -->
@@ -99,7 +138,6 @@
           </div>
         </div>
       </div> -->
-
       <div id="modal1" class="modal">
         <div class="modal-content">
           <h3 class="center" id="modal_header">Edit Entry</h3>
@@ -139,60 +177,5 @@
 
       </div>
     </div>
-
-    <!-- TODO: populate data via handlebars from code -->
-    <script id="card_template" type="text/x-handlebars-template">
-      <div class="col s12 m12 l6 message-card" id={{message_entryContent_id}}>
-        <div class="card-panel teal lighten-2">
-          <div class="right">
-            <a class="btn-floating btn-large waves-effect waves-light teal lighten-1"><i class="material-icons delete-button" id={{entryContent_id}}>delete</i></a>
-            <a class="btn-floating btn-large waves-effect waves-light teal lighten-1"><i class="material-icons edit-button" id={{entryContent_id}} data-target="modal1">edit</i></a>
-          </div>
-            <span class="white-text"><h5>`+entryContent.name+`</h5></span>
-            <br>
-            <h6 class="white-text">Brief:</h6>
-            <span class="white-text">{{brief}}</span>
-            <br>
-            <br>
-            <h6 class="white-text">Description:</h6>
-            <span class="white-text">{{description}}</span>
-            <br>
-            <br>
-            <h6 class="white-text">Role:</h6>
-            <span class="white-text">{{role}}</span>
-            <br>
-            <br>
-            <h6 class="white-text">Date:</h6>
-            <span class="white-text">{{date}}</span>
-            <br>
-            <br>
-            <h6 class="white-text">Live Link:</h6>
-            <span class="white-text">{{live_link}}</span>
-            <br>
-            <br>
-            <h6 class="white-text">Tags:</h6>
-            <ul>
-              {{#each items}}
-              <li>{{tag}}</li>
-              {{/each}}
-            </ul>
-            <h6 class="white-text">Images:</h6>
-            <ul>
-              {{#each items}}
-              <li>{{img_url}}</li>
-              {{/each}}
-            </ul>
-            <h6 class="white-text">Videos:</h6>
-            <ul>
-              {{#each items}}
-              <li>{{video_url}}</li>
-              {{/each}}
-            </ul>
-        </div>
-      </div>
-    </script>
-
-
-
   </body>
 </html>

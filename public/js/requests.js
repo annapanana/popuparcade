@@ -2,10 +2,22 @@
 
 // const Handlebars = require('handlebars');
 var currentEntry = null;
-var cardTemplate;
+var tempData = {
+  name:"Stone Soup",
+  date: "November, 2016",
+  role: "Designer/Developer",
+  brief: "A project about soup",
+  description: "A longer project about soup",
+  live_link: "stonesoup.com",
+  type: "game",
+  tags: [{tag:"ios"}, {tag:"game"}],
+  images: [{image:"img1"}, {image:"img2"}],
+  videos: [{video:"vid1"}, {video:"vid2"}]
+};
+var rowTemplate;
 
 $(function() {
-  getArchive();
+  // getArchive();
   $('#textarea1').val('New Text');
   $('#textarea1').trigger('autoresize');
 
@@ -23,8 +35,10 @@ $(function() {
     openModal(e.target);
   });
 
-  var cardSource   = $("#card_template").html();
-  cardTemplate = Handlebars.compile(cardSource);
+  // Handlebars
+  var render_content_row = render("admin_entry", tempData);
+  rowTemplate = Handlebars.compile (render_content_row);
+  // $("#archive_container").append(rowTemplate(tempData));
 });
 
 
@@ -79,7 +93,7 @@ function displayEntry(entryContent) {
     </div>
   </div>`;
 
-  $("#archive_container").append(newEntry);
+  $("#archive_container").append(rowTemplate(tempData));
 }
 
 // function addEntry() {
@@ -178,4 +192,30 @@ function deleteEntry(target) {
       console.error(err);
     }
   });
+}
+
+//Handlebars
+function render(tmpl_name, tmpl_data) {
+
+  if ( !render.tmpl_cache ) {
+    render.tmpl_cache = {};
+  }
+  if ( ! render.tmpl_cache[tmpl_name] ) {
+    var tmpl_dir = '/templates';
+    var tmpl_url = tmpl_dir + '/' + tmpl_name + '.html';
+    var tmpl_string;
+    $.ajax({
+      url: tmpl_url,
+      method: 'GET',
+      async: false,
+      success: function(data) {
+        tmpl_string = data;
+      },
+      fail: function(err) {
+        console.error(err);
+      }
+    });
+    render.tmpl_cache[tmpl_name] = _.template(tmpl_string);
+  }
+  return render.tmpl_cache[tmpl_name](tmpl_data);
 }
