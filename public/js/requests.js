@@ -76,16 +76,7 @@ function displayEntry(entryContent) {
 // }
 
 function openModal(target) {
-  console.log($(target).attr("id"));
-  if ($(target).attr("id") === "new_entry") {
-      //Set Header to Create Entry
-      $("#modal_header").text("Add New Entry");
-  } else {
-    //Set Header to Edit Entry
-    populateModal(target);
-    $("#modal_header").text("Edit Entry");
-  }
-  // if (target === "")
+  console.log("open modal", target);
 }
 
 function populateModal(curId) {
