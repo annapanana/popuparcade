@@ -1,31 +1,31 @@
 <tr id="{{entry_id}}">
-  <td><a class="modal-trigger" href="#edit_modal">{{name}}</a></td>
-  <td>{{date}}</td>
-  <td>{{role}}</td>
-  <td>{{brief}}</td>
-  <td>{{description}}</td>
-  <td>{{live_link}}</td>
-  <td>{{type}}</td>
+  <td class="name"><a class="modal-trigger" href="#edit_modal">{{name}}</a></td>
+  <td class="date">{{date}}</td>
+  <td class="role">{{role}}</td>
+  <td class="brief">{{brief}}</td>
+  <td class="description">{{description}}</td>
+  <td class="live_link">{{live_link}}</td>
+  <td class="type">{{type}}</td>
   <td>
-    <ul>
+    <ul class="tags">
       {{#each tags}}
       <li>{{tag}}</li>
       {{/each}}
     </ul>
   </td>
   <td>
-    <ul>
+    <ul class="images">
       {{#each images}}
       <li>{{image}}</li>
       {{/each}}
     </ul>
   </td>
   <td>
-    <ul>
+    <ul class="videos">
       {{#each videos}}
       <li>{{video}}</li>
       {{/each}}
     </ul>
   </td>
-  <td> <i class="material-icons">delete</i></td>
+  <td> <i class="material-icons delete-button">delete</i></td>
 </tr>

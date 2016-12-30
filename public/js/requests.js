@@ -4,25 +4,19 @@
 var currentEntry = null;
 
 $(function() {
-
-  $('#textarea1').val('New Text');
-  $('#textarea1').trigger('autoresize');
+  getArchive();
+  // $('#textarea1').val('New Text');
+  // $('#textarea1').trigger('autoresize');
 
   $('.modal').modal();
 
   $("#archive_container").click(function(e) {
-    openModal(e.target);
+    editEntry(e.target);
   });
-
-  $("#save_entry").click(function() {
-    updateEntry();
+  //
+  $("#new_entry").click(function() {
+    addEntry();
   });
-
-  $("#new_entry").click(function(e) {
-    openModal(e.target);
-  });
-
-  getArchive();
 });
 
 
@@ -33,12 +27,10 @@ function getArchive() {
     url: '/archive',
     success: function(result) {
       console.log(result);
-
       $("#archive_container").children().remove();
       for (var i = 0; i < result.length; i++) {
         displayEntry(result[i]);
       }
-
       $(".delete-button").click(function(e) {
         deleteEntry(e.target);
       });
@@ -75,7 +67,19 @@ function displayEntry(entryContent) {
 //   openModal();
 // }
 
-function openModal(target) {
+function addEntry() {
+  let emptyContent = {};
+  let render_modal = render("create_modal", emptyContent);
+  let modalHTML = Handlebars.compile (render_modal);
+  $("#create_modal").append(modalHTML(emptyContent));
+  $("#create_entry").click(function() {
+    // Get reference to and save vals
+  });
+}
+
+function editEntry(target) {
+  $("#edit_modal").children().remove();
+
   var content = {
     cell_content: $(target).text(),
     entry_id: $(target).parent().parent().attr("id")
@@ -83,60 +87,31 @@ function openModal(target) {
   let render_modal = render("edit_modal", content);
   let modalTemplate = Handlebars.compile(render_modal);
   $("#edit_modal").append(modalTemplate(content));
-}
 
-function populateModal(curId) {
-  let id = '/archive/' + $(curId).attr('id');
-  currentEntry = id;
-  $.ajax({
-    type: 'GET',
-    url: id,
-    contentType: 'application/json',
-    success: function(result) {
-      console.log(result);
-
-      $("#entry_name").val(result.name);
-      $("#entry_brief").val(result.brief);
-      $("#entry_description").val(result.description);
-      $("#entry_role").val(result.role);
-      $("#entry_date").val(result.date);
-      $("#entry_live_link").val(result.live_link);
-
-    },
-    fail: function(err) {
-      console.error(err);
-    }
+  $("#save_entry").click(function() {
+    let newContent = $("#cell_content").val();
+    // Save edited field in web GUI
+    $(target).text(newContent);
+    // Save all fields for this entry in db
+    let data = {
+      id: getIntFromId(content.entry_id), // reference just id num
+      content: "newContent",
+      content_type: $(target).parent().attr("class")
+    };
+    updateEntry(data);
   });
 }
 
-function updateEntry() {
+function updateEntry(data) {
   //PATCH REQUEST
-
-  console.log("update entry");
-  let newName = $("#entry_name").val();
-  let newBrief = $("#entry_brief").val();
-  let newDescription = $("#entry_description").val();
-  let newRole = $("#entry_role").val();
-  let newDate = $("#entry_date").val();
-  let newLink = $("#entry_live_link").val();
-  let requestType;
-  if (currentEntry !== null) {
-    requestType = 'PATCH';
-  } else {
-    requestType = 'POST';
-    currentEntry = '/archive';
-  }
+  console.log('patch', data);
+  var content_type = data.content_type;
   $.ajax({
-    type: requestType,
-    url: currentEntry,
-    contentType: 'application/json',
+    type: 'PATCH',
+    url: '/archive/' + data.id,
+    content_type: 'application/json',
     data: JSON.stringify({
-      name: newName,
-      brief: newBrief,
-      description: newDescription,
-      role: newRole,
-      date: newDate,
-      live_link: newLink
+      content_type: data.content
     }),
     success: function(result) {
       console.log('patch successful!', result);
@@ -146,15 +121,17 @@ function updateEntry() {
     fail: function(err) {
       console.error('error...', err);
     }
-  })
+  });
 }
 
 function deleteEntry(target) {
   //DELETE REQUEST
-  let id = '/archive/' + $(target).attr('id');
+  let id = getIntFromId($(target).parent().parent().attr('id'));
+  let url = '/archive/' + id
+  // TODO trigger pop-up before deleting
   $.ajax({
     type: 'DELETE',
-    url: id,
+    url: url,
     success: function(result) {
       console.log('delete successful!', result);
       getArchive();
@@ -163,6 +140,10 @@ function deleteEntry(target) {
       console.error(err);
     }
   });
+}
+
+function getIntFromId(str) {
+  return parseInt(str.slice(6, str.length)); //remove "entry_"
 }
 
 //Handlebars
