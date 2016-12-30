@@ -76,7 +76,13 @@ function displayEntry(entryContent) {
 // }
 
 function openModal(target) {
-  console.log("open modal", target);
+  var content = {
+    cell_content: $(target).text(),
+    entry_id: $(target).parent().parent().attr("id")
+  };
+  let render_modal = render("edit_modal", content);
+  let modalTemplate = Handlebars.compile(render_modal);
+  $("#edit_modal").append(modalTemplate(content));
 }
 
 function populateModal(curId) {
