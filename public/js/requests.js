@@ -1,6 +1,8 @@
 'use strict';
 
+// const Handlebars = require('handlebars');
 var currentEntry = null;
+var cardTemplate;
 
 $(function() {
   getArchive();
@@ -20,6 +22,9 @@ $(function() {
   $("#new_entry").click(function(e) {
     openModal(e.target);
   });
+
+  var cardSource   = $("#card_template").html();
+  cardTemplate = Handlebars.compile(cardSource);
 });
 
 
