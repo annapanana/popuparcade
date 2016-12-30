@@ -2,22 +2,22 @@
 
 // const Handlebars = require('handlebars');
 var currentEntry = null;
-var tempData = {
-  name:"Stone Soup",
-  date: "November, 2016",
-  role: "Designer/Developer",
-  brief: "A project about soup",
-  description: "A longer project about soup",
-  live_link: "stonesoup.com",
-  type: "game",
-  tags: [{tag:"ios"}, {tag:"game"}],
-  images: [{image:"img1"}, {image:"img2"}],
-  videos: [{video:"vid1"}, {video:"vid2"}]
-};
+// var tempData = {
+//   name:"Stone Soup",
+//   date: "November, 2016",
+//   role: "Designer/Developer",
+//   brief: "A project about soup",
+//   description: "A longer project about soup",
+//   live_link: "stonesoup.com",
+//   type: "game",
+//   tags: [{tag:"ios"}, {tag:"game"}],
+//   images: [{image:"img1"}, {image:"img2"}],
+//   videos: [{video:"vid1"}, {video:"vid2"}]
+// };
 var rowTemplate;
 
 $(function() {
-  // getArchive();
+
   $('#textarea1').val('New Text');
   $('#textarea1').trigger('autoresize');
 
@@ -35,10 +35,7 @@ $(function() {
     openModal(e.target);
   });
 
-  // Handlebars
-  var render_content_row = render("admin_entry", tempData);
-  rowTemplate = Handlebars.compile (render_content_row);
-  // $("#archive_container").append(rowTemplate(tempData));
+  getArchive();
 });
 
 
@@ -49,6 +46,7 @@ function getArchive() {
     url: '/archive',
     success: function(result) {
       console.log(result);
+
       $("#archive_container").children().remove();
       for (var i = 0; i < result.length; i++) {
         displayEntry(result[i]);
@@ -62,38 +60,27 @@ function getArchive() {
 }
 
 function displayEntry(entryContent) {
-  var newEntry =
-  `<div class="col s12 m12 l6 message-card" id="message_`+entryContent.id+`">
-    <div class="card-panel teal lighten-2">
-      <div class="right">
-        <a class="btn-floating btn-large waves-effect waves-light teal lighten-1"><i class="material-icons delete-button" id=`+entryContent.id+`>delete</i></a>
-        <a class="btn-floating btn-large waves-effect waves-light teal lighten-1"><i class="material-icons edit-button" id=`+entryContent.id+` data-target="modal1">edit</i></a>
-      </div>
-        <span class="white-text"><h5>`+entryContent.name+`</h5></span>
-        <br>
-        <h6 class="white-text">Brief:</h6>
-        <span class="white-text">`+entryContent.brief+`</span>
-        <br>
-        <br>
-        <h6 class="white-text">Description:</h6>
-        <span class="white-text">`+entryContent.description+`</span>
-        <br>
-        <br>
-        <h6 class="white-text">Role:</h6>
-        <span class="white-text">`+entryContent.role+`</span>
-        <br>
-        <br>
-        <h6 class="white-text">Date:</h6>
-        <span class="white-text">`+entryContent.date+`</span>
-        <br>
-        <br>
-        <h6 class="white-text">Live Link:</h6>
-        <span class="white-text">`+entryContent.live_link+`</span>
-        <br>
-    </div>
-  </div>`;
+  // console.log(entryContent);
+  let tags = entryContent.tags.map((t) => {
+    return {tag:t};
+  });
 
-  $("#archive_container").append(rowTemplate(tempData));
+  let images = entryContent.images.map((i) => {
+    return {image:i};
+  });
+
+  let videos = entryContent.images.map((v) => {
+    return {video:v};
+  });
+
+  entryContent.tags = tags;
+  entryContent.images = images;
+  entryContent.videos = videos;
+
+  // Handlebars
+  var render_content_row = render("admin_entry", entryContent);
+  rowTemplate = Handlebars.compile (render_content_row);
+  $("#archive_container").append(rowTemplate(entryContent));
 }
 
 // function addEntry() {
