@@ -2,19 +2,6 @@
 
 // const Handlebars = require('handlebars');
 var currentEntry = null;
-// var tempData = {
-//   name:"Stone Soup",
-//   date: "November, 2016",
-//   role: "Designer/Developer",
-//   brief: "A project about soup",
-//   description: "A longer project about soup",
-//   live_link: "stonesoup.com",
-//   type: "game",
-//   tags: [{tag:"ios"}, {tag:"game"}],
-//   images: [{image:"img1"}, {image:"img2"}],
-//   videos: [{video:"vid1"}, {video:"vid2"}]
-// };
-var rowTemplate;
 
 $(function() {
 
@@ -60,26 +47,26 @@ function getArchive() {
 }
 
 function displayEntry(entryContent) {
-  // console.log(entryContent);
+
+  // Reformat arrays to be objects for populating template
   let tags = entryContent.tags.map((t) => {
     return {tag:t};
   });
-
   let images = entryContent.images.map((i) => {
     return {image:i};
   });
-
   let videos = entryContent.images.map((v) => {
     return {video:v};
   });
 
+  entryContent.entry_id = "entry_" + entryContent.id;
   entryContent.tags = tags;
   entryContent.images = images;
   entryContent.videos = videos;
 
   // Handlebars
-  var render_content_row = render("admin_entry", entryContent);
-  rowTemplate = Handlebars.compile (render_content_row);
+  let render_content_row = render("admin_entry", entryContent);
+  let rowTemplate = Handlebars.compile (render_content_row);
   $("#archive_container").append(rowTemplate(entryContent));
 }
 

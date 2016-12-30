@@ -7,3 +7,23 @@
   flex-flow: column;
   justify-content: center;
 }
+
+.custom-container {
+  padding-top: 30px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+/*Table Spec*/
+.entry-table {
+  table-layout: fixed;
+  width: 100%;
+  /*TODO Make a toggle for this attribute to view overflow*/
+  white-space: nowrap;
+}
+
+.entry-table td {
+  white-space: wrap;
+  overflow: scroll;
+  text-overflow: ellipsis;
+}
