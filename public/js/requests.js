@@ -62,18 +62,58 @@ function displayEntry(entryContent) {
   $("#archive_container").append(rowTemplate(entryContent));
 }
 
-// function addEntry() {
-//   //POST REQUEST
-//   openModal();
-// }
-
 function addEntry() {
   let emptyContent = {};
   let render_modal = render("create_modal", emptyContent);
   let modalHTML = Handlebars.compile (render_modal);
+  $("#create_modal").children().remove();
   $("#create_modal").append(modalHTML(emptyContent));
+
+  $("#add_image").click(function() {
+    let newImageInput = `<input class="text-input" type="text" name="image_url" value="">
+    <label for="image_url">Image URL</label>`;
+    $("#image_container").append(newImageInput);
+  });
+
+  $("#add_video").click(function() {
+    let newVideoInput = `<input class="text-input" type="text" name="video_url" value="">
+    <label for="video_url">Video URL</label>`;
+    $("#video_container").append(newVideoInput);
+  });
+
   $("#create_entry").click(function() {
+    let imageVals = [];
+    let imageInputs = $("input[name='image_url']");
+    for (let i = 0; i < imageInputs.length; i++) {
+      imageVals.push($(imageInputs[i]).val());
+    }
+    let videoVals = [];
+    let videoInputs = $("input[name='video_url']");
+    for (let i = 0; i < videoInputs.length; i++) {
+      videoVals.push($(videoInputs[i]).val());
+    }
+
+    let tagVals = [];
+    let tagInputs = $("input[name='tag']:checked");
+    for (var i = 0; i < tagInputs.length; i++) {
+      tagVals.push($(tagInputs[i]).val());
+    }
+
     // Get reference to and save vals
+    var newEntry = {
+      name: $("#name").val(),
+      date: $("#date").val(),
+      role: $("#role").val(),
+      brief: $("#brief").val(),
+      description: $("#description").val(),
+      type: $("input[name='type']:checked").val(),
+      live_link: $("#live_link").val(),
+      tags: tagVals,
+      images: imageVals,
+      videos: videoVals
+    };
+
+    console.log(newEntry);
   });
 }
 

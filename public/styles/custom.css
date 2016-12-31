@@ -24,7 +24,7 @@
 
 .entry-table td {
   white-space: wrap;
-  overflow: scroll;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 
