@@ -5,6 +5,9 @@
     <title>Anna's Portfolio</title>
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!-- Handlebars -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js" defer></script>
+    <script type="text/javascript" src="js/handlebars-1.0.rc.1.min.js" defer></script>
     <!-- Materialize -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" defer>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css" defer>
@@ -20,179 +23,38 @@
     <div class="nav-wrapper teal lighten-3">
       <a href="#" class="brand-logo">Portfolio Dashboard</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="#" id="new_entry" data-target="modal1">Add New Entry</a></li>
+        <li><a href="#" id="new_entry" data-target="create_modal">Add New Entry</a></li>
       </ul>
     </div>
   </nav>
 
-    <div class="container">
+    <div class="custom-container">
       <!-- <h4 class="center-align">Portfolio Dashboard</h4> -->
-      <div class="row" id="archive_container"></div>
+      <div class="row">
+        <table class="striped entry-table centered">
+          <thead>
+            <tr>
+              <th style="width:8%">Name</th>
+              <th style="width:5%">Date</th>
+              <th style="width:8%">Role</th>
+              <th>Brief</th>
+              <th style="width:15%">Description</th>
+              <th style="width:10%">Live Link</th>
+              <th style="width:5%">Type</th>
+              <th style="width:8%">Tags</th>
+              <th style="width:10%">Image URLs</th>
+              <th style="width:10%">Video URLs</th>
+              <th style="width:4%">Delete</th>
+            </tr>
+          </thead>
+          <tbody id="archive_container">
 
-
-      <!-- TODO Put this in modal -->
-      <!-- <div class="row">
-        <div class="row">
-          <div class="col l4">
-            <input class="text-input" type="text" name="name" id="name" value="">
-            <label for="name">Project Name</label>
-          </div>
-          <div class="col l4">
-            <input class="text-input" type="text" name="date" id="date" value="">
-            <label for="date">Date Completed</label>
-          </div>
-          <div class="col l4">
-            <input class="text-input" type="text" name="role" id="role" value="">
-            <label for="role">Role</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col l6">
-            <label for="brief">Brief</label>
-            <textarea id="brief" class="materialize-textarea"></textarea>
-          </div>
-          <div class="input-field col l6">
-            <label for="description">Description</label>
-            <textarea id="description" class="materialize-textarea"></textarea>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col l12">
-            <div class="vertical-align">
-              <input type="radio" name="web" id="type_web" value="">
-              <label for="type_web">Web</label>
-              <input type="radio" name="game" id="type_game" value="">
-              <label for="type_game">Game</label>
-              <input type="radio" name="sandbox" id="type_sandbox" value="">
-              <label for="type_sandbox">Sandbox</label>
-            </div>
-          </div>
-          <div class="col l6">
-            <input type="text" class="text-input" name="live_link" id="live_link" value="">
-            <label for="live_link">Live Link</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col l6">
-            <h6>Tags</h6>
-            <input type="radio" name="javascript" id="javascript" value="">
-            <label for="javascript">javascript</label>
-            <input type="radio" name="htmlcss" id="htmlcss" value="">
-            <label for="htmlcss">html/css</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col l6">
-            <h6>Images</h6>
-            <input class="text-input" type="text" name="name" id="image_url" value="">
-            <label for="image_url">Image URL</label>
-            <br>
-            <input type="checkbox" id="is_primary_gallery" />
-            <label for="is_primary_gallery">Primary Gallery?</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col l6">
-            <h6>Videos</h6>
-            <input class="text-input" type="text" name="name" id="video_url" value="">
-            <label for="video_url">Video URL</label>
-          </div>
-        </div>
-      </div> -->
-
-      <div id="modal1" class="modal">
-        <div class="modal-content">
-          <h3 class="center" id="modal_header">Edit Entry</h3>
-          <!-- Name -->
-          <label for="entry_name">Name</label>
-          <input type="text" name="entry_name" id="entry_name" value="">
-          <!-- Brief -->
-          <label for="entry_brief">Brief</label>
-          <input type="text" name="entry_brief" id="entry_brief" value="">
-          <!-- Desciption -->
-          <label for="entry_description">Description</label>
-          <input type="text" name="entry_description" id="entry_description" value="">
-          <!-- Type -->
-          <!-- TODO enable admin to edit type -->
-          <!-- Role -->
-          <label for="entry_role">Role</label>
-          <input type="text" name="entry_role" id="entry_role" value="">
-          <!-- Date -->
-          <label for="entry_date">Date</label>
-          <input type="text" name="entry_date" id="entry_date" value="">
-          <!-- Live Link -->
-          <label for="entry_live_link">Live Link</label>
-          <input type="text" name="entry_live_link" id="entry_live_link" value="">
-          <!-- Image URLS -->
-          <!-- TODO grab image URLS -->
-          <label for="image_urls">Video URLs</label>
-          <div id="image_urls">
-            <input type="text" name="image_url_00" value="">
-          </div>
-          <!-- Video URLS -->
-          <!-- TODO grab video URLS -->
-        </div>
-
-        <div class="modal-footer">
-          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id="save_entry">Save</a>
-        </div>
-
+          </tbody>
+        </table>
       </div>
+
+      <div id="edit_modal" class="modal"></div>
+      <div id="create_modal" class="modal"></div>
     </div>
-
-    <!-- TODO: populate data via handlebars from code -->
-    <script id="card_template" type="text/x-handlebars-template">
-      <div class="col s12 m12 l6 message-card" id={{message_entryContent_id}}>
-        <div class="card-panel teal lighten-2">
-          <div class="right">
-            <a class="btn-floating btn-large waves-effect waves-light teal lighten-1"><i class="material-icons delete-button" id={{entryContent_id}}>delete</i></a>
-            <a class="btn-floating btn-large waves-effect waves-light teal lighten-1"><i class="material-icons edit-button" id={{entryContent_id}} data-target="modal1">edit</i></a>
-          </div>
-            <span class="white-text"><h5>`+entryContent.name+`</h5></span>
-            <br>
-            <h6 class="white-text">Brief:</h6>
-            <span class="white-text">{{brief}}</span>
-            <br>
-            <br>
-            <h6 class="white-text">Description:</h6>
-            <span class="white-text">{{description}}</span>
-            <br>
-            <br>
-            <h6 class="white-text">Role:</h6>
-            <span class="white-text">{{role}}</span>
-            <br>
-            <br>
-            <h6 class="white-text">Date:</h6>
-            <span class="white-text">{{date}}</span>
-            <br>
-            <br>
-            <h6 class="white-text">Live Link:</h6>
-            <span class="white-text">{{live_link}}</span>
-            <br>
-            <br>
-            <h6 class="white-text">Tags:</h6>
-            <ul>
-              {{#each items}}
-              <li>{{tag}}</li>
-              {{/each}}
-            </ul>
-            <h6 class="white-text">Images:</h6>
-            <ul>
-              {{#each items}}
-              <li>{{img_url}}</li>
-              {{/each}}
-            </ul>
-            <h6 class="white-text">Videos:</h6>
-            <ul>
-              {{#each items}}
-              <li>{{video_url}}</li>
-              {{/each}}
-            </ul>
-        </div>
-      </div>
-    </script>
-
-
-
   </body>
 </html>
