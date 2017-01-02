@@ -248,15 +248,53 @@ router.post('/archive', (req, res, next) => {
     });
 });
 
-// TODO create patch route for projects_tags
 router.patch('/project-tags/:id', (req, res, next) => {
-  
-})
+  const id = req.params.id;
+  const tags = req.body.tags;
+  let tagSet = req.body.tags.split(',');
+
+  // Remove all instances of this project ID and associated tags
+  knex('projects_tags')
+    .where('project_id', id)
+    .del()
+    .then(() => {
+      // Insert a new instance of project ID with tag ID for each result from the tags query
+      knex('tags')
+        .whereIn('tag_name', tagSet)
+        .then((result) => {
+          // console.log(result);
+          // Create formatted object for projects/tags table
+          let newEntries = [];
+          for (var i = 0; i < result.length; i++) {
+            let singleEntry = {
+              project_id: id,
+              tag_id: result[i].id
+            };
+            newEntries.push(singleEntry);
+          }
+          // Insert new project/tag pairs
+          knex('projects_tags')
+            .insert(newEntries, '*')
+            .then((result) => {
+              res.send(result);
+            })
+            .catch((err) => {
+              next(err);
+            });
+        })
+        .catch((err) => {
+          next(err);
+        });
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
 
 router.patch('/archive/:id', (req, res, next) => {
   const id = req.params.id;
-  const {name, brief, description, type, role, page_url, live_link, date, tags} = req.body;
-  const updatedEntry = {name, brief, description, type, role, page_url, live_link, date, tags};
+  const {name, brief, description, type, role, page_url, live_link, date} = req.body;
+  const updatedEntry = {name, brief, description, type, role, page_url, live_link, date};
   // console.log(req.body);
   // console.log(updatedEntry);
   // TODO: Images, Videos and Tags functionality

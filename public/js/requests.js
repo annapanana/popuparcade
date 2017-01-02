@@ -140,7 +140,7 @@ function editEntry(target) {
       editRadio(target, "edit_modal_type");
       break;
     case "tag_field":
-      editRadio(target, "edit_modal_tags");
+      editTags(target);
       break;
     case "list_field":
       editList(target);
@@ -174,9 +174,62 @@ function editText(target) {
   });
 }
 
-function editRadio(target, modal_template) {
+// function editRadio(target, modal_template) {
+//   // Get the ID of the nearest parent with an entry ID
+//   let allTr = $("tr");
+//   let parentID = "";
+//   for (var i = 0; i < allTr.length; i++) {
+//     if (allTr[i].contains( target )) {
+//       parentID = $(allTr[i]).attr("id");
+//     }
+//   }
+//
+//   // Execute modal functionality after grabbing tag names from the server
+//   $.ajax({
+//     type: 'GET',
+//     url: '/tags',
+//     success: function(result) {
+//       let tags = result.map((t) => {
+//         return {tag:t.tag_name};
+//       });
+//       let content = {
+//         entry_id: parentID,
+//         tagNames: tags
+//       };
+//
+//       let render_modal = render(modal_template, content); // type or tags
+//       let modalTemplate = Handlebars.compile(render_modal);
+//       $("#edit_modal").append(modalTemplate(content));
+//       //TODO if something has been selected, apply the selection to the modal
+//
+//       $("#save_entry").click(function() {
+//         let newContent = '';
+//         $('input:radio').each(function() {
+//           if($(this).prop('checked')) {
+//             newContent+=($(this).attr('id'))+",";
+//           }
+//         });
+//         console.log(newContent);
+//         // Save edited field in web GUI
+//         $(target).text(newContent);
+//         // Save all fields for this entry in db
+//         let data = {
+//           id: getIntFromId(content.entry_id), // reference just id num
+//           // content_type: 'application/json',
+//           content: newContent,
+//           content_type: $(target).parent().attr("class")
+//         };
+//         updateEntry(data);
+//       });
+//     },
+//     fail: function(err) {
+//       console.error(err);
+//     }
+//   });
+// }
 
-  // Get the ID of the nearest parent with an entry ID
+function editTags(target) {
+  //TODO find a shorter way of doing this
   let allTr = $("tr");
   let parentID = "";
   for (var i = 0; i < allTr.length; i++) {
@@ -184,7 +237,6 @@ function editRadio(target, modal_template) {
       parentID = $(allTr[i]).attr("id");
     }
   }
-
   // Execute modal functionality after grabbing tag names from the server
   $.ajax({
     type: 'GET',
@@ -198,29 +250,43 @@ function editRadio(target, modal_template) {
         tagNames: tags
       };
 
-      let render_modal = render(modal_template, content); // type or tags
+      let render_modal = render("edit_modal_tags", content); // type or tags
       let modalTemplate = Handlebars.compile(render_modal);
       $("#edit_modal").append(modalTemplate(content));
       //TODO if something has been selected, apply the selection to the modal
 
       $("#save_entry").click(function() {
-        let newContent = '';
+        let newContent = [];
         $('input:radio').each(function() {
           if($(this).prop('checked')) {
-            newContent+=($(this).attr('id'))+",";
+            newContent.push($(this).attr('id'));
           }
         });
-        console.log(newContent);
+        // console.log(newContent);
         // Save edited field in web GUI
-        $(target).text(newContent);
+        $(target).text(newContent); // TOO make this a UL/LI
         // Save all fields for this entry in db
         let data = {
           id: getIntFromId(content.entry_id), // reference just id num
           // content_type: 'application/json',
-          content: newContent,
-          content_type: $(target).parent().attr("class")
+          tags: newContent.join(","),
+          // content_type: $(target).parent().attr("class")
         };
-        updateEntry(data);
+
+        console.log(typeof data.tags);
+        $.ajax({
+          type: 'PATCH',
+          url: '/project-tags/' + data.id,
+          // content_type: 'application/json',
+          data: data,
+          success: function(result) {
+            console.log('patch successful', result);
+          },
+          fail: function(err) {
+            console.error(err);
+          }
+        });
+        // updateEntry(data);
       });
     },
     fail: function(err) {
