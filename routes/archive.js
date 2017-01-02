@@ -142,7 +142,6 @@ router.get('/archive/:id', (req, res, next) => {
 
 router.post('/archive', (req, res, next) => {
   let newEntry = req.body;
-
   let newImagesEntry = [];
   // images must be passed as a string of urls sepatated by commas
   let imageSet = req.body.images.split(',');
@@ -166,7 +165,6 @@ router.post('/archive', (req, res, next) => {
   }
 
   let tagSet = req.body.tags.split(',');
-
   // Data Structure:
   //images - url, project_id, is_primary_gallery
   //videos - url, project_id
@@ -198,17 +196,18 @@ router.post('/archive', (req, res, next) => {
           .then((vid_result) => {
             // console.log("vids", vid_result);
           }),
+
+
         //get the ids of the tags according to their names from tags
         knex('tags')
-          .innerJoin('projects_tags', 'tags.id', 'projects_tags.tag_id')
           .whereIn('tag_name', tagSet)
           .then((tag_result) => {
-
             let newProjectsTagsEntry = [];
+            console.log(tag_result);
             for (var i = 0; i < tag_result.length; i++) {
               let singleEntry = {
                 project_id: id,
-                tag_id: tag_result[i].tag_id
+                tag_id: tag_result[i].id
               };
               newProjectsTagsEntry.push(singleEntry);
             }
@@ -216,7 +215,7 @@ router.post('/archive', (req, res, next) => {
             knex('projects_tags')
               .insert(newProjectsTagsEntry, '*')
               .then((projects_tags_result) => {
-                // console.log(projects_tags_result);
+                console.log("!!!",projects_tags_result);
               })
               .catch((err) => {
                 next(err);

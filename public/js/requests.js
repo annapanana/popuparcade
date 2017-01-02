@@ -82,21 +82,21 @@ function addEntry() {
   });
 
   $("#create_entry").click(function() {
-    let imageVals = [];
+    let imageVals = '';
     let imageInputs = $("input[name='image_url']");
     for (let i = 0; i < imageInputs.length; i++) {
-      imageVals.push($(imageInputs[i]).val());
+      imageVals+=$(imageInputs[i]).val() +',';
     }
-    let videoVals = [];
+    let videoVals = '';
     let videoInputs = $("input[name='video_url']");
     for (let i = 0; i < videoInputs.length; i++) {
-      videoVals.push($(videoInputs[i]).val());
+      videoVals+=$(videoInputs[i]).val()+',';
     }
 
-    let tagVals = [];
+    let tagVals = '';
     let tagInputs = $("input[name='tag']:checked");
     for (var i = 0; i < tagInputs.length; i++) {
-      tagVals.push($(tagInputs[i]).val());
+      tagVals+=$(tagInputs[i]).val()+',';
     }
 
     // Get reference to and save vals
@@ -112,8 +112,20 @@ function addEntry() {
       images: imageVals,
       videos: videoVals
     };
-
     console.log(newEntry);
+    $.ajax({
+      type: 'POST',
+      url: '/archive',
+      content_type: 'application/json',
+      data: newEntry,
+      success: function(result) {
+        console.log('post successful!', result);
+        getArchive();
+      },
+      fail: function(err) {
+        console.error('error...', err);
+      }
+    })
   });
 }
 
