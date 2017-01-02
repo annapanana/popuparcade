@@ -147,7 +147,7 @@ function editEntry(target) {
     // Save all fields for this entry in db
     let data = {
       id: getIntFromId(content.entry_id), // reference just id num
-      content: "newContent",
+      content: newContent,
       content_type: $(target).parent().attr("class")
     };
     updateEntry(data);
@@ -156,15 +156,17 @@ function editEntry(target) {
 
 function updateEntry(data) {
   //PATCH REQUEST
-  console.log('patch', data);
-  var content_type = data.content_type;
+  // console.log('patch', data);
+  var field_select = data.content_type;
+  var updatedField = {
+    [field_select]: data.content
+  };
+  console.log(updatedField);
   $.ajax({
     type: 'PATCH',
     url: '/archive/' + data.id,
     content_type: 'application/json',
-    data: JSON.stringify({
-      content_type: data.content
-    }),
+    data: updatedField,
     success: function(result) {
       console.log('patch successful!', result);
       getArchive();

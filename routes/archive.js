@@ -242,8 +242,8 @@ router.patch('/archive/:id', (req, res, next) => {
   const id = req.params.id;
   const {name, brief, description, type, role, page_url, live_link, date} = req.body;
   const updatedEntry = {name, brief, description, type, role, page_url, live_link, date};
-  console.log(req.body);
-  console.log(updatedEntry);
+  // console.log(req.body);
+  // console.log(updatedEntry);
   // TODO: Images, Videos and Tags functionality
 
   knex('projects')
