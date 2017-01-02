@@ -28,8 +28,6 @@
   text-overflow: ellipsis;
 }
 
-/* Tooltip container */
-.tooltip {
-    position: relative;
-    display: inline-block;
+.editable-field {
+  color: black;
 }

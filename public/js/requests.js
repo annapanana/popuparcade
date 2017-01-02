@@ -34,6 +34,7 @@ function getArchive() {
       $(".delete-button").click(function(e) {
         deleteEntry(e.target);
       });
+      return result;
     }
   });
 }
@@ -55,7 +56,6 @@ function displayEntry(entryContent) {
   entryContent.tags = tags;
   entryContent.images = images;
   entryContent.videos = videos;
-
   // Handlebars
   let render_content_row = render("admin_entry", entryContent);
   let rowTemplate = Handlebars.compile (render_content_row);
@@ -131,15 +131,35 @@ function addEntry() {
 
 function editEntry(target) {
   $("#edit_modal").children().remove();
+  // Trigger different modal depending on content type
+  switch ($(target).attr("name")) {
+    case "text_field":
+      editText(target);
+      break;
+    case "type_field":
+      editRadio(target, "edit_modal_type");
+      break;
+    case "tag_field":
+      editRadio(target, "edit_modal_tags");
+      break;
+    case "list_field":
+      editList(target);
+      break;
+    default:
+      console.error("form type not valid");
+  }
+}
 
-  var content = {
+function editText(target) {
+  // Check the entry type: text, radio, list
+  let content = {
     cell_content: $(target).text(),
     entry_id: $(target).parent().parent().attr("id")
   };
-  let render_modal = render("edit_modal", content);
+
+  let render_modal = render('edit_modal_text', content);
   let modalTemplate = Handlebars.compile(render_modal);
   $("#edit_modal").append(modalTemplate(content));
-
   $("#save_entry").click(function() {
     let newContent = $("#cell_content").val();
     // Save edited field in web GUI
@@ -152,6 +172,65 @@ function editEntry(target) {
     };
     updateEntry(data);
   });
+}
+
+function editRadio(target, modal_template) {
+
+  // Get the ID of the nearest parent with an entry ID
+  let allTr = $("tr");
+  let parentID = "";
+  for (var i = 0; i < allTr.length; i++) {
+    if (allTr[i].contains( target )) {
+      parentID = $(allTr[i]).attr("id");
+    }
+  }
+
+  // Execute modal functionality after grabbing tag names from the server
+  $.ajax({
+    type: 'GET',
+    url: '/tags',
+    success: function(result) {
+      let tags = result.map((t) => {
+        return {tag:t.tag_name};
+      });
+      let content = {
+        entry_id: parentID,
+        tagNames: tags
+      };
+
+      let render_modal = render(modal_template, content); // type or tags
+      let modalTemplate = Handlebars.compile(render_modal);
+      $("#edit_modal").append(modalTemplate(content));
+      //TODO if something has been selected, apply the selection to the modal
+
+      $("#save_entry").click(function() {
+        let newContent = '';
+        $('input:radio').each(function() {
+          if($(this).prop('checked')) {
+            newContent+=($(this).attr('id'))+",";
+          }
+        });
+        console.log(newContent);
+        // Save edited field in web GUI
+        $(target).text(newContent);
+        // Save all fields for this entry in db
+        let data = {
+          id: getIntFromId(content.entry_id), // reference just id num
+          // content_type: 'application/json',
+          content: newContent,
+          content_type: $(target).parent().attr("class")
+        };
+        updateEntry(data);
+      });
+    },
+    fail: function(err) {
+      console.error(err);
+    }
+  });
+}
+
+function editList(target) {
+
 }
 
 function updateEntry(data) {

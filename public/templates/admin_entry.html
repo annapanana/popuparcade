@@ -1,15 +1,15 @@
 <tr id="{{entry_id}}">
-  <td class="name"><a class="modal-trigger" href="#edit_modal">{{name}}</a></td>
-  <td class="date">{{date}}</td>
-  <td class="role">{{role}}</td>
-  <td class="brief">{{brief}}</td>
-  <td class="description">{{description}}</td>
-  <td class="live_link">{{live_link}}</td>
-  <td class="type">{{type}}</td>
+  <td class="name"><a class="modal-trigger editable-field" href="#edit_modal" name="text_field">{{name}}</a></td>
+  <td class="date"><a class="modal-trigger editable-field" href="#edit_modal">{{date}}</a></td>
+  <td class="role"><a class="modal-trigger editable-field" href="#edit_modal">{{role}}</a></td>
+  <td class="brief"><a class="modal-trigger editable-field" href="#edit_modal">{{brief}}</a></td>
+  <td class="description"><a class="modal-trigger editable-field" href="#edit_modal">{{description}}</a></td>
+  <td class="live_link"><a class="modal-trigger editable-field" href="#edit_modal">{{live_link}}</a></td>
+  <td class="type"><a class="modal-trigger editable-field" href="#edit_modal" name="type_field">{{type}}</a></td>
   <td>
     <ul class="tags">
       {{#each tags}}
-      <li>{{tag}}</li>
+      <li class="tags"><a class="modal-trigger editable-field" href="#edit_modal" name="tag_field">{{tag}}</a></li>
       {{/each}}
     </ul>
   </td>
