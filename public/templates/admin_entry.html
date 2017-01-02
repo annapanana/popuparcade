@@ -1,10 +1,10 @@
 <tr id="{{entry_id}}">
   <td class="name"><a class="modal-trigger editable-field" href="#edit_modal" name="text_field">{{name}}</a></td>
-  <td class="date"><a class="modal-trigger editable-field" href="#edit_modal">{{date}}</a></td>
-  <td class="role"><a class="modal-trigger editable-field" href="#edit_modal">{{role}}</a></td>
-  <td class="brief"><a class="modal-trigger editable-field" href="#edit_modal">{{brief}}</a></td>
-  <td class="description"><a class="modal-trigger editable-field" href="#edit_modal">{{description}}</a></td>
-  <td class="live_link"><a class="modal-trigger editable-field" href="#edit_modal">{{live_link}}</a></td>
+  <td class="date"><a class="modal-trigger editable-field" href="#edit_modal" name="text_field">{{date}}</a></td>
+  <td class="role"><a class="modal-trigger editable-field" href="#edit_modal" name="text_field">{{role}}</a></td>
+  <td class="brief"><a class="modal-trigger editable-field" href="#edit_modal" name="text_field">{{brief}}</a></td>
+  <td class="description"><a class="modal-trigger editable-field" href="#edit_modal" name="text_field">{{description}}</a></td>
+  <td class="live_link"><a class="modal-trigger editable-field" href="#edit_modal" name="text_field">{{live_link}}</a></td>
   <td class="type"><a class="modal-trigger editable-field" href="#edit_modal" name="type_field">{{type}}</a></td>
   <td>
     <ul class="tags">
@@ -16,7 +16,7 @@
   <td>
     <ul class="images">
       {{#each images}}
-      <li>{{image}}</li>
+      <li class="tags"><a class="modal-trigger editable-field" href="#edit_modal" name="list_field">{{image}}</a></li>
       {{/each}}
     </ul>
   </td>

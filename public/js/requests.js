@@ -132,13 +132,14 @@ function addEntry() {
 
 function editEntry(target) {
   $("#edit_modal").children().remove();
+  // console.log(target);
   // Trigger different modal depending on content type
   switch ($(target).attr("name")) {
     case "text_field":
       editText(target);
       break;
     case "type_field":
-      editRadio(target, "edit_modal_type");
+      editType(target, "edit_modal_type");
       break;
     case "tag_field":
       editTags(target);
@@ -152,6 +153,7 @@ function editEntry(target) {
 }
 
 function editText(target) {
+  console.log("edit text");
   // Check the entry type: text, radio, list
   let content = {
     cell_content: $(target).text(),
@@ -229,6 +231,33 @@ function editText(target) {
 //   });
 // }
 
+function editType(target) {
+  //TODO find a shorter way of doing this
+  let allTr = $("tr");
+  let parentID = "";
+  for (var i = 0; i < allTr.length; i++) {
+    if (allTr[i].contains( target )) {
+      parentID = $(allTr[i]).attr("id");
+    }
+  }
+
+  let content = {
+    entry_id: parentID
+  };
+  let render_modal = render("edit_modal_type", content);
+  let modalTemplate = Handlebars.compile(render_modal);
+  $("#edit_modal").append(modalTemplate(content));
+  $("#save_entry").click(function() {
+    let newContent = $("input[name='type']:checked").val();
+    let data = {
+      id: getIntFromId(content.entry_id),
+      content_type: 'type',
+      content: newContent
+    };
+    updateEntry(data);
+  });
+}
+
 function editTags(target) {
   //TODO find a shorter way of doing this
   let allTr = $("tr");
@@ -299,7 +328,53 @@ function editTags(target) {
 }
 
 function editList(target) {
+  // Get reference to all list items in the UL
+  let siblings = $(target).parent().siblings();
+  let listItems = [$(target).parent().text()];
+  for (var i = 0; i < siblings.length; i++) {
+    listItems.push($(siblings[i]).text());
+  }
+  listItems = listItems.map((i) => {
+    return {list_item:i};
+  });
 
+  // Reformat content for handlbars
+  let content = {
+    listItems: listItems,
+    entry_id: getParentID(target)
+  };
+
+  // Collate modal data
+  let render_modal = render("edit_modal_list", content);
+  let modalTemplate = Handlebars.compile(render_modal);
+  $("#edit_modal").append(modalTemplate(content));
+
+  $("#save_entry").click(function() {
+    let inputFields = $("input");
+    let newContent = [];
+    for (var i = 0; i < inputFields.length; i++) {
+      newContent.push($(inputFields[i]).val());
+    }
+    // console.log(newContent);
+    let data = {
+      id: getIntFromId(content.entry_id),
+      images: newContent.join(",")
+    };
+    // TODO, allow the user to add or delete image fields
+
+    $.ajax({
+      type: 'PATCH',
+      url: '/images/' + data.id,
+      data: data,
+      success: function(result) {
+        console.log("patch successful", result);
+        getArchive();
+      },
+      fail: function(err) {
+        console.error(err);
+      }
+    });
+  });
 }
 
 function updateEntry(data) {
@@ -346,6 +421,17 @@ function deleteEntry(target) {
 
 function getIntFromId(str) {
   return parseInt(str.slice(6, str.length)); //remove "entry_"
+}
+
+function getParentID(target) {
+  let allTr = $("tr");
+  let parentID = "";
+  for (var i = 0; i < allTr.length; i++) {
+    if (allTr[i].contains( target )) {
+      parentID = $(allTr[i]).attr("id");
+      return parentID;
+    }
+  }
 }
 
 //Handlebars

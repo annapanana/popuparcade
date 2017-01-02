@@ -248,6 +248,43 @@ router.post('/archive', (req, res, next) => {
     });
 });
 
+router.patch('/images/:id', (req, res, next) => {
+  const id = req.params.id;
+  const images = req.body.images;
+  let imageSet = images.split(',');
+
+  // Delete all images associated with this project ID
+  knex('images')
+    .where('project_id', id)
+    .del()
+    .then(() => {
+      // Format objects to be inserted into images
+      let newEntries = [];
+      for (var i = 0; i < imageSet.length; i++) {
+        if (imageSet[i] !== "") {
+          newEntries.push({
+            url: imageSet[i],
+            project_id: id,
+            is_primary_gallery: false
+          });
+        }
+      }
+      // Insert set of new images for this project ID
+      knex('images')
+        .insert(newEntries, '*')
+        .then((result) => {
+          console.log(result);
+          res.send(result);
+        })
+        .catch((err) => {
+          next(err);
+        });
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 router.patch('/project-tags/:id', (req, res, next) => {
   const id = req.params.id;
   const tags = req.body.tags;
