@@ -120,6 +120,7 @@ function addEntry() {
       data: newEntry,
       success: function(result) {
         console.log('post successful!', result);
+        //TODO close modal
         getArchive();
       },
       fail: function(err) {
@@ -254,7 +255,6 @@ function editTags(target) {
       let modalTemplate = Handlebars.compile(render_modal);
       $("#edit_modal").append(modalTemplate(content));
       //TODO if something has been selected, apply the selection to the modal
-
       $("#save_entry").click(function() {
         let newContent = [];
         $('input:radio').each(function() {
@@ -281,12 +281,15 @@ function editTags(target) {
           data: data,
           success: function(result) {
             console.log('patch successful', result);
+            getArchive();
           },
           fail: function(err) {
             console.error(err);
           }
         });
-        // updateEntry(data);
+        // Modal should close
+        $('#edit_modal').modal('close');
+        console.log("modal should close");
       });
     },
     fail: function(err) {
