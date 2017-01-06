@@ -6,5 +6,8 @@ module.exports = {
     client: 'pg',
     connection: 'postgres://localhost/popuparcade'
   },
-
+  production: {
+    client: 'pg',
+    connection: process.env.DATABASE_URL
+  }
 };

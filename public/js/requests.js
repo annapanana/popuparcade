@@ -26,7 +26,8 @@ function getArchive() {
     type: 'GET',
     url: '/archive',
     success: function(result) {
-      console.log(result);
+      // QUESTION = WTF JAVASCRIPT
+      console.log('frontend archive: ', result);
       $("#archive_container").children().remove();
       for (var i = 0; i < result.length; i++) {
         displayEntry(result[i]);
@@ -40,7 +41,7 @@ function getArchive() {
 }
 
 function displayEntry(entryContent) {
-
+  console.log("in displayEntry ", Date.now());
   // Reformat arrays to be objects for populating template
   let tags = entryContent.tags.map((t) => {
     return {tag:t};
@@ -48,7 +49,7 @@ function displayEntry(entryContent) {
   let images = entryContent.images.map((i) => {
     return {image:i};
   });
-  let videos = entryContent.images.map((v) => {
+  let videos = entryContent.videos.map((v) => {
     return {video:v};
   });
 
@@ -56,6 +57,7 @@ function displayEntry(entryContent) {
   entryContent.tags = tags;
   entryContent.images = images;
   entryContent.videos = videos;
+  // console.log(entryContent.videos);
   // Handlebars
   let render_content_row = render("admin_entry", entryContent);
   let rowTemplate = Handlebars.compile (render_content_row);
@@ -112,7 +114,7 @@ function addEntry() {
       images: imageVals,
       videos: videoVals
     };
-    console.log(newEntry);
+    // console.log(newEntry);
     $.ajax({
       type: 'POST',
       url: '/archive',
@@ -153,7 +155,7 @@ function editEntry(target) {
 }
 
 function editText(target) {
-  console.log("edit text");
+  // console.log("edit text");
   // Check the entry type: text, radio, list
   let content = {
     cell_content: $(target).text(),
@@ -302,7 +304,6 @@ function editTags(target) {
           // content_type: $(target).parent().attr("class")
         };
 
-        console.log(typeof data.tags);
         $.ajax({
           type: 'PATCH',
           url: '/project-tags/' + data.id,

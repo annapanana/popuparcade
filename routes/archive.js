@@ -26,7 +26,7 @@ router.get('/archive', (req, res, next) => {
                 }
               });
               // Extract only the URL from the image object stored in the image array
-              result[i].images = result[i].images.map(img => img.url);
+              result[i].images = result[i].images.map(img => img.image_url);
             }
           })
           .catch((err) => {
@@ -44,8 +44,11 @@ router.get('/archive', (req, res, next) => {
                 }
               });
               // Extract only the URL from the video object stored in the video array
-              result[i].videos = result[i].videos.map(vid => vid.url);
+              result[i].videos = result[i].videos.map(vid => vid.video_url);
             }
+          })
+          .catch((err) => {
+            next(err);
           }),
         // Get Tags
         knex('tags')
@@ -74,15 +77,22 @@ router.get('/archive', (req, res, next) => {
             return result;
           })
       ])
-      .then((allData) => { //QUESTION - why does it work to res.send here?
+      .then((allData) => {
         var vettedData = [];
         for (var i = 0; i < allData.length; i++) {
           if (allData[i]) {
             vettedData.push(allData[i]);
           }
         }
+        // for (var i = 0; i < vettedData[0].videos.length; i++) {
+        //   console.log(vettedData[0].videos[i]);
+        // }
+        // console.log("backend version of archive: ", vettedData[0]);
         // NOTE - hardcoding the first entry may be buggy in the future
         res.send(vettedData[0]);
+      })
+      .catch((err) => {
+        next(err);
       });
     })
     .catch((err) => {
@@ -102,7 +112,7 @@ router.get('/archive/:id', (req, res, next) => {
           .then((img_result) => {
             var images = [];
             for (var i = 0; i < img_result.length; i++) {
-              images.push(img_result[i].url);
+              images.push(img_result[i].image_url);
             }
             result.images = images;
             console.log(images);
@@ -113,7 +123,7 @@ router.get('/archive/:id', (req, res, next) => {
           .then((vid_result) => {
             var videos = [];
             for (var i = 0; i < vid_result.length; i++) {
-              videos.push(vid_result[i].url);
+              videos.push(vid_result[i].video_url);
             }
             result.videos = videos;
           }),
@@ -158,7 +168,7 @@ router.post('/archive', (req, res, next) => {
   for (let i = 0; i < imageSet.length; i++) {
     let singleEntry = {
       project_id: null,
-      url: imageSet[i]
+      image_url: imageSet[i]
     };
     newImagesEntry.push(singleEntry);
   }
@@ -169,7 +179,7 @@ router.post('/archive', (req, res, next) => {
   for (let i = 0; i < videoSet.length; i++) {
     let singleEntry = {
       project_id: null,
-      url: videoSet[i]
+      video_url: videoSet[i]
     };
     newVideosEntry.push(singleEntry);
   }
@@ -263,7 +273,7 @@ router.patch('/images/:id', (req, res, next) => {
       for (var i = 0; i < imageSet.length; i++) {
         if (imageSet[i] !== "") {
           newEntries.push({
-            url: imageSet[i],
+            image_url: imageSet[i],
             project_id: id,
             is_primary_gallery: false
           });
