@@ -26,7 +26,8 @@ function getArchive() {
     type: 'GET',
     url: '/archive',
     success: function(result) {
-      console.log(result);
+      // QUESTION = WTF JAVASCRIPT
+      console.log('frontend archive: ', result);
       $("#archive_container").children().remove();
       for (var i = 0; i < result.length; i++) {
         displayEntry(result[i]);
@@ -40,7 +41,7 @@ function getArchive() {
 }
 
 function displayEntry(entryContent) {
-
+  console.log("in displayEntry ", Date.now());
   // Reformat arrays to be objects for populating template
   let tags = entryContent.tags.map((t) => {
     return {tag:t};
@@ -48,7 +49,7 @@ function displayEntry(entryContent) {
   let images = entryContent.images.map((i) => {
     return {image:i};
   });
-  let videos = entryContent.images.map((v) => {
+  let videos = entryContent.videos.map((v) => {
     return {video:v};
   });
 
@@ -56,6 +57,7 @@ function displayEntry(entryContent) {
   entryContent.tags = tags;
   entryContent.images = images;
   entryContent.videos = videos;
+  // console.log(entryContent.videos);
   // Handlebars
   let render_content_row = render("admin_entry", entryContent);
   let rowTemplate = Handlebars.compile (render_content_row);
@@ -112,7 +114,7 @@ function addEntry() {
       images: imageVals,
       videos: videoVals
     };
-    console.log(newEntry);
+    // console.log(newEntry);
     $.ajax({
       type: 'POST',
       url: '/archive',
@@ -120,6 +122,7 @@ function addEntry() {
       data: newEntry,
       success: function(result) {
         console.log('post successful!', result);
+        //TODO close modal
         getArchive();
       },
       fail: function(err) {
@@ -131,16 +134,17 @@ function addEntry() {
 
 function editEntry(target) {
   $("#edit_modal").children().remove();
+  // console.log(target);
   // Trigger different modal depending on content type
   switch ($(target).attr("name")) {
     case "text_field":
       editText(target);
       break;
     case "type_field":
-      editRadio(target, "edit_modal_type");
+      editType(target, "edit_modal_type");
       break;
     case "tag_field":
-      editRadio(target, "edit_modal_tags");
+      editTags(target);
       break;
     case "list_field":
       editList(target);
@@ -151,6 +155,7 @@ function editEntry(target) {
 }
 
 function editText(target) {
+  // console.log("edit text");
   // Check the entry type: text, radio, list
   let content = {
     cell_content: $(target).text(),
@@ -174,9 +179,62 @@ function editText(target) {
   });
 }
 
-function editRadio(target, modal_template) {
+// function editRadio(target, modal_template) {
+//   // Get the ID of the nearest parent with an entry ID
+//   let allTr = $("tr");
+//   let parentID = "";
+//   for (var i = 0; i < allTr.length; i++) {
+//     if (allTr[i].contains( target )) {
+//       parentID = $(allTr[i]).attr("id");
+//     }
+//   }
+//
+//   // Execute modal functionality after grabbing tag names from the server
+//   $.ajax({
+//     type: 'GET',
+//     url: '/tags',
+//     success: function(result) {
+//       let tags = result.map((t) => {
+//         return {tag:t.tag_name};
+//       });
+//       let content = {
+//         entry_id: parentID,
+//         tagNames: tags
+//       };
+//
+//       let render_modal = render(modal_template, content); // type or tags
+//       let modalTemplate = Handlebars.compile(render_modal);
+//       $("#edit_modal").append(modalTemplate(content));
+//       //TODO if something has been selected, apply the selection to the modal
+//
+//       $("#save_entry").click(function() {
+//         let newContent = '';
+//         $('input:radio').each(function() {
+//           if($(this).prop('checked')) {
+//             newContent+=($(this).attr('id'))+",";
+//           }
+//         });
+//         console.log(newContent);
+//         // Save edited field in web GUI
+//         $(target).text(newContent);
+//         // Save all fields for this entry in db
+//         let data = {
+//           id: getIntFromId(content.entry_id), // reference just id num
+//           // content_type: 'application/json',
+//           content: newContent,
+//           content_type: $(target).parent().attr("class")
+//         };
+//         updateEntry(data);
+//       });
+//     },
+//     fail: function(err) {
+//       console.error(err);
+//     }
+//   });
+// }
 
-  // Get the ID of the nearest parent with an entry ID
+function editType(target) {
+  //TODO find a shorter way of doing this
   let allTr = $("tr");
   let parentID = "";
   for (var i = 0; i < allTr.length; i++) {
@@ -185,6 +243,32 @@ function editRadio(target, modal_template) {
     }
   }
 
+  let content = {
+    entry_id: parentID
+  };
+  let render_modal = render("edit_modal_type", content);
+  let modalTemplate = Handlebars.compile(render_modal);
+  $("#edit_modal").append(modalTemplate(content));
+  $("#save_entry").click(function() {
+    let newContent = $("input[name='type']:checked").val();
+    let data = {
+      id: getIntFromId(content.entry_id),
+      content_type: 'type',
+      content: newContent
+    };
+    updateEntry(data);
+  });
+}
+
+function editTags(target) {
+  //TODO find a shorter way of doing this
+  let allTr = $("tr");
+  let parentID = "";
+  for (var i = 0; i < allTr.length; i++) {
+    if (allTr[i].contains( target )) {
+      parentID = $(allTr[i]).attr("id");
+    }
+  }
   // Execute modal functionality after grabbing tag names from the server
   $.ajax({
     type: 'GET',
@@ -198,29 +282,44 @@ function editRadio(target, modal_template) {
         tagNames: tags
       };
 
-      let render_modal = render(modal_template, content); // type or tags
+      let render_modal = render("edit_modal_tags", content); // type or tags
       let modalTemplate = Handlebars.compile(render_modal);
       $("#edit_modal").append(modalTemplate(content));
       //TODO if something has been selected, apply the selection to the modal
-
       $("#save_entry").click(function() {
-        let newContent = '';
+        let newContent = [];
         $('input:radio').each(function() {
           if($(this).prop('checked')) {
-            newContent+=($(this).attr('id'))+",";
+            newContent.push($(this).attr('id'));
           }
         });
-        console.log(newContent);
+        // console.log(newContent);
         // Save edited field in web GUI
-        $(target).text(newContent);
+        $(target).text(newContent); // TOO make this a UL/LI
         // Save all fields for this entry in db
         let data = {
           id: getIntFromId(content.entry_id), // reference just id num
           // content_type: 'application/json',
-          content: newContent,
-          content_type: $(target).parent().attr("class")
+          tags: newContent.join(","),
+          // content_type: $(target).parent().attr("class")
         };
-        updateEntry(data);
+
+        $.ajax({
+          type: 'PATCH',
+          url: '/project-tags/' + data.id,
+          // content_type: 'application/json',
+          data: data,
+          success: function(result) {
+            console.log('patch successful', result);
+            getArchive();
+          },
+          fail: function(err) {
+            console.error(err);
+          }
+        });
+        // Modal should close
+        $('#edit_modal').modal('close');
+        console.log("modal should close");
       });
     },
     fail: function(err) {
@@ -230,7 +329,53 @@ function editRadio(target, modal_template) {
 }
 
 function editList(target) {
+  // Get reference to all list items in the UL
+  let siblings = $(target).parent().siblings();
+  let listItems = [$(target).parent().text()];
+  for (var i = 0; i < siblings.length; i++) {
+    listItems.push($(siblings[i]).text());
+  }
+  listItems = listItems.map((i) => {
+    return {list_item:i};
+  });
 
+  // Reformat content for handlbars
+  let content = {
+    listItems: listItems,
+    entry_id: getParentID(target)
+  };
+
+  // Collate modal data
+  let render_modal = render("edit_modal_list", content);
+  let modalTemplate = Handlebars.compile(render_modal);
+  $("#edit_modal").append(modalTemplate(content));
+
+  $("#save_entry").click(function() {
+    let inputFields = $("input");
+    let newContent = [];
+    for (var i = 0; i < inputFields.length; i++) {
+      newContent.push($(inputFields[i]).val());
+    }
+    // console.log(newContent);
+    let data = {
+      id: getIntFromId(content.entry_id),
+      images: newContent.join(",")
+    };
+    // TODO, allow the user to add or delete image fields
+
+    $.ajax({
+      type: 'PATCH',
+      url: '/images/' + data.id,
+      data: data,
+      success: function(result) {
+        console.log("patch successful", result);
+        getArchive();
+      },
+      fail: function(err) {
+        console.error(err);
+      }
+    });
+  });
 }
 
 function updateEntry(data) {
@@ -277,6 +422,17 @@ function deleteEntry(target) {
 
 function getIntFromId(str) {
   return parseInt(str.slice(6, str.length)); //remove "entry_"
+}
+
+function getParentID(target) {
+  let allTr = $("tr");
+  let parentID = "";
+  for (var i = 0; i < allTr.length; i++) {
+    if (allTr[i].contains( target )) {
+      parentID = $(allTr[i]).attr("id");
+      return parentID;
+    }
+  }
 }
 
 //Handlebars

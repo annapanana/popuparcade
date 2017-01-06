@@ -1,0 +1,13 @@
+<div class="modal-content" id="{{entry_id}}">
+  <h5 class="center">View and Edit Content</h5>
+  <input class="text-input" type="text" name="cell_content" id="cell_content" value="{{cell_content}}">
+  <ul class="listItems">
+    {{#each listItems}}
+      <input class="text-input" type="text" name="image_url" value="{{list_item}}">
+    <!-- <li class="list_item">{{list_item}}</li> -->
+    {{/each}}
+  </ul>
+</div>
+<div class="modal-footer">
+  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id="save_entry">Save</a>
+</div>
