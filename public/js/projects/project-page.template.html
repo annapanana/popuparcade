@@ -1,0 +1,50 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-6">
+      <div style="height: 305px">
+        <div uib-carousel active="$ctrl.active" interval="$ctrl.myInterval" no-wrap="$ctrl.noWrapSlides">
+          <div uib-slide ng-repeat="slide in $ctrl.slides track by slide.id" index="slide.id">
+            <img ng-src="{{slide.image}}" style="margin:auto;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="col-md-6">
+      <div style="height: 305px">
+        <div uib-carousel active="$ctrl.active" interval="$ctrl.myInterval" no-wrap="$ctrl.noWrapSlides">
+          <div uib-slide ng-repeat="slide in $ctrl.slides">
+            <img ng-src="{{slide.image}}">
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="col-md-6">
+      <!-- Title -->
+      <h3>Title</h3>
+      <!-- Role -->
+      <h5>Role</h5>
+      <!-- Date -->
+      <h5>Date</h5>
+      <!-- About Text -->
+      <p>
+        Have you ever wondered what it would be like to be a crustacean? I did, so I made Fishtank: a crustacean simulator. The controls are slow, which I imagine reflect reality is some way.
+
+        The controls for fishtank are simple: WASD to move, mouse to look. If you get a chance to download the build and play, you’ll notice how much effort it takes to look around. This was a deliberate detail, which contributes to the feeling of living in a fishtank.
+
+        Download the Unity build here: download
+      </p>
+      <!-- Tags -->
+      <li ng-repeat="tag in $ctrl.tags">
+        <ul>{{tag}}</ul>
+      </li>
+      <!-- View Project -->
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/ETlbA_Tmg6U" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>

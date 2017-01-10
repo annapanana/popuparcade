@@ -26,7 +26,6 @@ function getArchive() {
     type: 'GET',
     url: '/archive',
     success: function(result) {
-      // QUESTION = WTF JAVASCRIPT
       console.log('frontend archive: ', result);
       $("#archive_container").children().remove();
       for (var i = 0; i < result.length; i++) {
@@ -41,7 +40,6 @@ function getArchive() {
 }
 
 function displayEntry(entryContent) {
-  console.log("in displayEntry ", Date.now());
   // Reformat arrays to be objects for populating template
   let tags = entryContent.tags.map((t) => {
     return {tag:t};
