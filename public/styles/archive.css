@@ -1,3 +1,7 @@
+.container {
+  padding-bottom: 40px;
+}
+
 .navbar {
   background-color: #FEDF00;
 }
@@ -5,6 +9,16 @@
 .row  {
   padding-top: 20px;
   justify-content: center;
+}
+
+.row-primary {
+  width: 100%;
+  background-color: #fff3a6;
+}
+
+.row-secondary {
+  width: 100%;
+  background-color: rgb(242, 239, 200);
 }
 
 .card {
@@ -49,7 +63,6 @@ a:hover {
   text-decoration: none;
 }
 
-
 h1,
 h2,
 h3,
@@ -66,28 +79,22 @@ p {
   font-weight: lighter;
 }
 
-/*#top_texture {
-	width:1280px;
-	height:110px;
-	margin:0;
-	background-image:url(../../img/top_texture.png);
-	background-repeat:no-repeat;
-	margin-left:-10px;
-	position:fixed;
-	top:0px;
-	left:0;
-	z-index:4;
+.btn {
+  border-radius: 0;
+  border-style: none;
+  background-color: #FEDF00;
+  color: rgb(37, 37, 37);
 }
 
-#bottom_texture {
-	width:1280px;
-	height:154px;
-	margin:0;
-	background-image:url(../../img/bottom_texture.png);
-	background-repeat:no-repeat;
-	margin-left:-10px;
-	position:fixed;
-	bottom:0;
-	right:0;
-	z-index:10;
-}*/
+.btn:hover{
+  background-color: rgb(37, 37, 37);
+  color: #FEDF00;
+}
+
+/*Components*/
+
+.video-component {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
