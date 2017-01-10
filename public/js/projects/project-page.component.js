@@ -7,7 +7,7 @@
       templateUrl: "js/projects/project-page.template.html"
     });
 
-    function ProjectPage($sce) { //
+    function ProjectPage($sce) { //service
       console.log($sce);
       const vm = this;
 
@@ -30,10 +30,11 @@
           brief: "A fishtank",
           description: "Have you ever wondered what it would be like to be a crustacean? I did, so I made Fishtank: a crustacean simulator. The controls are slow, which I imagine reflect reality is some way. The controls for fishtank are simple: WASD to move, mouse to look. If you get a chance to download the build and play, you’ll notice how much effort it takes to look around. This was a deliberate detail, which contributes to the feeling of living in a fishtank.",
           tags: ["this", "that"],
-          live_url: "google.com",
+          live_url: "http://www.google.com",
           videos: []
         };
 
+        // TODO turn this into a funciton/loop that executes for each video link
         vm.project.videos.push({link: $sce.trustAsResourceUrl('https://www.youtube.com/embed/AvjiAWshMAk')});
         vm.project.videos.push({link:$sce.trustAsResourceUrl('https://www.youtube.com/embed/AvjiAWshMAk')});
 
@@ -48,6 +49,11 @@
            id: 1,
            text: 'Hello'
          }];
+     };
+
+     vm.navToProject = function() {
+       var win = window.open(vm.project.live_url, '_blank');
+       win.focus();
      };
    }
 })();

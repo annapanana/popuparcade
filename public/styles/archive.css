@@ -80,14 +80,17 @@ p {
 }
 
 .btn {
-  border-radius: 0;
+  /*margin-left: 15px;*/
+  padding-right: 20px;
+  padding-left: 20px;
+  border-radius: 5px;
   border-style: none;
   background-color: #FEDF00;
   color: rgb(37, 37, 37);
 }
 
 .btn:hover{
-  background-color: rgb(37, 37, 37);
+  background-color: #474747;
   color: #FEDF00;
 }
 
@@ -97,4 +100,24 @@ p {
   display: flex;
   flex-flow: row;
   justify-content: center;
+}
+
+.tag-component {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 40px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
 }
