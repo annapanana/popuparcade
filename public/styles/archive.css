@@ -5,11 +5,11 @@
 .navbar {
   background-color: #FEDF00;
 }
-
+/*
 .row  {
   padding-top: 20px;
   justify-content: center;
-}
+}*/
 
 /*Archive Cards*/
 
@@ -124,7 +124,31 @@ p {
 }
 
 .btn-overlay {
-  position: fixed;
+  position: absolute;;
+  margin-left: -75px;
+  /*left: */
   top: 100px;
-  box-shadow: 3px 3px 3px rgba(97, 97, 97, 0.5);
+  /*box-shadow: 3px 3px 3px rgba(97, 97, 97, 0.5);*/
+}
+
+.featured-img-bg {
+  position:absolute;
+  max-height: 400px;
+  width: 94%;
+}
+
+.nav-text {
+  z-index: 5;
+  /*border-style: solid;*/
+  /*border-color: #fff;*/
+  color: #000;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.56);
+  position: absolute;
+  padding-right: 15px;
+  padding-left: 15px;
+  left: 35px;
+  padding-top: 4px;
+  /*How to center align*/
+  /*width: 50%;*/
 }
