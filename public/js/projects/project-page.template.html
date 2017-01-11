@@ -35,7 +35,7 @@
   </div>
   <div ng-if="$ctrl.project.videos.length" class="row">
     <h3 class="text-center">Project Videos</h3>
-    <div class="col-md-12">
+    <div class="col-md-12 text-center">
       <div class="video-component" ng-repeat="video in $ctrl.project.videos">
         <div class="row">
           <iframe width="560" height="315" ng-src="{{video.link}}" frameborder="0" allowfullscreen></iframe>

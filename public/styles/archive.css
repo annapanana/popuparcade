@@ -86,12 +86,15 @@ p {
   border-radius: 5px;
   border-style: none;
   background-color: #FEDF00;
-  color: rgb(37, 37, 37);
+  color: #474747;
 }
 
-.btn:hover{
+.btn:hover {
   background-color: #474747;
   color: #FEDF00;
+}
+
+olor: #474747;
 }
 
 /*Components*/
