@@ -2,7 +2,7 @@
   <div class="card-group">
     <div ng-repeat="project in $ctrl.archive">
       <div class="card">
-        <a href="http://www.eatagame.com"><img class="card-img-bg fade" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Style_Resources/bg-vignette.png" alt=""></a>
+        <a href="{{project.project_page}}"><img class="card-img-bg fade" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Style_Resources/bg-vignette.png" alt=""></a>
         <img class="card-img-top" src="{{project.thumb}}" alt="Card image cap" href="{{project.project_page}}">
         <div class="card-block">
           <h5 class="card-title">{{project.name}}</h5>

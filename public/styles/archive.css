@@ -3,7 +3,7 @@
 }
 
 .navbar {
-  background-color: #FEDF00;
+  background-color: #80CBC4;
 }
 /*
 .row  {
@@ -137,18 +137,15 @@ p {
   width: 94%;
 }
 
-.nav-text {
-  z-index: 5;
-  /*border-style: solid;*/
-  /*border-color: #fff;*/
-  color: #000;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.56);
-  position: absolute;
-  padding-right: 15px;
-  padding-left: 15px;
-  left: 35px;
-  padding-top: 4px;
-  /*How to center align*/
-  /*width: 50%;*/
+.external-link-container {
+  /*width: 100%;*/
+  padding-top: 20px;
+  display: flex;
+  flex-flow: row;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.external-link {
+  padding-right: 20px;
 }
