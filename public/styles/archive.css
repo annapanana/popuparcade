@@ -11,15 +11,7 @@
   justify-content: center;
 }
 
-.row-primary {
-  width: 100%;
-  background-color: #fff3a6;
-}
-
-.row-secondary {
-  width: 100%;
-  background-color: rgb(242, 239, 200);
-}
+/*Archive Cards*/
 
 .card {
   max-width: 300px;
@@ -52,6 +44,8 @@
 .card-group {
   justify-content: center;
 }
+
+/*Fonts*/
 
 a {
   color: #707070;
@@ -94,9 +88,6 @@ p {
   color: #FEDF00;
 }
 
-olor: #474747;
-}
-
 /*Components*/
 
 .video-component {
@@ -123,4 +114,17 @@ olor: #474747;
     line-height: 40px;
     border-radius: 25px;
     background-color: #f1f1f1;
+}
+
+/*Featured*/
+
+.featured-gallery {
+  max-height: 400px;
+  width: 100%;
+}
+
+.btn-overlay {
+  position: fixed;
+  top: 100px;
+  box-shadow: 3px 3px 3px rgba(97, 97, 97, 0.5);
 }

@@ -51,6 +51,7 @@
          }];
      };
 
+     // Open project page in a new tab
      vm.navToProject = function() {
        var win = window.open(vm.project.live_url, '_blank');
        win.focus();

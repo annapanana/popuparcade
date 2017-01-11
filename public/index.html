@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
   <head>
     <meta charset="utf-8">
     <title>Anna's Portfolio</title>
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
     <!-- Bootstrap & Angular-->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js" defer></script>
@@ -16,11 +19,9 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans:300,400" rel="stylesheet">
 
-    <!-- Slick for gallery -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"/>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js" defer></script>
-
+    <!-- Custom JS -->
+    <script type="text/javascript" src="js/app/app.module.js" defer></script>
+    <script type="text/javascript" src="js/featured/featured-content.component.js" defer></script>
 
   </head>
   <body>
@@ -33,22 +34,25 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-md-12 text-center">
-          Fetured Content
+        <div class="col-md-1"></div>
+        <div class="col-md-10 text-center">
           <!-- Featured Project Center -->
-          <!-- Explore Project Button -->
-          <a href="#">Featured</a>
+          <carousel></carousel>
+
         </div>
+        <div class="col-md-1"></div>
       </div>
       <div class="row">
-        <div class="col-md-6 text-center">
+        <div class="col-md-1"></div>
+        <div class="col-md-5 text-center">
           <!-- Archive with Superimposed Button -->
           <a href="#">Archive</a>
         </div>
-        <div class="col-md-6 text-center">
+        <div class="col-md-5 text-center">
           <!-- About Page with Superimposed Button -->
           <a href="#">About</a>
         </div>
+        <div class="col-md-1"></div>
       </div>
     </div>
   </body>
