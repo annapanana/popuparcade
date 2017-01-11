@@ -11,15 +11,7 @@
   justify-content: center;
 }
 
-.row-primary {
-  width: 100%;
-  background-color: #fff3a6;
-}
-
-.row-secondary {
-  width: 100%;
-  background-color: rgb(242, 239, 200);
-}
+/*Archive Cards*/
 
 .card {
   max-width: 300px;
@@ -53,6 +45,8 @@
   justify-content: center;
 }
 
+/*Fonts*/
+
 a {
   color: #707070;
   text-decoration: none;
@@ -80,14 +74,17 @@ p {
 }
 
 .btn {
-  border-radius: 0;
+  /*margin-left: 15px;*/
+  padding-right: 20px;
+  padding-left: 20px;
+  border-radius: 5px;
   border-style: none;
   background-color: #FEDF00;
-  color: rgb(37, 37, 37);
+  color: #474747;
 }
 
-.btn:hover{
-  background-color: rgb(37, 37, 37);
+.btn:hover {
+  background-color: #474747;
   color: #FEDF00;
 }
 
@@ -97,4 +94,37 @@ p {
   display: flex;
   flex-flow: row;
   justify-content: center;
+}
+
+.tag-component {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 40px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+}
+
+/*Featured*/
+
+.featured-gallery {
+  max-height: 400px;
+  width: 100%;
+}
+
+.btn-overlay {
+  position: fixed;
+  top: 100px;
+  box-shadow: 3px 3px 3px rgba(97, 97, 97, 0.5);
 }
