@@ -180,3 +180,9 @@ p {
 .external-link {
   padding-right: 20px;
 }
+
+.carousel-image {
+  height:450px;
+  width: auto;
+
+}

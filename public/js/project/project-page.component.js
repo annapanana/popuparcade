@@ -20,43 +20,30 @@
 
       vm.$onInit = function() {
 
-        vm.project = {
-          id: 1,
-          name: "Fish Tank",
-          role: "Designer",
-          date: "Today",
-          brief: "A fishtank",
-          description: "Have you ever wondered what it would be like to be a crustacean? I did, so I made Fishtank: a crustacean simulator. The controls are slow, which I imagine reflect reality is some way. The controls for fishtank are simple: WASD to move, mouse to look. If you get a chance to download the build and play, you’ll notice how much effort it takes to look around. This was a deliberate detail, which contributes to the feeling of living in a fishtank.",
-          tags: ["this", "that"],
-          live_url: "http://www.google.com",
-          videos: [
-            {
-              link: 'https://www.youtube.com/embed/AvjiAWshMAk',
-              title: 'Stone Soup'
-            },
-            {
-              link: 'https://www.youtube.com/embed/AvjiAWshMAk',
-              title: 'Stone Soup'
+        vm.project = $http.get('archive/'+$stateParams.projectId)
+          .then(function(result){
+            console.log(result.data);
+            vm.project = result.data;
+            vm.slides = [];
+            for (var i = 0; i < result.data.images.length; i++) {
+              let img = {
+                image: result.data.images[i],
+                id: i,
+                text: 'HI'
+              };
+              vm.slides.push(img);
             }
-          ]
-        };
-
-        // TODO turn this into a funciton/loop that executes for each video link
-        // vm.project.videos.push({link: $sce.trustAsResourceUrl('https://www.youtube.com/embed/AvjiAWshMAk')});
-        // vm.project.videos.push({link:$sce.trustAsResourceUrl('https://www.youtube.com/embed/AvjiAWshMAk')});
-
-        // Populate with images
-        vm.slides = [
-          {image: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Fishtank_IMG/Portfolio_IMG_FT_01.png',
-           id: 0,
-           text: 'HI'
-          },
-          {
-           image: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Fishtank_IMG/Portfolio_IMG_FT_02.png',
-           id: 1,
-           text: 'Hello'
-         }];
+          });
      };
+
+     vm.openVideoLink = function(videoLink) {
+       console.log("open video link, " + videoLink);
+      //  for (var i = 0; i < vm.project.videos.length; i++) {
+      //    if (vm.project.videos[i].title ===
+      //  }
+      //  var win = window.open(vm.project.live_url, '_blank');
+      //  win.focus();
+    };
 
      // Open project page in a new tab
      vm.navToProject = function() {
