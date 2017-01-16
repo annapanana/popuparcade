@@ -1,13 +1,1 @@
-<div>
-  <div uib-carousel active="$ctrl.active" interval="$ctrl.myInterval" no-wrap="$ctrl.noWrapSlides">
-    <div uib-slide ng-repeat="slide in $ctrl.slides track by slide.id" index="slide.id">
-      <img class="featured-gallery" ng-src="{{slide.image}}" style="margin:auto;">
-      <div class="carousel-caption">
-        <!-- TODO Make this a lin -->
-        <h3>{{slide.text}}</h3>
-      </div>
-    </div>
-    <!-- TODO Center align button & linke to featured page-->
-    <button type="button" class="btn btn-primary btn-overlay" ng-click="$ctrl.navToProject()"><h4>Explore Projects</h4></button>
-  </div>
-</div>
+<h1>FEATURED</h1>

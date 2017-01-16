@@ -3,13 +3,44 @@
 }
 
 .navbar {
-  background-color: #FEDF00;
+  background-image: url(https://s3-us-west-2.amazonaws.com/popuparcade.com/nav_tile.svg);
+  background-repeat: repeat-x;
 }
 
+.navbar-nav {
+  position: absolute;
+  right: 0;
+}
+
+.navbar-brand {
+  background-color: rgba(64, 101, 191, 0.85);
+  height: 55px;
+  color: #FFF;
+  letter-spacing: 2px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+  padding-top: 20px;
+}
+
+.nav-button {
+  background-color: rgba(64, 101, 191, 0.6);
+  color: #FFF;
+  z-index: 5;
+  margin: 2px;
+  height: 50px;
+  border-style: solid;
+  border-color: #FFF;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/*
 .row  {
   padding-top: 20px;
   justify-content: center;
-}
+}*/
 
 /*Archive Cards*/
 
@@ -124,7 +155,34 @@ p {
 }
 
 .btn-overlay {
-  position: fixed;
+  position: absolute;;
+  margin-left: -75px;
+  /*left: */
   top: 100px;
-  box-shadow: 3px 3px 3px rgba(97, 97, 97, 0.5);
+  /*box-shadow: 3px 3px 3px rgba(97, 97, 97, 0.5);*/
+}
+
+.featured-img-bg {
+  position:absolute;
+  max-height: 400px;
+  width: 94%;
+}
+
+.external-link-container {
+  /*width: 100%;*/
+  padding-top: 20px;
+  display: flex;
+  flex-flow: row;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.external-link {
+  padding-right: 20px;
+}
+
+.carousel-image {
+  height:450px;
+  width: auto;
+
 }
