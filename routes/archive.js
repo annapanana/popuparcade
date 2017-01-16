@@ -140,7 +140,9 @@ router.get('/archive/:id', (req, res, next) => {
                 }
               });
               // Extract only the URL from the video object stored in the video array
-              result[i].videos = result[i].videos.map(vid => vid.video_url);
+              result[i].videos = result[i].videos.map((vid) => {
+                return {url: vid.video_url, title: vid.video_title};
+              });
             }
           })
           .catch((err) => {

@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container"> -->
 
   <div class="row">
     <div class="col-md-6">
@@ -27,15 +27,16 @@
           <span class="chip">{{tag}}</span>
         </div>
       </div>
+      <h3>External Links</h3>
       <!-- View Project -->
       <div ng-if="$ctrl.project.live_url">
         <button type="button" class="btn btn-primary" ng-click="$ctrl.navToProject()"><h4>View Live Project</h4></button>
       </div>
       <div ng-if="$ctrl.project.videos.length" class="external-link-container">
         <div class="" ng-repeat="video in $ctrl.project.videos">
-          <div class="external-link">
-            <a ng-click="$ctrl.openVideoLink(video.link)"><img style="width:75px" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Buttons/video_button.svg" alt=""></a>
-            <a ng-click="$ctrl.openVideoLink(video.link)"><h5 class="text-center">{{video.title}}</h5></a>
+          <div class="external-link text-center">
+            <a href="#" ng-click="$ctrl.openVideoLink(video.url)"><img style="width:75px" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Buttons/video_button.svg" alt=""></a>
+            <a href="#" ng-click="$ctrl.openVideoLink(video.url)"><h5 class="text-center">{{video.title}}</h5></a>
           </div>
         </div>
       </div>
@@ -51,4 +52,4 @@
       </div>
     </div>
   </div> -->
-</div>
+<!-- </div> -->
