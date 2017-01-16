@@ -9,14 +9,15 @@
 }
 
 .navbar-nav {
-  position: absolute;
-  right: 0;
+  /*Can't edit or mobile version wont work*/
+  /*position: absolute;
+  right: 0;*/
 }
 
 .navbar-brand {
   /*background-color: rgba(64, 101, 191, 0.85);*/
   height: 55px;
-  color: #FFF;
+  color: #FFF !important;
   letter-spacing: 2px;
   font-family: 'Josefin Sans', sans-serif;
   font-weight: bold;
@@ -26,11 +27,12 @@
 
 .nav-button {
   /*background-color: rgba(64, 101, 191, 0.6);*/
-  color: #FFF;
+  color: #FFF !important;
   z-index: 5;
-  margin: 2px;
-  height: 50px;
+  margin: 5px;
+  /*height: 50px;*/
   border-style: solid;
+  border-width: thin;
   border-color: #FFF;
   font-family: 'Josefin Sans', sans-serif;
   font-weight: bold;
@@ -41,23 +43,14 @@
   background-color: rgba(255, 255, 255, 0.35) !important;
 }
 
-.nav-button:active {
-  background-color: rgba(255, 255, 255, 0.45) !important;
-  color: rgb(0, 0, 0);
-}
-
-.nav-button:visited {
-  color: rgb(0, 0, 0);
-}
-
-/*
-.row  {
-  padding-top: 20px;
-  justify-content: center;
-}*/
+.horizontal-collapse {
+    height: 70px;
+  }
+  .navbar-collapse.in {
+    overflow-y: hidden;
+  }
 
 /*Archive Cards*/
-
 .card-group {
   display: flex;
   flex-flow: row;
@@ -98,7 +91,6 @@
 }
 
 /*Fonts*/
-
 a {
   color: #707070;
   text-decoration: none;
@@ -141,7 +133,6 @@ p {
 }
 
 /*Components*/
-
 .video-component {
   display: flex;
   flex-flow: row;
@@ -169,20 +160,12 @@ p {
 }
 
 /*Featured*/
-
 .featured-gallery {
   max-height: 400px;
   width: 100%;
 }
 
-.btn-overlay {
-  position: absolute;;
-  margin-left: -75px;
-  /*left: */
-  top: 100px;
-  /*box-shadow: 3px 3px 3px rgba(97, 97, 97, 0.5);*/
-}
-
+/*TODO Make this responsive*/
 .featured-img-bg {
   position:absolute;
   max-height: 400px;
