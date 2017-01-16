@@ -1,42 +1,15 @@
 'use strict';
 (function() {
-  console.log("LOADING");
-  angular.module("app")
-    .component('carousel', {
-      controller: Carousel,
+  // console.log("featured-content loaded");
+  angular.module('app')
+    .component("featured", {
+      controller: controller,
       templateUrl: "js/featured/featured-content.template.html"
     });
 
-    function Carousel() {
-      const vm = this;
+    controller.$inject = ['$http', '$state', '$stateParams'];
 
-      // Params for the carousel
-      vm.slides = [];
-      vm.myInterval = 3000;
-      vm.noWrapSlides = false;
-      vm.active = 0;
-
-      vm.$onInit = function() {
-        vm.slides = [{
-          image: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/Banners/banner-features_02.jpg',
-          id: 0,
-          text: 'The Greenhouse'
-        },
-        {
-          image: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/Banners/banner-features_04.png',
-          id: 1,
-          text: 'Greetings From the Internet'
-        },
-        {
-          image: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/Banners/banner-features_03.jpg',
-          id: 2,
-          text: 'Stone Soup'
-        },
-        {
-          image: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/Banners/banner-features_01.jpg',
-          id: 3,
-          text: 'Fridge Face'
-       }];
-       };
+    function controller($http, $state, $stateParams) {
+      console.log("featured component loaded");
     }
 })();

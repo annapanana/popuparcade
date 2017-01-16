@@ -3,8 +3,39 @@
 }
 
 .navbar {
-  background-color: #80CBC4;
+  background-image: url(https://s3-us-west-2.amazonaws.com/popuparcade.com/nav_tile.svg);
+  background-repeat: repeat-x;
 }
+
+.navbar-nav {
+  position: absolute;
+  right: 0;
+}
+
+.navbar-brand {
+  background-color: rgba(64, 101, 191, 0.85);
+  height: 55px;
+  color: #FFF;
+  letter-spacing: 2px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+  padding-top: 20px;
+}
+
+.nav-button {
+  background-color: rgba(64, 101, 191, 0.6);
+  color: #FFF;
+  z-index: 5;
+  margin: 2px;
+  height: 50px;
+  border-style: solid;
+  border-color: #FFF;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+
 /*
 .row  {
   padding-top: 20px;

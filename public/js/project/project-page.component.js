@@ -1,14 +1,15 @@
 'use strict';
 (function() {
-
+  // console.log("project-page loaded");
   angular.module("app")
     .component('projectpage', {
-      controller: ProjectPage,
-      templateUrl: "js/projects/project-page.template.html"
+      controller: controller,
+      templateUrl: "js/project/project-page.template.html"
     });
 
-    function ProjectPage($sce) { //service
-      console.log($sce);
+    controller.$inject = ['$http', '$state', '$stateParams'];
+
+    function controller($http, $state, $stateParams) { //service
       const vm = this;
 
       // Params for the carousel
@@ -19,9 +20,6 @@
 
       vm.$onInit = function() {
 
-        // GET ROUTE FOR THIS ID
-        // HOW DOES IT KNOW WHAT THE ID IS? (URL ROUTE)
-        // Create project object
         vm.project = {
           id: 1,
           name: "Fish Tank",

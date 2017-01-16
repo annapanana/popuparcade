@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10 text-center">
+    <!-- Featured Project Carousel -->
+    <div>
+      <div uib-carousel active="$ctrl.active" interval="$ctrl.myInterval" no-wrap="$ctrl.noWrapSlides">
+        <div uib-slide ng-repeat="slide in $ctrl.slides track by slide.id" index="slide.id">
+          <img class="featured-gallery" ng-src="{{slide.image}}" style="margin:auto;">
+          <div class="carousel-caption">
+            <!-- TODO Make this a lin -->
+            <h3>{{slide.text}}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <h3>Featured Projects</h3>
+        <p>Crucifix slow-carb fap vaporware tattooed. Taxidermy fanny pack tousled, selvage snackwave lyft swag migas direct trade photo booth iceland venmo.</p>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
+  <div class="col-md-1"></div>
+</div>
+<!-- Archive and About Nav -->
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-5 text-center">
+    <!-- Archive with Superimposed Button -->
+    <a href="archive.html"><img class="featured-img-bg fade" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/featured_nav_vignette.png" alt=""></a>
+    <img class="featured-gallery" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/nav_image_archive.png" alt="">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <h3>Archive</h3>
+        <p>Crucifix slow-carb fap vaporware tattooed. Taxidermy fanny pack tousled, selvage snackwave lyft swag migas direct trade photo booth iceland venmo.</p>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
+  <div class="col-md-5 text-center">
+    <!-- About Page with Superimposed Button -->
+    <a href="http://www.eatagame.com"><img class="featured-img-bg fade" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/featured_nav_vignette.png" alt=""></a>
+    <img class="featured-gallery" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/nav_image_about.png" alt="">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <h3>About Anna</h3>
+        <p>Crucifix slow-carb fap vaporware tattooed. Taxidermy fanny pack tousled, selvage snackwave lyft swag migas direct trade photo booth iceland venmo.</p>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
+  <div class="col-md-1"></div>
+</div>
