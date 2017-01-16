@@ -105,44 +105,92 @@ router.get('/archive/:id', (req, res, next) => {
   knex('projects')
     .where('id', id)
     .then((result) => {
+      let idArr = [];
+      for (var i = 0; i < result.length; i++) {
+        idArr.push(result[i].id);
+      }
       Promise.all([
         // Get Image Links
         knex('images')
-          .where('project_id', id)
+          .whereIn('project_id', idArr)
           .then((img_result) => {
-            var images = [];
-            for (var i = 0; i < img_result.length; i++) {
-              images.push(img_result[i].image_url);
+            // For each result, create an array of images from the image results that match the project id
+            for (var i = 0; i < result.length; i++) {
+              result[i].images = img_result.filter((img) => {
+                if (img.project_id === result[i].id) {
+                  return img;
+                }
+              });
+              // Extract only the URL from the image object stored in the image array
+              result[i].images = result[i].images.map(img => img.image_url);
             }
-            result.images = images;
-            console.log(images);
+          })
+          .catch((err) => {
+            next(err);
           }),
         // Get Video Links
         knex('videos')
-          .where('project_id', id)
+          .whereIn('project_id', idArr)
           .then((vid_result) => {
-            var videos = [];
-            for (var i = 0; i < vid_result.length; i++) {
-              videos.push(vid_result[i].video_url);
+            // For each result, create an array of videos from the video results that match the project id
+            for (var i = 0; i < result.length; i++) {
+              result[i].videos = vid_result.filter((vid) => {
+                if (vid.project_id === result[i].id) {
+                  return vid;
+                }
+              });
+              // Extract only the URL from the video object stored in the video array
+              result[i].videos = result[i].videos.map((vid) => {
+                return {url: vid.video_url, title: vid.video_title};
+              });
             }
-            result.videos = videos;
+          })
+          .catch((err) => {
+            next(err);
           }),
-          // Get Tags
-          knex('tags')
+        // Get Tags
+        knex('tags')
           .innerJoin('projects_tags', 'tags.id', 'projects_tags.tag_id')
-          .where('project_id', id)
-          .then((tag_result) => {
+          .innerJoin('projects', 'projects.id', 'projects_tags.project_id')
+          .then((tag_results) => {
             let tags = [];
-            for (let i = 0; i < tag_result.length; i++) {
-              tags.push(tag_result[i].tag_name);
+            // Build an array of tag names paired with project ids
+            for (let i = 0; i < tag_results.length; i++) {
+              let tagPair = {
+                tag_name: tag_results[i].tag_name,
+                project_id: tag_results[i].project_id
+              };
+              tags.push(tagPair);
             }
-            result.tags = tags;
+            for (var i = 0; i < result.length; i++) {
+              // For each result, create an array of tags from the tag pairs array that match the project id
+              result[i].tags = tags.filter((tag) => {
+                if (tag.project_id === result[i].id) {
+                  return tag;
+                }
+              });
+              // Extract only the name of the tag from the tag object stored in the tag array
+              result[i].tags = result[i].tags.map(tag => tag.tag_name);
+            }
             return result;
           })
-
       ])
       .then((allData) => {
-        res.send(allData);
+        var vettedData = [];
+        for (var i = 0; i < allData.length; i++) {
+          if (allData[i]) {
+            vettedData.push(allData[i]);
+          }
+        }
+        // for (var i = 0; i < vettedData[0].videos.length; i++) {
+        //   console.log(vettedData[0].videos[i]);
+        // }
+        // console.log("backend version of archive: ", vettedData[0]);
+        // NOTE - hardcoding the first entry may be buggy in the future
+        res.send(vettedData[0][0]);
+      })
+      .catch((err) => {
+        next(err);
       });
     })
     .catch((err) => {

@@ -4,7 +4,6 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.text('image_url').notNullable().defaultTo('no url');
     table.integer('project_id').notNullable().references('id').inTable('projects').onDelete('CASCADE').index();
-    table.bool('is_primary_gallery').notNullable().defaultTo(false);
     table.timestamps(true, true);
   });
 };

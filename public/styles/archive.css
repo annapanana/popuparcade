@@ -3,22 +3,74 @@
 }
 
 .navbar {
-  background-color: #FEDF00;
+  /*background-image: url(https://s3-us-west-2.amazonaws.com/popuparcade.com/nav_tile.svg);*/
+  /*background-repeat: repeat-x;*/
+  background-color: #6DCCC3;
 }
 
-.row  {
+.navbar-nav {
+  /*Can't edit or mobile version wont work*/
+  /*position: absolute;
+  right: 0;*/
+}
+
+.navbar-brand {
+  /*background-color: rgba(64, 101, 191, 0.85);*/
+  height: 55px;
+  color: #FFF !important;
+  letter-spacing: 2px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+  font-size: 22px;
   padding-top: 20px;
-  justify-content: center;
 }
 
-.row-primary {
-  width: 100%;
-  background-color: #fff3a6;
+.nav-button {
+  /*background-color: rgba(64, 101, 191, 0.6);*/
+  color: #FFF !important;
+  z-index: 5;
+  margin: 5px;
+  /*height: 50px;*/
+  border-style: solid;
+  border-width: thin;
+  border-color: #FFF;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
 }
 
-.row-secondary {
-  width: 100%;
-  background-color: rgb(242, 239, 200);
+.nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+/*TODO Do I need this?*/
+.horizontal-collapse {
+    height: 70px;
+  }
+.navbar-collapse.in {
+  overflow-y: hidden;
+}
+
+.navbar-toggle {
+  border-radius: 0;
+  border-color: #FFF !important;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.navbar-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.icon-bar {
+  background-color: #FFF !important;
+}
+
+/*Archive Cards*/
+.card-group {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .card {
@@ -53,6 +105,7 @@
   justify-content: center;
 }
 
+/*Fonts*/
 a {
   color: #707070;
   text-decoration: none;
@@ -80,21 +133,101 @@ p {
 }
 
 .btn {
-  border-radius: 0;
+  /*margin-left: 15px;*/
+  padding-right: 20px;
+  padding-left: 20px;
+  border-radius: 5px;
   border-style: none;
   background-color: #FEDF00;
-  color: rgb(37, 37, 37);
+  color: #474747;
 }
 
-.btn:hover{
-  background-color: rgb(37, 37, 37);
+.btn:hover {
+  background-color: #474747;
   color: #FEDF00;
 }
 
 /*Components*/
-
 .video-component {
   display: flex;
   flex-flow: row;
   justify-content: center;
+}
+
+.tag-component {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 40px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+}
+
+/*Featured*/
+.featured-gallery {
+  max-height: 400px;
+  width: 100%;
+}
+
+/*TODO Make this responsive*/
+.featured-img-bg {
+  position:absolute;
+  max-height: 400px;
+  width: 94%;
+}
+
+.external-link-container {
+  /*width: 100%;*/
+  display: flex;
+  flex-flow: row;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.external-link {
+  padding: 15px;
+  padding-bottom: 0px;
+  background-color: #f1f1f1;
+  margin-right: 20px;
+  /*border-style: solid;*/
+  border-radius: 3px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+
+/*Carousel Overwrite*/
+.carousel-image {
+  height:500px;
+  width: auto;
+}
+
+.carousel-control.right {
+  background-image: none;
+}
+
+.carousel-control.left {
+  background-image: none;
+}
+
+.carousel-inner {
+  width: 100%;
+  height: auto;
+  overflow-y: hidden;
+}
+
+/*About Page*/
+.profile-image {
+  width: 100%;
 }
