@@ -37,12 +37,8 @@
      };
 
      vm.openVideoLink = function(videoLink) {
-       console.log("open video link, " + videoLink);
-      //  for (var i = 0; i < vm.project.videos.length; i++) {
-      //    if (vm.project.videos[i].title ===
-      //  }
-      //  var win = window.open(vm.project.live_url, '_blank');
-      //  win.focus();
+       var win = window.open(videoLink, '_blank');
+       win.focus();
     };
 
      // Open project page in a new tab

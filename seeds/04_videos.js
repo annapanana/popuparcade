@@ -7,15 +7,18 @@ exports.seed = function(knex, Promise) {
         // Inserts seed entries
         knex('videos').insert({
           project_id: 1,
-          video_url: 'https://youtu.be/n82JdUpSfA8'
+          video_url: 'https://youtu.be/n82JdUpSfA8',
+          video_title: 'I AM A VIDEO'
         }),
         knex('videos').insert({
           project_id: 2,
-          video_url: 'I AM A VIDEO'
+          video_url: 'I AM A VIDEO',
+          video_title: 'I AM A VIDEO'
         }),
         knex('videos').insert({
           project_id: 2,
-          video_url: 'MY NAME IS ANNA VIDEO'
+          video_url: 'MY NAME IS ANNA VIDEO',
+          video_title: 'I AM A VIDEO'
         })
       ]);
     })
