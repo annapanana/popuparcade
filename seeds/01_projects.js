@@ -24,6 +24,7 @@ exports.seed = function(knex, Promise) {
           type: 'web',
           role: 'Designer and Developer',
           date: 'November, 2016',
+          is_featured: true,
           live_link: 'http://greetingsfromtheinternet.surge.sh/',
           thumbnail: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/Vonk_Thumb.png'
         })

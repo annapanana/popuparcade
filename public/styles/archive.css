@@ -43,12 +43,27 @@
   background-color: rgba(255, 255, 255, 0.35) !important;
 }
 
+/*TODO Do I need this?*/
 .horizontal-collapse {
     height: 70px;
   }
-  .navbar-collapse.in {
-    overflow-y: hidden;
-  }
+.navbar-collapse.in {
+  overflow-y: hidden;
+}
+
+.navbar-toggle {
+  border-radius: 0;
+  border-color: #FFF !important;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.navbar-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.icon-bar {
+  background-color: #FFF !important;
+}
 
 /*Archive Cards*/
 .card-group {
