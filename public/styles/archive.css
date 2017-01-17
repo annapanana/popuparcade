@@ -2,6 +2,10 @@
   padding-bottom: 40px;
 }
 
+.row {
+  padding-bottom: 10px;
+}
+
 .navbar {
   /*background-image: url(https://s3-us-west-2.amazonaws.com/popuparcade.com/nav_tile.svg);*/
   /*background-repeat: repeat-x;*/
@@ -31,6 +35,7 @@
   z-index: 5;
   margin: 5px;
   /*height: 50px;*/
+  border-radius: 2px;
   border-style: solid;
   border-width: thin;
   border-color: #FFF;
@@ -136,15 +141,18 @@ p {
   /*margin-left: 15px;*/
   padding-right: 20px;
   padding-left: 20px;
-  border-radius: 5px;
-  border-style: none;
-  background-color: #FEDF00;
-  color: #474747;
+  border-radius: 2px;
+  border-style: solid;
+  border-width: thin;
+  border-color: #6DCCC3;
+  background-color: #FFF;
+  color: #6DCCC3;
 }
 
 .btn:hover {
-  background-color: #474747;
-  color: #FEDF00;
+  background-color: #6DCCC3;
+  color: #FFF;
+  border-color: #6DCCC3 !important;
 }
 
 /*Components*/
@@ -159,6 +167,7 @@ p {
   display: flex;
   flex-flow: row;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: flex-start;
 }
 
@@ -168,7 +177,7 @@ p {
     margin-right: 10px;
     margin-bottom: 10px;
     height: 40px;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 40px;
     border-radius: 25px;
     background-color: #f1f1f1;
@@ -210,7 +219,7 @@ p {
 /*Carousel Overwrite*/
 .carousel-image {
   height:500px;
-  width: auto;
+  width: 100%;
 }
 
 .carousel-control.right {
@@ -230,4 +239,19 @@ p {
 /*About Page*/
 .profile-image {
   width: 100%;
+}
+
+.banner-feature {
+  width: 100%;
+}
+
+/*EXPERMINENTAL SECTION*/
+.row-light {
+  background-color: #92DDD4;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.row-dark {
+  background-color: #51B7A8;
 }

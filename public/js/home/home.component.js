@@ -1,6 +1,5 @@
 'use strict';
 (function() {
-  console.log("home loaded");
 
   angular.module("app")
     .component("home", {

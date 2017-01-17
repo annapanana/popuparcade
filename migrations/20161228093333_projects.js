@@ -11,6 +11,7 @@ exports.up = function(knex, Promise) {
     table.text('live_link');
     table.boolean('is_featured').notNullable().defaultTo('false');
     table.text('thumbnail').notNullable().defaultTo('https://pbs.twimg.com/profile_images/562466745340817408/_nIu8KHX.jpeg');
+    table.text('banner_feature');
     table.timestamps(true, true);
   });
 };
