@@ -1,8 +1,8 @@
   <div class="filter-archive">
-    <button type="button" class="btn filter-button" ng-click="$ctrl.navToProject()"><h5>All</h5></button>
-    <button type="button" class="btn filter-button" ng-click="$ctrl.navToProject()"><h5>Web</h5></button>
-    <button type="button" class="btn filter-button" ng-click="$ctrl.navToProject()"><h5>Games</h5></button>
-    <button type="button" class="btn filter-button" ng-click="$ctrl.navToProject()"><h5>Sandbox</h5></button>
+    <button type="button" class="btn filter-button" ng-click="$ctrl.updateFilter('all')" ng-class="{'filter-button-active': $ctrl.activeFilter === 'all'}"><h5>All</h5></button>
+    <button type="button" class="btn filter-button" ng-click="$ctrl.updateFilter('web')" ng-class="{'filter-button-active': $ctrl.activeFilter === 'web'}"><h5>Web</h5></button>
+    <button type="button" class="btn filter-button" ng-click="$ctrl.updateFilter('game')" ng-class="{'filter-button-active': $ctrl.activeFilter === 'game'}"><h5>Games</h5></button>
+    <button type="button" class="btn filter-button" ng-click="$ctrl.updateFilter('sandbox')" ng-class="{'filter-button-active': $ctrl.activeFilter === 'sandbox'}"><h5>Sandbox</h5></button>
   </div>
 
 <div class="card-group">

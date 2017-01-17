@@ -88,11 +88,13 @@
 
 .card-img-top {
   max-width: 300px;
+  border-radius: 3px;
 }
 
 .card-img-bg {
   position:absolute;
   max-width: 300px;
+  border-radius: 3px;
 }
 
 .card-group {
@@ -255,7 +257,7 @@ p {
   margin: 5px;
 }
 
-.filter-button:active {
+.filter-button-active {
   background-color: #6DCCC3;
   color: #FFF;
   border-color: #6DCCC3 !important;
