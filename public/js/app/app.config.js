@@ -1,6 +1,5 @@
 'use strict';
 (function () {
-  console.log("config is loaded");
   angular
     .module("app")
     .config(config);
@@ -49,7 +48,5 @@
           projectId: "1"
         }
       });
-
-      console.log($stateProvider);
   }
 })();

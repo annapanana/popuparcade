@@ -26,7 +26,8 @@ exports.seed = function(knex, Promise) {
           date: 'November, 2016',
           is_featured: true,
           live_link: 'http://greetingsfromtheinternet.surge.sh/',
-          thumbnail: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/Vonk_Thumb.png'
+          thumbnail: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/Vonk_Thumb.png',
+          banner_feature: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/Banners/banner-features_01.jpg'
         })
       ]);
     })
