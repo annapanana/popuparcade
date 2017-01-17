@@ -55,74 +55,70 @@ exports.seed = function(knex, Promise) {
         }),
         knex('tags').insert({
           id: 13,
-          tag_name: 'freelance'
-        }),
-        knex('tags').insert({
-          id: 14,
           tag_name: 'disney'
         }),
         knex('tags').insert({
-          id: 15,
+          id: 14,
           tag_name: 'user research'
         }),
         knex('tags').insert({
-          id: 16,
+          id: 15,
           tag_name: 'unity3d'
         }),
         knex('tags').insert({
-          id: 17,
+          id: 16,
           tag_name: 'c#'
         }),
         knex('tags').insert({
-          id: 18,
+          id: 17,
           tag_name: 'prototyping'
         }),
         knex('tags').insert({
-          id: 19,
+          id: 18,
           tag_name: 'festival'
         }),
         knex('tags').insert({
-          id: 20,
+          id: 19,
           tag_name: 'sound design'
         }),
         knex('tags').insert({
-          id: 21,
+          id: 20,
           tag_name: 'narrative design'
         }),
         knex('tags').insert({
-          id: 22,
+          id: 21,
           tag_name: 'performance art'
         }),
         knex('tags').insert({
-          id: 23,
+          id: 22,
           tag_name: 'usc'
         }),
         knex('tags').insert({
-          id: 24,
+          id: 23,
           tag_name: 'serious game'
         }),
         knex('tags').insert({
-          id: 25,
+          id: 24,
           tag_name: 'maya'
         }),
         knex('tags').insert({
-          id: 26,
+          id: 25,
           tag_name: 'arduino'
         }),
         knex('tags').insert({
-          id: 27,
+          id: 26,
           tag_name: 'processing'
         }),
         knex('tags').insert({
-          id: 28,
+          id: 27,
           tag_name: 'java'
         }),
         knex('tags').insert({
-          id: 29,
+          id: 28,
           tag_name: 'kinect'
         }),
         knex('tags').insert({
-          id: 30,
+          id: 29,
           tag_name: 'dartmouth'
         })
       ]);

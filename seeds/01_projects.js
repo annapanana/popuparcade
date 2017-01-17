@@ -28,7 +28,7 @@ exports.seed = function(knex, Promise) {
           date: 'November, 2016',
           is_featured: true,
           live_link: 'http://greetingsfromtheinternet.surge.sh/',
-          thumbnail: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/Vonk_Thumb.png',
+          thumbnail: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/gfti_thumb.png',
           banner_feature: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/Banners/banner-features_04.png'
         }),
         knex('projects').insert({
@@ -40,7 +40,7 @@ exports.seed = function(knex, Promise) {
           role: 'Designer / Project Manager',
           date: 'October, 2016',
           live_link: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/TheGreenhouse.png',
-          thumbnail: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/Gloobs_Thumb.png'
+          thumbnail: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/TheGreenhouse.png'
         }),
         knex('projects').insert({
           id: 4,
@@ -252,6 +252,50 @@ exports.seed = function(knex, Promise) {
           date: 'Fall, 2011',
           live_link: 'http://reality.usc.edu/about/',
           thumbnail: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/SCARG_Thumb.png'
+        }),
+        knex('projects').insert({
+          id: 23,
+          name: 'The Playcube',
+          brief: 'What is the Playcube? …a flexible, impromptu, waterproof, mobile public venue to show off local ideas and innovations.',
+          description: 'What is the Playcube? …a flexible, impromptu, waterproof, mobile public venue to show off local ideas and innovations. Dartmouth’s PLAYCUBE is home for experimental new media work, unique performances, design charrettes, and demos by students, faculty, and visitors. \n Our unusual exhibition space is flexible, multi-purpose, portable, and used by those from multiple disciplines and schools across campus for myriad functions: guest lecturer events, design studios, student installations, video art, performance, and much more. \n The Playcube is located at Dartmouth College and hosted by Mary Flanagan’s game lab, Tiltfactor. Tiltfactor is dedicated to games for social change. As an undergraduate, I worked for Tiltfactor on game and video projects in addition to curating and managing the Playcube. Under my management, the Playcube hosted a silent disco, a collaborate digital arts event with the Dartmouth AREA student art space, and performative sculpture and many other events.',
+          type: 'sandbox',
+          role: 'Curator / Project Manager',
+          date: '2009 / 2010',
+          live_link: 'http://www.tiltfactor.org/playcube',
+          thumbnail: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/Playcube_Thumb.png'
+        }),
+        knex('projects').insert({
+          id: 24,
+          name: 'The Source',
+          brief: 'What is the Playcube? …a flexible, impromptu, waterproof, mobile public venue to show off local ideas and innovations.',
+          description: 'Dr. John Snow traced the source of cholera to water in the London Epidemic of 1849 by connecting the sick to common fountains. The Source recreates this case through gameplay. \n Players recreate Dr. John Snow’s process of epidemiological tracking by creating various water wells around the gameplay setting. Cards are dealt into stacks, which serve as wells. Each stack contains pure water, infected water, and electrolytes. Players must draw water from three wells each round but they must keep an eye on who draws from which well. At the end of a round, the players who are infected die and cannot contribute to discussion. Living players must use a process of elimination to determine which wells are infected. The goal of the game is to indentify the infected well in the fewest number of rounds. \n Get the game via Dartmouth’s Tiltfactor Lab.',
+          type: 'sandbox',
+          role: 'Designer',
+          date: 'February, 2010',
+          live_link: 'http://www.tiltfactor.org/game/the-source/',
+          thumbnail: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/TheSource_Thumb.png'
+        }),
+        knex('projects').insert({
+          id: 25,
+          name: 'Massively Multiplayer Mushu',
+          brief: 'Make NYC your playground! Grab some friends and traverse Hell’s Kitchen in a team-based urban game focused on culture, food and language.',
+          description: 'Make NYC your playground! Grab some friends and traverse Hell’s Kitchen in a team-based urban game focused on culture, food and language. A Tiltfactor game. \n Massively Multiplayer Mushu combines play with opportunities to descover new places in a city, creating unexpected encounters with residents, while challenging concepts of culture and language through storytelling and discovery. Higher points are rewarded for longer, more in depth exchanges. In 2009, I assisted Tiltfactor in running their Mushu urban game at the Come Out and Play Festival in Hell’s Kitchen, NYC. \n To get a better sense of gameplay check out the Massively Multiplayer Mushu or Massively Multiplayer Soba videos that I made below.',
+          type: 'sandbox',
+          role: 'Game Runner / Video Production',
+          date: 'February, 2010',
+          live_link: 'http://www.tiltfactor.org/game/massively-multiplayer-urban-games/',
+          thumbnail: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/Mushu_Thumb.png'
+        }),
+        knex('projects').insert({
+          id: 26,
+          name: 'Layoff',
+          brief: 'A game used to study empathy, with the financial crisis as a background context.',
+          description: 'A game used to study empathy, with the financial crisis as a background context. Layoff mods Bejeweled mechanics and includes personal stories about each character. A Tiltfactor game. \n Developed by members of the Tiltfactor Lab and the Rochester Institute of Technology (RIT) Game Design and Development program, LAYOFF is an examinaton of the 2009 financial crisis. In the game, players play from the side of management needing to cut jobs, and match types of workers in groups in order to lay the workers off and increase workforce efficiency. During gameplay, players that eliminate many workers in a row find financiers and bankers taking the place of the working class jobs. The financiers in this game cannot face layoffs. \n In addition to designing the gameplay tutorial, I researched and co-published a paper for the Digital Games Research Association (DiGRA) with Professor Mary Flanagan. The paper, Anxiety, Openness, and Activist Games: A Case Study for Critical Play, explores the boundaries of social issues or “activist” games with a case study on LAYOFF (2009), which fostered a critical type of play among the audience. In the paper, we assess the game’s public reception to better understand how contradictory play elements led to an anxiety of ambiguity during open play. Borrowing from the “poetics of open work,” we demonstrate how the most powerful play experiences in activist games result from a new relationship formed between the audience and the player through mechanics, subject position, representation, and content. \n To play the game, visitTiltfactor’s website. \n You can access the research publication, Anxiety, Openness, and Activist Games: A Case Study for Critical Play, on DiGRA’s website. DiGRA’s website.',
+          type: 'sandbox',
+          role: 'Tutorial / Post Production Research',
+          date: 'March, 2009',
+          live_link: 'http://www.tiltfactor.org/game/layoff/',
+          thumbnail: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/Layoff_Thumb.png'
         })
       ]);
     })
