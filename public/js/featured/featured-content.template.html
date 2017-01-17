@@ -1,19 +1,40 @@
-<div class="row">
+<!-- <div class="row"> -->
   <div ng-repeat="feature in $ctrl.featured">
-    <div class="col-md-5">
-      <h3>{{feature.name}}</h3>
-      <p>{{feature.description}}</p>
-      <div class="tag-component" >
-        <div ng-repeat="tag in feature.tags">
-          <span class="chip">{{tag}}</span>
+    <div class="row">
+      <div ng-if="feature.right">
+        <div class="col-xs-12 col-md-5">
+          <h3>{{feature.name}}</h3>
+          <p>{{feature.description}}</p>
+          <div class="tag-component" >
+            <div ng-repeat="tag in feature.tags">
+              <span class="chip">{{tag}}</span>
+            </div>
+          </div>
+          <div>
+            <button type="button" class="btn btn-primary featured-proj-button" ng-click="$ctrl.selectProject(feature.id)"><h4>View Project Page</h4></button>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-7">
+          <img class="banner-feature" ng-src="{{feature.banner_feature}}" alt="banner-feature">
         </div>
       </div>
-      <div>
-        <button type="button" class="btn btn-primary" ng-click="$ctrl.selectProject(feature.id)"><h4>View Live Project</h4></button>
+      <div ng-if="feature.left">
+        <div class="col-xs-12 col-md-7">
+          <img class="banner-feature" ng-src="{{feature.banner_feature}}" alt="banner-feature">
+        </div>
+        <div class="col-xs-12 col-md-5">
+          <h3>{{feature.name}}</h3>
+          <p>{{feature.description}}</p>
+          <div class="tag-component" >
+            <div ng-repeat="tag in feature.tags">
+              <span class="chip">{{tag}}</span>
+            </div>
+          </div>
+          <div>
+            <button type="button" class="btn btn-primary featured-proj-button" ng-click="$ctrl.selectProject(feature.id)"><h4>View Project Page</h4></button>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-md-7">
-      <img class="banner-feature" ng-src="{{feature.banner_feature}}" alt="banner-feature">
-    </div>
   </div>
-</div>
+<!-- </div> -->

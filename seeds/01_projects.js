@@ -21,7 +21,7 @@ exports.seed = function(knex, Promise) {
         knex('projects').insert({
           id: 2,
           name: 'GFTI',
-          brief: 'GFTI is a web-based postcard making tool.',
+          brief: 'GFTI is a web-based postcard making tool that uses teh Flickr API.',
           description: 'Greetings from the Internet (gfti) is a web-based postcard making tool that allows users to search for an image, modify a greetings graphic and include a custom message. The aesthetic of gfti is an homage to Teich greetings postcards. Gfti uses the Flickr API to supply users with images and the Lob API to send postcards.',
           type: 'web',
           role: 'Designer / Developer',
@@ -35,11 +35,11 @@ exports.seed = function(knex, Promise) {
           id: 3,
           name: 'The Greenhouse',
           brief: 'The Greenhouse is a board game about greenhouse gas and our atmosphere that I designed and produced in conjunction with the National Center of Atmospheric Research.',
-          description: 'I designed and produced a board game about greenhouse gas in conjunction with the National Center of Atmospheric Research. The game seeks to teach 3rd graders - 5th graders who visit the NCAR Mesa Lab about the influence that greenhouse gases have on our atmosphere. I worked directly with experts and researchers to ensure that the educational outcomes of the boardgame were accurate and accessible for the target audience. I playtested the board game with local students in a classroom setting to ensure the game would fit the needs of the instructors at the Mesa Lab. The game underwent multiple revisions to simplify its mechanics due to the constraints of the play-setting.',
+          description: 'I designed and produced a board game about greenhouse gas in conjunction with the National Center of Atmospheric Research. The game seeks to teach 3rd graders - 5th graders who visit the NCAR Mesa Lab about the influence that greenhouse gases have on our atmosphere. I worked directly with experts and researchers to ensure that the educational outcomes of the boardgame were accurate and accessible for the target audience. I playtested the board game with local students in a classroom setting to ensure the game would fit the needs of the instructors at the Mesa Lab.',
           type: 'game',
           role: 'Designer / Project Manager',
           date: 'October, 2016',
-          live_link: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/TheGreenhouse.png',
+          live_link: '',
           thumbnail: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/TheGreenhouse.png'
         }),
         knex('projects').insert({
@@ -57,7 +57,7 @@ exports.seed = function(knex, Promise) {
           id: 5,
           name: 'The Lionguard',
           brief: 'ROAR! Inspired by the all-new Disney Junior series, join Kion and the Lion Guard on an action packed adventure to protect the Pride Lands!',
-          description: 'ROAR! Inspired by the all-new Disney Junior series, join Kion and the Lion Guard on an action packed adventure to protect the Pride Lands! • Race Kion through 5 challenging and beautiful locations: the Grasslands, Big Springs, the Canyons, Hakuna Matata Falls, and the Outlands. • Call on individual guard members, each with different strengths, to help Kion overcome hazardous obstacles. • Collect tokens, unleash Kion’s powerful “Roar of the Elders”, and complete lifesaving missions before the sun sets!',
+          description: 'ROAR! Inspired by the all-new Disney Junior series, join Kion and the Lion Guard on an action packed adventure to protect the Pride Lands! \n• Race Kion through 5 challenging and beautiful locations: the Grasslands, Big Springs, the Canyons, Hakuna Matata Falls, and the Outlands. \n• Call on individual guard members, each with different strengths, to help Kion overcome hazardous obstacles. \n• Collect tokens, unleash Kion’s powerful “Roar of the Elders”, and complete lifesaving missions before the sun sets!',
           type: 'game',
           role: 'User Research / Design Consulting',
           date: 'February, 2016',
