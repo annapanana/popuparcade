@@ -51,6 +51,13 @@
       </div>
     </div>
     <div class="row">
+      <div class="col l6">
+        <h6>Thumb URL</h6>
+        <input class="text-input" type="text" name="thumb_url" value="">
+        <label for="thumb_url">Thumb URL</label>
+      </div>
+    </div>
+    <div class="row">
       <div class="col l6" id="image_container">
         <h6>Images</h6>
         <input class="text-input" type="text" name="image_url" value="">
@@ -61,8 +68,12 @@
     <div class="row">
       <div class="col l6" id="video_container">
         <h6>Videos</h6>
-        <input class="text-input" type="text" name="video_url" value="">
-        <label for="video_url">Video URL</label>
+        <div class="video-content">
+          <input class="text-input" type="text" name="video_url" value="">
+          <label for="video_url">Video URL</label>
+          <input class="text-input" type="text" name="video_title" value="">
+          <label for="video_title">Video Title</label>
+        </div>
       </div>
       <a class="btn-floating btn-large waves-effect waves-light blue-grey lighten-4" id="add_video"><i class="material-icons">add</i></a>
     </div>

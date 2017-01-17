@@ -76,9 +76,12 @@ function addEntry() {
   });
 
   $("#add_video").click(function() {
-    let newVideoInput = `<input class="text-input" type="text" name="video_url" value="">
+    let newVideoUrlInput = `<input class="text-input" type="text" name="video_url" value="">
     <label for="video_url">Video URL</label>`;
-    $("#video_container").append(newVideoInput);
+    let newVideoNameInput = `<input class="text-input" type="text" name="video_title" value="">
+    <label for="video_title">Video Title</label>`;
+    $("#video_container").append(newVideoUrlInput);
+    $("#video_container").append(newVideoNameInput);
   });
 
   $("#create_entry").click(function() {
@@ -87,8 +90,11 @@ function addEntry() {
     for (let i = 0; i < imageInputs.length; i++) {
       imageVals+=$(imageInputs[i]).val() +',';
     }
-    let videoVals = '';
-    let videoInputs = $("input[name='video_url']");
+    //TODO Fix to be key pair value with video name and video URL
+    let videoVals = {};
+    let videoInputs = $(".video-content");
+    console.log(videoInputs);
+    // let videoInputs = $("input[name='video_url']");
     for (let i = 0; i < videoInputs.length; i++) {
       videoVals+=$(videoInputs[i]).val()+',';
     }

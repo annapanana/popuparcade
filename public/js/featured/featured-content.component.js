@@ -11,6 +11,7 @@
 
     function controller($http, $state, $stateParams) {
       const vm = this;
+      const vm.featured = [];
 
       vm.$onInit = function() {
         $http.get("/archive").then(function(response) {
@@ -21,6 +22,8 @@
           }
         });
       };
+
+      vm.navToProject()
     }
 
 
