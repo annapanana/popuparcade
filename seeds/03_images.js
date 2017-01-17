@@ -389,82 +389,446 @@ exports.seed = function(knex, Promise) {
         // Gloobal Doomination
         knex('images').insert({
           project_id: 11,
-          image_url: ''
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GloobalDoomination_IMG/Gloob1.png'
+        }),
+        knex('images').insert({
+          project_id: 11,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GloobalDoomination_IMG/Gloob2.png'
+        }),
+        knex('images').insert({
+          project_id: 11,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GloobalDoomination_IMG/Gloob3.png'
+        }),
+        knex('images').insert({
+          project_id: 11,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GloobalDoomination_IMG/Gloob4.png'
+        }),
+        knex('images').insert({
+          project_id: 11,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GloobalDoomination_IMG/Gloob5.png'
+        }),
+        knex('images').insert({
+          project_id: 11,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GloobalDoomination_IMG/Gloob6.png'
+        }),
+        knex('images').insert({
+          project_id: 11,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GloobalDoomination_IMG/Gloob7.png'
         }),
         // Stone Soup
         knex('images').insert({
           project_id: 12,
-          image_url: ''
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/IMG_2248.JPG'
+        }),
+        knex('images').insert({
+          project_id: 12,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/IMG_2291.JPG'
+        }),
+        knex('images').insert({
+          project_id: 12,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/IMG_2303.JPG'
+        }),
+        knex('images').insert({
+          project_id: 12,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/IMG_2318.JPG'
+        }),
+        knex('images').insert({
+          project_id: 12,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/UnityScreenSnapz025.png'
+        }),
+        knex('images').insert({
+          project_id: 12,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/UnityScreenSnapz026.png'
+        }),
+        knex('images').insert({
+          project_id: 12,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/UnityScreenSnapz029.png'
         }),
         // Eat a Game
         knex('images').insert({
           project_id: 13,
-          image_url: ''
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/EatAGame_IMG/IMG_5915_Reduced.png'
+        }),
+        knex('images').insert({
+          project_id: 13,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/EatAGame_IMG/IMG_5916_Reduced.png'
+        }),
+        knex('images').insert({
+          project_id: 13,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/EatAGame_IMG/IMG_5917_Reduced.png'
+        }),
+        knex('images').insert({
+          project_id: 13,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/EatAGame_IMG/IMG_5918_Reduced.png'
+        }),
+        knex('images').insert({
+          project_id: 13,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/EatAGame_IMG/IMG_5919_Reduced.png'
+        }),
+        knex('images').insert({
+          project_id: 13,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/EatAGame_IMG/IMG_5920_Reduced.png'
+        }),
+        knex('images').insert({
+          project_id: 13,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/EatAGame_IMG/IMG_5921_Reduced.png'
+        }),
+        knex('images').insert({
+          project_id: 13,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/EatAGame_IMG/IMG_5922_Reduced.png'
+        }),
+        knex('images').insert({
+          project_id: 13,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/EatAGame_IMG/IMG_5923_Reduced.png'
+        }),
+        knex('images').insert({
+          project_id: 13,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/EatAGame_IMG/IMG_5924_Reduced.png'
+        }),
+        knex('images').insert({
+          project_id: 13,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/EatAGame_IMG/IMG_5925_Reduced.png'
+        }),
+        knex('images').insert({
+          project_id: 13,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/EatAGame_IMG/IMG_5926_Reduced.png'
+        }),
+        knex('images').insert({
+          project_id: 13,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/EatAGame_IMG/IMG_5927_Reduced.png'
+        }),
+        knex('images').insert({
+          project_id: 13,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/EatAGame_IMG/IMG_5928_Reduced.png'
+        }),
+        knex('images').insert({
+          project_id: 13,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/EatAGame_IMG/IMG_9597_Reduced.png'
+        }),
+        knex('images').insert({
+          project_id: 13,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/EatAGame_IMG/IMG_9598_Reduced.jpg'
+        }),
+        knex('images').insert({
+          project_id: 13,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/EatAGame_IMG/IMG_9620_Reduced.png'
+        }),
+        knex('images').insert({
+          project_id: 13,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/EatAGame_IMG/IMG_9621_Reduced.png'
+        }),
+        knex('images').insert({
+          project_id: 13,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/EatAGame_IMG/IMG_9638_Reduced.png'
         }),
         // Graduate Strike Force
         knex('images').insert({
           project_id: 14,
-          image_url: ''
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GSF_IMG/Screen+Shot+2015-10-27+at+7.26.27+PM.png'
+        }),
+        knex('images').insert({
+          project_id: 14,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GSF_IMG/Screen+Shot+2015-10-27+at+7.27.21+PM.png'
+        }),
+        knex('images').insert({
+          project_id: 14,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GSF_IMG/Screen+Shot+2015-10-27+at+7.27.36+PM.png'
+        }),
+        knex('images').insert({
+          project_id: 14,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GSF_IMG/Screen+Shot+2015-10-27+at+7.28.30+PM.png'
+        }),
+        knex('images').insert({
+          project_id: 14,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GSF_IMG/Screen+Shot+2015-10-27+at+7.33.11+PM.png'
+        }),
+        knex('images').insert({
+          project_id: 14,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GSF_IMG/Screen+Shot+2015-10-27+at+7.33.49+PM.png'
         }),
         // Apathy Simulation
         knex('images').insert({
           project_id: 15,
-          image_url: ''
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Apathy_IMG/WildWestScreenSnapz002.png'
+        }),
+        knex('images').insert({
+          project_id: 15,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Apathy_IMG/WildWestScreenSnapz003.png'
+        }),
+        knex('images').insert({
+          project_id: 15,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Apathy_IMG/WildWestScreenSnapz004.png'
         }),
         // Futurebound
         knex('images').insert({
           project_id: 16,
-          image_url: ''
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Futurebound_IMG/Portfolio_IMG_Collegeology_01.png'
+        }),
+        knex('images').insert({
+          project_id: 16,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Futurebound_IMG/Portfolio_IMG_Collegeology_02.png'
+        }),
+        knex('images').insert({
+          project_id: 16,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Futurebound_IMG/Portfolio_IMG_Collegeology_03.png'
+        }),
+        knex('images').insert({
+          project_id: 16,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Futurebound_IMG/Portfolio_IMG_Collegeology_04.png'
+        }),
+        knex('images').insert({
+          project_id: 16,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Futurebound_IMG/Portfolio_IMG_Collegeology_05.png'
+        }),
+        knex('images').insert({
+          project_id: 16,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Futurebound_IMG/Portfolio_IMG_Collegeology_06.png'
+        }),
+        knex('images').insert({
+          project_id: 16,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Futurebound_IMG/Portfolio_IMG_Collegeology_07.png'
+        }),
+        knex('images').insert({
+          project_id: 16,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Futurebound_IMG/Portfolio_IMG_Collegeology_08.png'
+        }),
+        knex('images').insert({
+          project_id: 16,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Futurebound_IMG/Portfolio_IMG_Collegeology_09.png'
+        }),
+        knex('images').insert({
+          project_id: 16,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Futurebound_IMG/Portfolio_IMG_Collegeology_10.png'
+        }),
+        knex('images').insert({
+          project_id: 16,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Futurebound_IMG/Portfolio_IMG_Collegeology_11.png'
         }),
         // Hedelby
         knex('images').insert({
           project_id: 17,
-          image_url: ''
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Hedelby_IMG/Portfolio_IMG_Hedelby_01.png'
+        }),
+        knex('images').insert({
+          project_id: 17,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Hedelby_IMG/Portfolio_IMG_Hedelby_02.png'
+        }),
+        knex('images').insert({
+          project_id: 17,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Hedelby_IMG/Portfolio_IMG_Hedelby_03.png'
+        }),
+        knex('images').insert({
+          project_id: 17,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Hedelby_IMG/Portfolio_IMG_Hedelby_04.png'
         }),
         // Playcenta
         knex('images').insert({
           project_id: 18,
-          image_url: ''
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Playcenta_IMG/Portfolio_IMG_Playcenta_01.png'
+        }),
+        knex('images').insert({
+          project_id: 18,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Playcenta_IMG/Portfolio_IMG_Playcenta_02.png'
+        }),
+        knex('images').insert({
+          project_id: 18,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Playcenta_IMG/Portfolio_IMG_Playcenta_03.png'
+        }),
+        knex('images').insert({
+          project_id: 18,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Playcenta_IMG/Portfolio_IMG_Playcenta_04.png'
+        }),
+        knex('images').insert({
+          project_id: 18,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Playcenta_IMG/Portfolio_IMG_Playcenta_05.png'
+        }),
+        knex('images').insert({
+          project_id: 18,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Playcenta_IMG/Portfolio_IMG_Playcenta_06.png'
         }),
         // Tormented Soles
         knex('images').insert({
           project_id: 19,
-          image_url: ''
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/TormentedSoles_IMG/Portfolio_IMG_TS_01.png'
+        }),
+        knex('images').insert({
+          project_id: 19,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/TormentedSoles_IMG/Portfolio_IMG_TS_02.png'
+        }),
+        knex('images').insert({
+          project_id: 19,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/TormentedSoles_IMG/Portfolio_IMG_TS_03.png'
+        }),
+        knex('images').insert({
+          project_id: 19,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/TormentedSoles_IMG/Portfolio_IMG_TS_04.png'
         }),
         // Fishtank
         knex('images').insert({
           project_id: 20,
-          image_url: ''
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Fishtank_IMG/Portfolio_IMG_FT_01.png'
+        }),
+        knex('images').insert({
+          project_id: 20,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Fishtank_IMG/Portfolio_IMG_FT_02.png'
+        }),
+        knex('images').insert({
+          project_id: 20,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Fishtank_IMG/Portfolio_IMG_FT_03.png'
+        }),
+        knex('images').insert({
+          project_id: 20,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Fishtank_IMG/Portfolio_IMG_FT_04.png'
         }),
         // Nightmare Dollhouse
         knex('images').insert({
           project_id: 21,
-          image_url: ''
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/NightmareDollhouse_IMG/Portfolio_IMG_PTN_01.png'
+        }),
+        knex('images').insert({
+          project_id: 21,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/NightmareDollhouse_IMG/Portfolio_IMG_PTN_02.png'
+        }),
+        knex('images').insert({
+          project_id: 21,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/NightmareDollhouse_IMG/Portfolio_IMG_PTN_03.png'
+        }),
+        knex('images').insert({
+          project_id: 21,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/NightmareDollhouse_IMG/Portfolio_IMG_PTN_04.png'
+        }),
+        knex('images').insert({
+          project_id: 21,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/NightmareDollhouse_IMG/Portfolio_IMG_PTN_05.png'
+        }),
+        knex('images').insert({
+          project_id: 21,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/NightmareDollhouse_IMG/Portfolio_IMG_PTN_06.png'
+        }),
+        knex('images').insert({
+          project_id: 21,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/NightmareDollhouse_IMG/Portfolio_IMG_PTN_07.png'
+        }),
+        knex('images').insert({
+          project_id: 21,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/NightmareDollhouse_IMG/Portfolio_IMG_PTN_08.png'
+        }),
+        knex('images').insert({
+          project_id: 21,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/NightmareDollhouse_IMG/Portfolio_IMG_PTN_09.png'
         }),
         // Reality Ends Here
         knex('images').insert({
           project_id: 22,
-          image_url: ''
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/RealityEndsHere_IMG/Portfolio_IMG_SCARG_01.png'
+        }),
+        knex('images').insert({
+          project_id: 22,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/RealityEndsHere_IMG/Portfolio_IMG_SCARG_02.png'
+        }),
+        knex('images').insert({
+          project_id: 22,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/RealityEndsHere_IMG/Portfolio_IMG_SCARG_03.png'
+        }),
+        knex('images').insert({
+          project_id: 22,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/RealityEndsHere_IMG/Portfolio_IMG_SCARG_04.png'
+        }),
+        knex('images').insert({
+          project_id: 22,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/RealityEndsHere_IMG/Portfolio_IMG_SCARG_05.png'
+        }),
+        knex('images').insert({
+          project_id: 22,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/RealityEndsHere_IMG/Portfolio_IMG_SCARG_06.png'
+        }),
+        knex('images').insert({
+          project_id: 22,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/RealityEndsHere_IMG/Portfolio_IMG_SCARG_07.png'
+        }),
+        knex('images').insert({
+          project_id: 22,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/RealityEndsHere_IMG/Portfolio_IMG_SCARG_08.png'
         }),
         // The Playcube
         knex('images').insert({
           project_id: 23,
-          image_url: ''
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Playcube_IMG/Portfolio_IMG_PC_01.png'
+        }),
+        knex('images').insert({
+          project_id: 23,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Playcube_IMG/Portfolio_IMG_PC_02.png'
+        }),
+        knex('images').insert({
+          project_id: 23,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Playcube_IMG/Portfolio_IMG_PC_03.png'
+        }),
+        knex('images').insert({
+          project_id: 23,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Playcube_IMG/Portfolio_IMG_PC_04.png'
+        }),
+        knex('images').insert({
+          project_id: 23,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Playcube_IMG/Portfolio_IMG_PC_05.png'
+        }),
+        knex('images').insert({
+          project_id: 23,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Playcube_IMG/Portfolio_IMG_PC_06.png'
         }),
         // The Source
         knex('images').insert({
           project_id: 24,
-          image_url: ''
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/TheSource_IMG/the_source_action_shot1.jpg'
+        }),
+        knex('images').insert({
+          project_id: 24,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/TheSource_IMG/thumb-009.png'
         }),
         // MM Mushu
         knex('images').insert({
           project_id: 25,
-          image_url: ''
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/MMMushu_IMG/Portfolio_IMG_Mushu_01.png'
+        }),
+        knex('images').insert({
+          project_id: 25,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/MMMushu_IMG/Portfolio_IMG_Mushu_02.png'
+        }),
+        knex('images').insert({
+          project_id: 25,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/MMMushu_IMG/Portfolio_IMG_Mushu_03.png'
+        }),
+        knex('images').insert({
+          project_id: 25,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/MMMushu_IMG/Portfolio_IMG_Mushu_04.png'
+        }),
+        knex('images').insert({
+          project_id: 25,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/MMMushu_IMG/Portfolio_IMG_Mushu_05.png'
+        }),
+        knex('images').insert({
+          project_id: 25,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/MMMushu_IMG/Portfolio_IMG_Mushu_06.png'
         }),
         // Layoff
         knex('images').insert({
           project_id: 26,
-          image_url: ''
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Layoff_IMG/Portfolio_IMG_Layoff_01.png'
+        }),
+        knex('images').insert({
+          project_id: 26,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Layoff_IMG/Portfolio_IMG_Layoff_02.png'
+        }),
+        knex('images').insert({
+          project_id: 26,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Layoff_IMG/Portfolio_IMG_Layoff_03.png'
+        }),
+        knex('images').insert({
+          project_id: 26,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Layoff_IMG/Portfolio_IMG_Layoff_04.png'
+        }),
+        knex('images').insert({
+          project_id: 26,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Layoff_IMG/Portfolio_IMG_Layoff_05.png'
         }),
       ]);
     })
