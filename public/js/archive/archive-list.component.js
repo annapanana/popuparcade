@@ -13,7 +13,7 @@
       const vm = this;
       vm.activeFilter = "all";
       var archiveData = [];
-      
+
       vm.updateFilter = function(newFilter) {
         vm.activeFilter = newFilter;
         // Clear archive and only display projects for this filter
@@ -34,7 +34,7 @@
       };
 
       vm.$onInit = function() {
-        $http.get('/archive').then(function (response) {
+        $http.get('/app/archive').then(function (response) {
           archiveData = response.data;
           vm.archive = response.data;
           console.log(vm.archive);

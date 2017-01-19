@@ -16,7 +16,7 @@
 
       vm.$onInit = function() {
         let rightAligned = true;
-        $http.get("/archive").then(function(response) {
+        $http.get("/app/archive").then(function(response) {
           for (var i = 0; i < response.data.length; i++) {
             if (response.data[i].is_featured) {
               // Decide if project is right or left oriented

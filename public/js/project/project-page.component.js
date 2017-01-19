@@ -20,7 +20,7 @@
 
       vm.$onInit = function() {
 
-        vm.project = $http.get('archive/'+$stateParams.projectId)
+        vm.project = $http.get('/app/archive/'+$stateParams.projectId)
           .then(function(result){
             console.log(result.data);
             vm.project = result.data;
