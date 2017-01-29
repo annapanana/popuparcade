@@ -7,19 +7,10 @@
 }
 
 .navbar {
-  /*background-image: url(https://s3-us-west-2.amazonaws.com/popuparcade.com/nav_tile.svg);*/
-  /*background-repeat: repeat-x;*/
   background-color: #6DCCC3;
 }
 
-.navbar-nav {
-  /*Can't edit or mobile version wont work*/
-  /*position: absolute;
-  right: 0;*/
-}
-
 .navbar-brand {
-  /*background-color: rgba(64, 101, 191, 0.85);*/
   height: 55px;
   color: #FFF !important;
   letter-spacing: 2px;
@@ -30,11 +21,9 @@
 }
 
 .nav-button {
-  /*background-color: rgba(64, 101, 191, 0.6);*/
   color: #FFF !important;
   z-index: 5;
   margin: 5px;
-  /*height: 50px;*/
   border-radius: 2px;
   border-style: solid;
   border-width: thin;
@@ -99,11 +88,13 @@
 
 .card-img-top {
   max-width: 300px;
+  border-radius: 3px;
 }
 
 .card-img-bg {
   position:absolute;
   max-width: 300px;
+  border-radius: 3px;
 }
 
 .card-group {
@@ -201,24 +192,25 @@ p {
   display: flex;
   flex-flow: row;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: flex-start;
 }
 
 .external-link {
   padding: 15px;
-  padding-bottom: 0px;
   background-color: #f1f1f1;
-  margin-right: 20px;
+  margin: 10px;
+  width: 220px;
   /*border-style: solid;*/
   border-radius: 3px;
   display: flex;
-  flex-flow: column;
-  justify-content: space-around;
+  flex-flow: row;
+  justify-content: flex-start;
 }
 
 /*Carousel Overwrite*/
 .carousel-image {
-  height:500px;
+  /*height:500px;*/
   width: 100%;
 }
 
@@ -245,13 +237,42 @@ p {
   width: 100%;
 }
 
-/*EXPERMINENTAL SECTION*/
-.row-light {
-  background-color: #92DDD4;
-  padding-top: 20px;
-  padding-bottom: 20px;
+/*TESTING*/
+
+.featured-proj-button {
+  margin-top: 15px;
 }
 
-.row-dark {
-  background-color: #51B7A8;
+.filter-archive {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  border-radius: 3px;
+}
+
+.filter-button {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 5px;
+}
+
+.filter-button-active {
+  background-color: #6DCCC3;
+  color: #FFF;
+  border-color: #6DCCC3 !important;
+}
+
+.icon-flex {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.icon-viewbox {
+  width: 50px;
+  height: 50px;
+  margin: 20px;
+  margin-bottom: 10px;
 }

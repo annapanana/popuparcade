@@ -120,6 +120,18 @@ exports.seed = function(knex, Promise) {
         knex('tags').insert({
           id: 29,
           tag_name: 'dartmouth'
+        }),
+        knex('tags').insert({
+          id: 30,
+          tag_name: 'angularJS'
+        }),
+        knex('tags').insert({
+          id: 31,
+          tag_name: 'mysql'
+        }),
+        knex('tags').insert({
+          id: 32,
+          tag_name: 'data viz'
         })
       ]);
     })

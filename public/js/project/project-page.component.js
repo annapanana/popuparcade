@@ -14,13 +14,13 @@
 
       // Params for the carousel
       vm.slides = [];
-      vm.myInterval = 3000;
+      vm.myInterval = 5000;
       vm.noWrapSlides = false;
       vm.active = 0;
 
       vm.$onInit = function() {
 
-        vm.project = $http.get('archive/'+$stateParams.projectId)
+        vm.project = $http.get('/app/archive/'+$stateParams.projectId)
           .then(function(result){
             console.log(result.data);
             vm.project = result.data;
@@ -43,7 +43,8 @@
 
      // Open project page in a new tab
      vm.navToProject = function() {
-       var win = window.open(vm.project.live_url, '_blank');
+       console.log(vm.project.live_link);
+       var win = window.open(vm.project.live_link, '_blank');
        win.focus();
      };
    }
