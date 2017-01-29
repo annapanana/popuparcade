@@ -27,18 +27,23 @@
         text: 'The Greenhouse'
       },
       {
-        image: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/Banners/banner-features_04.png',
+        image: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/Banners/gathered_gardens_feature_1.png',
         id: 1,
+        text: 'Gathered Gardens'
+      },
+      {
+        image: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/Banners/banner-features_04.png',
+        id: 2,
         text: 'Greetings From the Internet'
       },
       {
         image: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/Banners/banner-features_03.jpg',
-        id: 2,
+        id: 3,
         text: 'Stone Soup'
       },
       {
         image: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/Banners/banner-features_01.jpg',
-        id: 3,
+        id: 4,
         text: 'Fridge Face'
      }];
      };
