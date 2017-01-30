@@ -69,9 +69,8 @@
 
 .card {
   max-width: 300px;
-  /*background-color: rgb(178, 201, 218);*/
   border-radius: 0;
-  margin: 20px;
+  margin: 10px;
   border-width: 0;
 }
 
@@ -140,11 +139,13 @@ p {
   color: #6DCCC3;
 }
 
+.btn:active,
 .btn:hover {
   background-color: #6DCCC3;
   color: #FFF;
   border-color: #6DCCC3 !important;
 }
+
 
 /*Components*/
 .video-component {

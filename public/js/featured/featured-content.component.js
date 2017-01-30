@@ -38,8 +38,9 @@
         console.log("NAV TO PROJECT");
       };
 
-      vm.selectProject = function(projId) {
-        console.log(projId);
+      vm.selectProject = function(projectId) {
+        // Set state param
+        $state.go('projectpage', { projectId: projectId});
       };
     }
 })();
