@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 const knex = require('../knex');
 
-router.get('/archive', (req, res, next) => {
+router.get('/app/archive', (req, res, next) => {
 
   knex('projects')
     .orderBy('id')
@@ -100,7 +100,7 @@ router.get('/archive', (req, res, next) => {
     });
 });
 
-router.get('/archive/:id', (req, res, next) => {
+router.get('/app/archive/:id', (req, res, next) => {
   const id = req.params.id;
   knex('projects')
     .where('id', id)
@@ -198,7 +198,7 @@ router.get('/archive/:id', (req, res, next) => {
     });
 });
 
-router.get('/tags', (req, res, next) => {
+router.get('/app/tags', (req, res, next) => {
   knex('tags')
     .then((result) => {
       res.send(result);
@@ -208,7 +208,7 @@ router.get('/tags', (req, res, next) => {
     });
 });
 
-router.post('/archive', (req, res, next) => {
+router.post('/app/archive', (req, res, next) => {
   let newEntry = req.body;
   let newImagesEntry = [];
   // images must be passed as a string of urls sepatated by commas
@@ -306,7 +306,7 @@ router.post('/archive', (req, res, next) => {
     });
 });
 
-router.patch('/images/:id', (req, res, next) => {
+router.patch('/app/images/:id', (req, res, next) => {
   const id = req.params.id;
   const images = req.body.images;
   let imageSet = images.split(',');
@@ -343,7 +343,7 @@ router.patch('/images/:id', (req, res, next) => {
     });
 });
 
-router.patch('/project-tags/:id', (req, res, next) => {
+router.patch('/app/project-tags/:id', (req, res, next) => {
   const id = req.params.id;
   const tags = req.body.tags;
   let tagSet = req.body.tags.split(',');
@@ -386,7 +386,7 @@ router.patch('/project-tags/:id', (req, res, next) => {
     });
 });
 
-router.patch('/archive/:id', (req, res, next) => {
+router.patch('/app/archive/:id', (req, res, next) => {
   const id = req.params.id;
   const {name, brief, description, type, role, page_url, live_link, date} = req.body;
   const updatedEntry = {name, brief, description, type, role, page_url, live_link, date};
@@ -405,7 +405,7 @@ router.patch('/archive/:id', (req, res, next) => {
     });
 });
 
-router.delete('/archive/:id', (req, res, next) => {
+router.delete('/app/archive/:id', (req, res, next) => {
   const id = req.params.id;
   knex('projects')
     .where('id', id)

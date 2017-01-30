@@ -15,14 +15,23 @@
       vm.tagGroup = [];
 
       vm.$onInit = function() {
-        $http.get("/archive").then(function(response) {
+        let rightAligned = true;
+        $http.get("/app/archive").then(function(response) {
           for (var i = 0; i < response.data.length; i++) {
             if (response.data[i].is_featured) {
+              // Decide if project is right or left oriented
+              if (rightAligned) {
+                response.data[i].right = "right";
+                rightAligned = false;
+              } else {
+                response.data[i].left = "left";
+                rightAligned = true;
+              }
               vm.featured.push(response.data[i]);
-              console.log(response.data[i].tags);
             }
           }
         });
+        console.log(vm.featured);
       };
 
       vm.navToProject = function() {
