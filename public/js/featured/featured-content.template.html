@@ -1,19 +1,21 @@
-<div class="row">
-  <div ng-repeat="feature in $ctrl.featured">
-    <div class="col-md-5">
+<div class="featured-container" ng-repeat="feature in $ctrl.featured | orderBy:'-id'">
+  <div class="row">
+    <div class="col-md-6">
       <h3>{{feature.name}}</h3>
       <p>{{feature.description}}</p>
-      <div class="tag-component" >
-        <div ng-repeat="tag in feature.tags">
-          <span class="chip">{{tag}}</span>
-        </div>
-      </div>
-      <div>
-        <button type="button" class="btn btn-primary" ng-click="$ctrl.selectProject(feature.id)"><h4>View Live Project</h4></button>
+    </div>
+    <div class="col-md-6">
+      <img class="banner-feature" ng-src="{{feature.banner_feature}}" alt="banner-feature">
+    </div>
+  </div>
+  <div class="row">
+    <div class="tag-component" style="justify-content:center">
+      <div ng-repeat="tag in feature.tags">
+        <span class="chip">{{tag}}</span>
       </div>
     </div>
-    <div class="col-md-7">
-      <img class="banner-feature" ng-src="{{feature.banner_feature}}" alt="banner-feature">
+    <div class="text-center">
+      <button type="button" class="btn btn-primary" ng-click="$ctrl.selectProject(feature.id)"><h4>View Live Project</h4></button>
     </div>
   </div>
 </div>

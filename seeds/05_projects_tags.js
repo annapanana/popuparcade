@@ -234,14 +234,6 @@ exports.seed = function(knex, Promise) {
         }),
         knex('projects_tags').insert({
           project_id: 12,
-          tag_id: 19 // Sound Design
-        }),
-        knex('projects_tags').insert({
-          project_id: 12,
-          tag_id: 18 // Festival
-        }),
-        knex('projects_tags').insert({
-          project_id: 12,
           tag_id: 20 // Narrative Design
         }),
         knex('projects_tags').insert({

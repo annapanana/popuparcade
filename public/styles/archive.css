@@ -196,6 +196,11 @@ p {
   width: 94%;
 }
 
+.featured-container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 .external-link-container {
   /*width: 100%;*/
   display: flex;
@@ -243,6 +248,8 @@ p {
 
 .banner-feature {
   width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 /*EXPERMINENTAL SECTION*/
