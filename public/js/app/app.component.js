@@ -15,6 +15,14 @@
       // vm.isCollapsedHorizontal = false;
 
       vm.$onInit = function() {
+        // angular.element(document).find("nav").attr("style", "background-color:'black'");
+
+
+        var mq = window.matchMedia( "(min-width: 500px)" );
+        mq.onchange = function() {
+          console.log(mq.matches);
+
+        };
       };
     }
 })();

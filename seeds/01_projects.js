@@ -8,7 +8,7 @@ exports.seed = function(knex, Promise) {
         knex('projects').insert({
           id: 27,
           name: 'Gathered Gardens',
-          brief: 'Gathered Gardens is a data visualization and community development site for members of the Growing Gardens organization in Boulder, CO.',
+          brief: 'Gathered Gardens is a data visualization and community development site for members of the Growing Gardens organization in Boulder.',
           description: 'Gathered Gardens makes putting down roots easier than ever before! Gardeners can visualize the fruits of their labor with interactive graphics, connect to their fellow members through intuitive communication features, and cultivate kinship between gardens throughout the Growing Gardens organization. This project was an exploration in data visualiziation, making use of the Javascrip D3 library and dynamic manipulation of SVG maps. I created the maps in Illustrator then manipulated them with AngularJS to reflect produce that was logged in a database. Users can select a community garden and click on various plots to see what is grown. To view the site functionality, click the project link below.',
           type: 'web',
           role: 'Designer / Developer',
