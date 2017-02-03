@@ -13,7 +13,7 @@ exports.seed = function(knex, Promise) {
           type: 'web',
           role: 'Designer / Developer',
           date: 'January, 2017',
-          live_link: 'http://growing-gardens.herokuapp.com/',
+          live_link: 'https://gathered-gardens.herokuapp.com',
           thumbnail: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/gg_thumb.png',
           is_featured: true,
           banner_feature: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/Banners/gathered_gardens_feature_1.png'
