@@ -13,6 +13,16 @@
       const vm = this;
       vm.activeFilter = "all";
       var archiveData = [];
+      vm.photosLoaded = false;
+
+      vm.$onInit = function() {
+        $http.get('/app/archive').then(function (response) {
+          archiveData = response.data;
+          vm.archive = response.data;
+          console.log(vm.archive);
+          vm.photosLoaded = true;
+        });
+      };
 
       vm.updateFilter = function(newFilter) {
         vm.activeFilter = newFilter;
@@ -31,14 +41,6 @@
 
       vm.selectProject = function (projectId) {
         $state.go("projectpage", { projectId: projectId});
-      };
-
-      vm.$onInit = function() {
-        $http.get('/app/archive').then(function (response) {
-          archiveData = response.data;
-          vm.archive = response.data;
-          console.log(vm.archive);
-        });
       };
     }
 })();
