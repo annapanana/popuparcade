@@ -1,4 +1,4 @@
 'use strict';
 (function() {
-  angular.module("app", ['ui.router', 'ui.bootstrap', 'ngAnimate', 'ngSanitize']);
+  angular.module("app", ['ui.router', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'bootstrapLightbox']);
 })();

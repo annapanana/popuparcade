@@ -302,3 +302,28 @@ p {
   margin: 20px;
   margin-bottom: 10px;
 }
+
+.img-thumbnail {
+  padding: 10px;
+  max-height: 200px;
+  width: auto;
+}
+
+.wireframe-container {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.wireframe-text {
+  margin-bottom: 20px;
+}
+
+.white-space {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

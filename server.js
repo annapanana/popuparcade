@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 // app.use('/archive', archive);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
+app.use('/angular-bootstrap-lightbox', express.static('node_modules/angular-bootstrap-lightbox/dist'));
 
 app.use(bodyParser.urlencoded({
   extended:false

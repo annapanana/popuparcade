@@ -1,0 +1,75 @@
+<div class="row">
+  <div class="col-md-6">
+    <div>
+      <div uib-carousel active="$ctrl.active" interval="$ctrl.myInterval" no-wrap="$ctrl.noWrapSlides">
+        <div uib-slide ng-repeat="slide in $ctrl.slides track by slide.id" index="slide.id">
+          <img class="carousel-image" ng-src="{{slide.image}}" style="margin:auto;">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <!-- Title -->
+    <h3>{{$ctrl.project.name}}</h3>
+    <!-- Role -->
+    <h5>Role: {{$ctrl.project.role}}</h5>
+    <!-- Date -->
+    <h5>{{$ctrl.project.date}}</h5>
+    <!-- About Text -->
+    <p>{{$ctrl.project.description}}</p>
+    <!-- Tags -->
+
+    <div class="tag-component" >
+      <div ng-repeat="tag in $ctrl.project.tags">
+        <span class="chip">{{tag}}</span>
+      </div>
+    </div>
+    <h3 ng-if="$ctrl.project.live_link || $ctrl.project.videos.length">External Links</h3>
+    <!-- View Project -->
+    <div ng-if="$ctrl.project.live_link">
+      <button type="button" class="btn" ng-click="$ctrl.navToProject()"><h4>View Live Project</h4></button>
+    </div>
+    <div ng-if="$ctrl.project.videos.length" class="external-link-container">
+      <div class="" ng-repeat="video in $ctrl.project.videos">
+        <div class="external-link">
+          <a href="#" ng-click="$ctrl.openVideoLink(video.url)"><img style="width:75px" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Buttons/video_button.svg" alt=""></a>
+          <a href="#" ng-click="$ctrl.openVideoLink(video.url)"><h5 style="padding-left:10px">{{video.title}}</h5></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="white-space">
+    <h3 class="text-center">Wireframes</h3>
+    <h4 class="text-center">This is an overview of preliminary wireframes that were used in the planning of Gathered Gardens.</h4>
+  </div>
+  <div class="wireframe-container">
+    <div ng-repeat="slide in $ctrl.wireframes">
+      <div class="row">
+        <h4 class="text-center">{{slide.id+1}}</h4>
+        <a ng-click="$ctrl.openLightboxModal(slide.id)">
+          <img class="img-thumbnail" ng-src="{{slide.url}}" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="row white-space">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div ng-repeat="slide in $ctrl.wireframes">
+        <h5 class="wireframe-text"> <b>{{slide.id+1}} : </b>{{slide.text}}</h5>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="section-header">
+    <h3 class="">Dynamic Vector Graphics: Design Process</h3>
+    <h4 class="text-center">In order to create maps that accurately represent the layout of various gardens, I used Adobe Illustrator to abstract and normalize garden layout diagrams. Because the maps needed to reflect dynamic database information, I exported SVG files of the maps, which could then be visually modified with Angular upon adding or removing produce from a plot. Each plot could include a maximum of 12 different types of produce. The variety of produce in a plot is visually via a dot diagram. Each type of pruduce had a hex color value associated with it. The colors of the dots in a plot change color depending on what is planted. The diagrams below reflect this process of data visualization.</h4>
+  </div>
+</div>

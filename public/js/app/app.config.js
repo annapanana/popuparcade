@@ -47,6 +47,24 @@
         params: {
           projectId: "1"
         }
+      })
+      .state({
+        name: "fridgeFace",
+        parent: "app",
+        url: "/fridge-face",
+        component: "fridgeFace"
+      })
+      .state({
+        name: "gatheredGardens",
+        parent: "app",
+        url: "/gathered-gardens",
+        component: "gatheredGardens"
+      })
+      .state({
+        name: "stoneSoup",
+        parent: "app",
+        url: "/stone-soup",
+        component: "stoneSoup"
       });
   }
 })();
