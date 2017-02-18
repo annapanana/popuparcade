@@ -7,43 +7,23 @@ exports.seed = function(knex, Promise) {
         // Gathered Gardens
         knex('images').insert({
           project_id: 27,
-          image_url: '	https://s3-us-west-2.amazonaws.com/popuparcade.com/Gathered_Gardens/hawthorn_visualization.png'
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Gathered_Gardens/gg_photo5_reformatted.png'
         }),
         knex('images').insert({
           project_id: 27,
-          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Gathered_Gardens/land.png'
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Gathered_Gardens/gg_photo4_reformatted.png'
         }),
         knex('images').insert({
           project_id: 27,
-          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Gathered_Gardens/icons.png'
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Gathered_Gardens/gg_photo3_reformatted.png'
         }),
         knex('images').insert({
           project_id: 27,
-          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Gathered_Gardens/eleventh_process.png'
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Gathered_Gardens/gg_photo2_reformatted.png'
         }),
         knex('images').insert({
           project_id: 27,
-          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Gathered_Gardens/d3.png'
-        }),
-        knex('images').insert({
-          project_id: 27,
-          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Gathered_Gardens/gg_photo1.png'
-        }),
-        knex('images').insert({
-          project_id: 27,
-          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Gathered_Gardens/gg_photo2.png'
-        }),
-        knex('images').insert({
-          project_id: 27,
-          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Gathered_Gardens/gg_photo3.png'
-        }),
-        knex('images').insert({
-          project_id: 27,
-          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Gathered_Gardens/gg_photo4.png'
-        }),
-        knex('images').insert({
-          project_id: 27,
-          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Gathered_Gardens/gg_photo5.png'
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Gathered_Gardens/gg_photo1_reformatted.png'
         }),
         // Fridge Face
         knex('images').insert({

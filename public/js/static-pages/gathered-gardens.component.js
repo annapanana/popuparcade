@@ -6,9 +6,9 @@
       templateUrl: 'js/static-pages/gathered-gardens.template.html'
     });
 
-    controller.$inject = ["$http", "$state", "$stateParams", "Lightbox"];
+    controller.$inject = ["$http", "$state", "$stateParams"];
 
-    function controller($http, $state, $stateParams, Lightbox) {
+    function controller($http, $state, $stateParams) {
       const vm = this;
 
       vm.project = {};
@@ -22,7 +22,6 @@
       vm.$onInit = function() {
         $http.get('/app/archive/27')
           .then(function(result) {
-            console.log(result.data);
             vm.project = result.data;
 
             for (var i = 0; i < result.data.images.length; i++) {
@@ -65,9 +64,47 @@
         }
       ];
 
-      vm.openLightboxModal = function (index) {
-        console.log(index);
-       Lightbox.openModal(vm.wireframes, index);
+      vm.maps = [
+        {
+          id: 0,
+          url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/gathered_gardens/eleventh.png',
+          text: ''
+        },
+        {
+          id: 1,
+          url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/gathered_gardens/eleventh_2.png',
+          text: ''
+        },
+        {
+          id: 2,
+          url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/gathered_gardens/eleventh_3.png',
+          text: ''
+        },
+        {
+          id: 3,
+          url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/gathered_gardens/eleventh_4.png',
+          text: ''
+        },
+        {
+          id: 4,
+          url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/gathered_gardens/eleventh_5.png',
+          text: ''
+        },
+        {
+          id: 5,
+          url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/gathered_gardens/eleventh_6.png',
+          text: ''
+        }
+      ];
+      vm.openLightboxModal = function (arr, index) {
+        var win = window.open(arr[index].url, '_blank');
+        win.focus();
      };
+
+     vm.navToProject = function() {
+       var win = window.open('https://gathered-gardens.herokuapp.com', '_blank');
+       win.focus();
+     };
+
     }
 })();

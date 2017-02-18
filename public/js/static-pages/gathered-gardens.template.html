@@ -40,6 +40,7 @@
   </div>
 </div>
 
+<!-- Wireframes -->
 <div class="row">
   <div class="white-space">
     <h3 class="text-center">Wireframes</h3>
@@ -49,7 +50,7 @@
     <div ng-repeat="slide in $ctrl.wireframes">
       <div class="row">
         <h4 class="text-center">{{slide.id+1}}</h4>
-        <a ng-click="$ctrl.openLightboxModal(slide.id)">
+        <a ng-click="$ctrl.openLightboxModal($ctrl.wireframes, slide.id)">
           <img class="img-thumbnail" ng-src="{{slide.url}}" alt="">
         </a>
       </div>
@@ -67,9 +68,136 @@
 
 </div>
 
+<!-- Map Creation -->
 <div class="row">
-  <div class="section-header">
-    <h3 class="">Dynamic Vector Graphics: Design Process</h3>
-    <h4 class="text-center">In order to create maps that accurately represent the layout of various gardens, I used Adobe Illustrator to abstract and normalize garden layout diagrams. Because the maps needed to reflect dynamic database information, I exported SVG files of the maps, which could then be visually modified with Angular upon adding or removing produce from a plot. Each plot could include a maximum of 12 different types of produce. The variety of produce in a plot is visually via a dot diagram. Each type of pruduce had a hex color value associated with it. The colors of the dots in a plot change color depending on what is planted. The diagrams below reflect this process of data visualization.</h4>
+  <div class="white-space">
+    <h3 class="text-center">Dynamic Vector Graphics: Design Process</h3>
+    <h4 class="text-center">Gathered Gardens relied on dynamic SVG maps that I created in Adobe Illustrator</h4>
   </div>
+  <div class="wireframe-container">
+    <div ng-repeat="map in $ctrl.maps">
+      <div class="row">
+        <a ng-click="$ctrl.openLightboxModal($ctrl.maps, map.id)">
+          <img class="img-thumbnail" ng-src="{{map.url}}" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h5>In order to create maps that accurately represent the layout of various gardens, I used Adobe Illustrator to abstract and normalize garden layout diagrams. Because the maps needed to reflect dynamic database information, I exported SVG files of the maps, which could then be visually modified with Angular upon adding or removing produce from a plot. Each plot could include a maximum of 12 different types of produce. The variety of produce in a plot is visually via a dot diagram. Each type of pruduce had a hex color value associated with it. The colors of the dots in a plot change color depending on what is planted. The diagrams above reflect this process of building up the map visualization.</h5>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+  <div class="row text-center">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="white-space">
+        <h4>The same process was applied to different garden layouts:</h4>
+      </div>
+      <img class="image-fill" ng-src="
+  https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/gathered_gardens/hawthorn_visualization.png" alt="">
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+
+<div class="row text-center">
+  <div class="row white-space">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h3>Plot Data</h3>
+      <h4>Users can click on individual plots, represented as colored dot-clusters, to view the produce that is logged in that plot. If the plot belongs to the user, he or she can add and remove produce.</h4>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <img class="image-fill white-space" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/gathered_gardens/plot_modal.png" alt="">
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+
+<div class="row text-center">
+  <div class="row white-space">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h3>D3.js Data Viz</h3>
+      <h4>In addition to visualizing the produce planted in garden maps, we aggrigated the data of produce logged to create a bubble chart. The bubble chart visualizes the most common or least commonly planted produce by bubble size and color.</h4>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <img class="image-fill white-space" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/gathered_gardens/d3_dataviz.png
+    " alt="">
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+
+<div class="row text-center">
+  <div class="white-space row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h3>Garden Navigation</h3>
+      <h4>The D3 bubble chart visualizatioin included data from 7 different gardens. Users can navigate to different gardens via an interactive, minimalist map menu.</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <img class="image-fill white-space" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/gathered_gardens/mapnav.png" alt="">
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
+</div>
+
+<div class="row text-center">
+  <div class="white-space row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h3>Communication Features</h3>
+      <h4>In addition the various data visualization features, users can exchange information using a searchable forum or a real-time chat widget.</h4>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <img class="image-fill white-space" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/gathered_gardens/forum.png" alt="">
+      <img class="image-fill white-space" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/gathered_gardens/chatwidget.png" alt="">
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+
+<div class="row text-center">
+  <div class="white-space row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h3>Logo Design</h3>
+      <h4>I created multiple versions of the logo to "brand" the site as Gathered Gardens. Here is the evolution:</h4>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <h4>First Iteration</h4>
+    <img class="image-fill white-space" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/gathered_gardens/gg_logo_v1.png" alt="">
+    <h4>Second Iteration</h4>
+    <img class="image-fill white-space" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/gathered_gardens/gg_logo_v2.png" alt="">
+    <h4>Final Iteration</h4>
+    <img class="image-fill white-space" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/gathered_gardens/gg_logo_v3.png" alt="">
+  </div>
+  <div class="col-md-4"></div>
+</div>
+
+<div class="row text-center">
+  <button type="button" class="btn" ng-click="$ctrl.navToProject()"><h4>View Live Project</h4></button>
 </div>
