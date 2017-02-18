@@ -15,7 +15,7 @@ exports.seed = function(knex, Promise) {
           date: 'January, 2017',
           live_link: 'https://gathered-gardens.herokuapp.com',
           thumbnail: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/gg_thumb.png',
-          is_featured: true,
+          featured_state: 'gatheredGardens',
           banner_feature: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/Banners/gathered_gardens_feature_1.png'
         }),
         knex('projects').insert({
@@ -28,7 +28,7 @@ exports.seed = function(knex, Promise) {
           date: 'December, 2016',
           live_link: 'https://fridge-face.herokuapp.com',
           thumbnail: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/FridgeFace_Thumb.png',
-          is_featured: true,
+          featured_state: 'fridgeFace',
           banner_feature: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/Banners/banner-features_01.jpg'
         }),
         knex('projects').insert({
@@ -39,7 +39,7 @@ exports.seed = function(knex, Promise) {
           type: 'web',
           role: 'Designer / Developer',
           date: 'November, 2016',
-          is_featured: true,
+          featured_state: true,
           live_link: 'http://greetingsfromtheinternet.surge.sh/',
           thumbnail: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/gfti_thumb.png',
           banner_feature: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/Banners/banner-features_04.png'
@@ -152,7 +152,7 @@ exports.seed = function(knex, Promise) {
           role: 'Designer / Developer / Project Lead',
           date: 'June, 2014',
           live_link: '',
-          is_featured: true,
+          featured_state: 'stoneSoup',
           banner_feature: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/Banners/banner-features_03.jpg',
           thumbnail: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/StoneSoup_Thumb.png'
         }),

@@ -18,7 +18,7 @@
         let rightAligned = true;
         $http.get("/app/archive").then(function(response) {
           for (var i = 0; i < response.data.length; i++) {
-            if (response.data[i].is_featured) {
+            if (response.data[i].featured_state) {
               // Decide if project is right or left oriented
               if (rightAligned) {
                 response.data[i].right = "right";
@@ -38,9 +38,8 @@
         console.log("NAV TO PROJECT");
       };
 
-      vm.selectProject = function(projectId) {
-        // Set state param
-        $state.go('projectpage', { projectId: projectId});
+      vm.selectProject = function(projectPage) {
+        $state.go(projectPage);
       };
     }
 })();
