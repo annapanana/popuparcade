@@ -31,15 +31,11 @@
             }
           }
         });
-        console.log(vm.featured);
       };
 
-      vm.navToProject = function() {
-        console.log("NAV TO PROJECT");
-      };
-
-      vm.selectProject = function(projectPage) {
-        $state.go(projectPage);
+      vm.selectProject = function(projectPage, projectId) {
+        console.log(projectPage, projectId);
+        $state.go(projectPage, { projectId: projectId });
       };
     }
 })();

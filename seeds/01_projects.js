@@ -39,7 +39,7 @@ exports.seed = function(knex, Promise) {
           type: 'web',
           role: 'Designer / Developer',
           date: 'November, 2016',
-          featured_state: true,
+          featured_state: 'gfti',
           live_link: 'http://greetingsfromtheinternet.surge.sh/',
           thumbnail: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/gfti_thumb.png',
           banner_feature: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/Banners/banner-features_04.png'

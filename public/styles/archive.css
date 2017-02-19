@@ -307,7 +307,11 @@ p {
   padding: 10px;
   max-height: 200px;
   width: auto;
-  margin: 10px;
+  margin: 20px !important;
+}
+
+.img-thumbnail:hover {
+  opacity: .5;
 }
 
 .wireframe-container {

@@ -65,6 +65,12 @@
         parent: "app",
         url: "/stone-soup",
         component: "stoneSoup"
+      })
+      .state({
+        name: "gfti",
+        parent: "app",
+        url: "/gfti",
+        component: "gfti"
       });
   }
 })();

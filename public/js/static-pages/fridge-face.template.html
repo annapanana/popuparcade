@@ -1,0 +1,129 @@
+<div class="row">
+  <div class="col-md-6">
+    <div>
+      <div uib-carousel active="$ctrl.active" interval="$ctrl.myInterval" no-wrap="$ctrl.noWrapSlides">
+        <div uib-slide ng-repeat="slide in $ctrl.slides track by slide.id" index="slide.id">
+          <img class="carousel-image" ng-src="{{slide.image}}" style="margin:auto;">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <!-- Title -->
+    <h3>{{$ctrl.project.name}}</h3>
+    <!-- Role -->
+    <h5>Role: {{$ctrl.project.role}}</h5>
+    <!-- Date -->
+    <h5>{{$ctrl.project.date}}</h5>
+    <!-- About Text -->
+    <p>{{$ctrl.project.description}}</p>
+    <!-- Tags -->
+
+    <div class="tag-component" >
+      <div ng-repeat="tag in $ctrl.project.tags">
+        <span class="chip">{{tag}}</span>
+      </div>
+    </div>
+    <h3 ng-if="$ctrl.project.live_link || $ctrl.project.videos.length">External Links</h3>
+    <!-- View Project -->
+    <div ng-if="$ctrl.project.live_link">
+      <button type="button" class="btn" ng-click="$ctrl.navToProject()"><h4>View Live Project</h4></button>
+    </div>
+    <div ng-if="$ctrl.project.videos.length" class="external-link-container">
+      <div class="" ng-repeat="video in $ctrl.project.videos">
+        <div class="external-link">
+          <a href="#" ng-click="$ctrl.openVideoLink(video.url)"><img style="width:75px" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Buttons/video_button.svg" alt=""></a>
+          <a href="#" ng-click="$ctrl.openVideoLink(video.url)"><h5 style="padding-left:10px">{{video.title}}</h5></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Wireframes -->
+<div class="row">
+  <div class="white-space">
+    <h3 class="text-center">Wireframes</h3>
+    <h4 class="text-center">This is an overview of preliminary wireframes that were used in the planning of Fridge Face.</h4>
+  </div>
+  <div class="wireframe-container">
+    <div ng-repeat="slide in $ctrl.wireframes">
+      <div class="row">
+        <h4 class="text-center">{{slide.id+1}}</h4>
+        <a ng-click="$ctrl.openLightboxModal($ctrl.wireframes, slide.id)">
+          <img class="img-thumbnail" ng-src="{{slide.url}}" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="row white-space">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div ng-repeat="slide in $ctrl.wireframes">
+        <h5 class="wireframe-text"> <b>{{slide.id+1}} : </b>{{slide.text}}</h5>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>
+
+<!-- Database -->
+<div class="row text-center">
+  <div class="row white-space">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h3 class="text-center">Database Schema</h3>
+      <h4>This is the entity relationship diagram (ERD) for the database behind this full-crud app.</h4>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Fridge_Face_IMG/fridge_face_erd.png" alt="">
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+
+<!-- Design -->
+<div class="row text-center">
+  <div class="row white-space">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h3>Visual Design</h3>
+      <h4>We selected a calm color associated with cleanliness for the main color them. We then used the Materialize CSS framework to create a mobile-friendly, responsive design.</h4>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Fridge_Face_IMG/fridge_face.png" alt="">
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>
+
+<!-- Animation -->
+<div class="row text-center">
+  <div class="row white-space">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h3>Animation</h3>
+      <h4>We wanted to add a sense of friendly intrigue to this fridge-utility application. To do this we created a very basic looping "fridge face" animation. I created this animation in Adobe Flash and used the Snap.SVG library to export json animation data.</h4>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Fridge_Face_IMG/Screen+Shot+2017-02-18+at+3.46.24+PM.png" alt="">
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+
+<div class="row text-center">
+  <button type="button" class="btn" ng-click="$ctrl.navToProject()"><h4>View Live Project</h4></button>
+</div>

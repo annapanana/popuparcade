@@ -28,15 +28,7 @@ exports.seed = function(knex, Promise) {
         // Fridge Face
         knex('images').insert({
           project_id: 26,
-          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Fridge_Face_IMG/Screen+Shot+2017-01-03+at+12.54.44+PM.png'
-        }),
-        knex('images').insert({
-          project_id: 26,
-          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Fridge_Face_IMG/Screen+Shot+2017-01-03+at+12.55.15+PM.png'
-        }),
-        knex('images').insert({
-          project_id: 26,
-          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Fridge_Face_IMG/fridge_face.png'
+          image_url: 'http://res.cloudinary.com/dgt2xab7d/image/upload/v1481823491/rsxogqtay8rrchd8cv4e.jpg'
         }),
         // GFTI
         knex('images').insert({

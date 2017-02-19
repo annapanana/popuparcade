@@ -1,0 +1,173 @@
+<div class="row">
+  <div class="col-md-6">
+    <div>
+      <div uib-carousel active="$ctrl.active" interval="$ctrl.myInterval" no-wrap="$ctrl.noWrapSlides">
+        <div uib-slide ng-repeat="slide in $ctrl.slides track by slide.id" index="slide.id">
+          <img class="carousel-image" ng-src="{{slide.image}}" style="margin:auto;">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <!-- Title -->
+    <h3>{{$ctrl.project.name}}</h3>
+    <!-- Role -->
+    <h5>Role: {{$ctrl.project.role}}</h5>
+    <!-- Date -->
+    <h5>{{$ctrl.project.date}}</h5>
+    <!-- About Text -->
+    <p>{{$ctrl.project.description}}</p>
+    <!-- Tags -->
+
+    <div class="tag-component" >
+      <div ng-repeat="tag in $ctrl.project.tags">
+        <span class="chip">{{tag}}</span>
+      </div>
+    </div>
+    <h3 ng-if="$ctrl.project.live_link || $ctrl.project.videos.length">External Links</h3>
+    <!-- View Project -->
+    <div ng-if="$ctrl.project.live_link">
+      <button type="button" class="btn" ng-click="$ctrl.navToProject()"><h4>View Live Project</h4></button>
+    </div>
+    <div ng-if="$ctrl.project.videos.length" class="external-link-container">
+      <div class="" ng-repeat="video in $ctrl.project.videos">
+        <div class="external-link">
+          <a href="#" ng-click="$ctrl.openVideoLink(video.url)"><img style="width:75px" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Buttons/video_button.svg" alt=""></a>
+          <a href="#" ng-click="$ctrl.openVideoLink(video.url)"><h5 style="padding-left:10px">{{video.title}}</h5></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Wireframes -->
+<div class="row">
+  <div class="white-space">
+    <h3 class="text-center">Wireframes</h3>
+    <h4 class="text-center">This is an overview of preliminary wireframes that were used in the planning of Greetings From the Internet.</h4>
+  </div>
+  <div class="wireframe-container">
+    <div ng-repeat="slide in $ctrl.wireframes">
+      <div class="row">
+        <h4 class="text-center">{{slide.id+1}}</h4>
+        <a ng-click="$ctrl.openLightboxModal($ctrl.wireframes, slide.id)">
+          <img class="img-thumbnail" ng-src="{{slide.url}}" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="row white-space">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div ng-repeat="slide in $ctrl.wireframes">
+        <h5 class="wireframe-text"> <b>{{slide.id+1}} : </b>{{slide.text}}</h5>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>
+
+<!-- Postcard Design -->
+<div class="row text-center">
+  <div class="row white-space">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h3>Postcard Design</h3>
+      <h4>My goal for the aesthetic of the project was to create postcards that are reminscent of classic Teich postcards.</h4>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <!-- 4 Teich Postcards -->
+    <div class="col-md-8">
+      <div class="row">
+        <h4>Here are few examples of the Teich cards:</h4>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <img class="image-fill" ng-src="https://s-media-cache-ak0.pinimg.com/originals/a9/d8/f6/a9d8f63b4a718db8eebbac61122efe7b.jpg" alt="">
+        </div>
+        <div class="col-md-6">
+          <img class="image-fill" ng-src="https://postcardmuseum.files.wordpress.com/2011/10/oceancity_0005.jpg" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <!-- 4 Teich Postcards -->
+    <div class="col-md-8">
+      <div class="row">
+        <h4>This is what I ended up producing:</h4>
+      </div>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/post_card_04_example.png" alt="">
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+      <div class="row">
+        <img class="image-fill" ng-src="" alt="">
+        <h4>Due to the unpredictable nature of dynamically populating letters with images, I kept the backgrounds fairly simple. Each letter is filled with a different image, which the user selects from a gallery of search results.</h4>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+
+<!-- Flickr API library -->
+<div class="row text-center">
+  <div class="row white-space">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h3>Flickr API</h3>
+      <h4>Before this project, I had never queried an API. I used the Flickr API to source images for filling in postcard letters. This is an example view of search results from San Francisco. Users must select the number of images needed to fill each letter in the greeting.</h4>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/Screen+Shot+2017-02-18+at+7.25.11+PM.png" alt="">
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+
+<!-- p5.js library -->
+<div class="row text-center">
+  <div class="row white-space">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h3>P5.js Generative Art Library</h3>
+      <h4>I relied on a canvas-based JS library called p5.js for masking the images with letters and composing the postcard. This library is based off of the Processing development environment.</h4>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-5"></div>
+    <div class="col-md-2">
+      <a href="https://p5js.org/"><img class="image-fill" ng-src="https://pbs.twimg.com/profile_images/502135348663578624/-oslcYof.png" alt=""></a>
+    </div>
+    <div class="col-md-5"></div>
+  </div>
+</div>
+
+<!-- Next Iteration -->
+<div class="row text-center">
+  <div class="row white-space">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h3>Version 2.0</h3>
+      <h4>For my capstone with Galvanize I am making a full-stack web app version of Greetings from the Internet. It will be hosted at www.greetingsfromtheinter.net. Stay tuned for more details soon!</h4>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+
+<div class="row text-center">
+  <button type="button" class="btn" ng-click="$ctrl.navToProject()"><h4>View Live Project</h4></button>
+</div>
