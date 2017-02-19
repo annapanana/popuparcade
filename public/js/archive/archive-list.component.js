@@ -19,7 +19,6 @@
         $http.get('/app/archive').then(function (response) {
           archiveData = response.data;
           vm.archive = response.data;
-          console.log(vm.archive);
           vm.photosLoaded = true;
         });
       };
@@ -40,7 +39,13 @@
       };
 
       vm.selectProject = function (projectId) {
-        $state.go("projectpage", { projectId: projectId});
+        $http.get(`app/archive/${projectId}`).then(function (response) {
+          if (response.data.featured_state) {
+            $state.go(response.data.featured_state);
+          } else {
+            $state.go("projectpage", { projectId: projectId});
+          }
+        });
       };
     }
 })();
