@@ -93,14 +93,14 @@
 }
 
 .fade {
-   opacity: .25;
+   opacity: 1;
    transition: opacity .25s ease-in-out;
    -moz-transition: opacity .25s ease-in-out;
    -webkit-transition: opacity .25s ease-in-out;
  }
 
 .fade:hover {
-  opacity: .75;
+  opacity: .5;
 }
 
 .card-img-top {
@@ -223,7 +223,8 @@ p {
 .external-link {
   padding: 15px;
   background-color: #f1f1f1;
-  margin: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
   width: 220px;
   /*border-style: solid;*/
   border-radius: 3px;

@@ -40,7 +40,7 @@
         {
           id: 0,
           url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/wireframes/gfti_wireframes_01.png',
-          text: 'Home: The user should recieve a friendly postcard greeting to welcome them to the site and give context to the postcard making tool.'
+          text: 'Home: The user should receive a friendly postcard greeting to welcome them to the site and give context to the postcard making tool.'
         },
         {
           id: 1,
@@ -55,7 +55,7 @@
         {
           id: 3,
           url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/wireframes/gfti_wireframes_04.png',
-          text: 'Image Selection: The user should be able to selecte images according to the keyword search.'
+          text: 'Image Selection: The user should be able to select images according to the keyword search.'
         },
         {
           id: 4,

@@ -503,7 +503,7 @@ exports.seed = function(knex, Promise) {
           image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/EatAGame_IMG/IMG_5925_Reduced.png'
         }),
         knex('images').insert({
-          project_id: 13,
+          project_id: 14,
           image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/EatAGame_IMG/IMG_5926_Reduced.png'
         }),
         knex('images').insert({
@@ -790,7 +790,7 @@ exports.seed = function(knex, Promise) {
         }),
         // The Source
         knex('images').insert({
-          project_id: 23,
+          project_id: 3,
           image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/TheSource_IMG/the_source_action_shot1.jpg'
         }),
         knex('images').insert({

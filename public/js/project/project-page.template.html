@@ -29,8 +29,10 @@
       </div>
       <h3 ng-if="$ctrl.project.live_link || $ctrl.project.videos.length">External Links</h3>
       <!-- View Project -->
-      <div ng-if="$ctrl.project.live_link">
-        <button type="button" class="btn" ng-click="$ctrl.navToProject()"><h4>View Live Project</h4></button>
+      <div class="row" ng-if="$ctrl.project.live_link">
+        <div class="col-md-12">
+          <button type="button" class="btn" ng-click="$ctrl.navToProject()"><h4>View Live Project</h4></button>
+        </div>
       </div>
       <div ng-if="$ctrl.project.videos.length" class="external-link-container">
         <div class="" ng-repeat="video in $ctrl.project.videos">
