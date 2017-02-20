@@ -20,7 +20,6 @@
     vm.active = 0;
 
     vm.$onInit = function() {
-      console.log("home initialized");
       vm.slides = [{
         image: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/Banners/banner-features_02.jpg',
         id: 0,

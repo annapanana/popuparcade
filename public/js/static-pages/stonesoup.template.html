@@ -24,18 +24,373 @@
         <span class="chip">{{tag}}</span>
       </div>
     </div>
-    <h3 ng-if="$ctrl.project.live_link || $ctrl.project.videos.length">External Links</h3>
-    <!-- View Project -->
-    <div ng-if="$ctrl.project.live_link">
-      <button type="button" class="btn" ng-click="$ctrl.navToProject()"><h4>View Live Project</h4></button>
+  </div>
+</div>
+
+<!-- Project Videos -->
+<div class="row text-center">
+  <div class="row white-space">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h3>Showcase Videos</h3>
+      <h4>Stone Soup was showcased in the 2014 MFA Thesis showcase at the University of Southern California's School of Cinematic arts. Hundreds of visitors played through Stone Soup during the week that it was on display. Here are a few videos that I captured.</h4>
     </div>
-    <div ng-if="$ctrl.project.videos.length" class="external-link-container">
-      <div class="" ng-repeat="video in $ctrl.project.videos">
-        <div class="external-link">
-          <a href="#" ng-click="$ctrl.openVideoLink(video.url)"><img style="width:75px" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Buttons/video_button.svg" alt=""></a>
-          <a href="#" ng-click="$ctrl.openVideoLink(video.url)"><h5 style="padding-left:10px">{{video.title}}</h5></a>
+    <div class="col-md-1"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h4>My parents:</h4>
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/a1jfJ_PJLJs?ecver=1" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h4>Andrea and Maddie:</h4>
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/X7VtgEoQsJQ?ecver=1" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+
+<div class="row text-center">
+  <div class="row white-space">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h3>Screencapture Video Demos</h3>
+      <h4>Although the full experience of Stone Soup requires multiple devices, I captured the touch-screen interactions on a few pages to demonstrate the care and quality that went into every page of the storybook.</h4>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h4>Page 8: (includes liquid simulation!)</h4>
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/oZxzIkCmNDQ?ecver=1" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h4>Page 11:</h4>
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/392XXe9hHt0?ecver=1" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+
+<div class="row text-center">
+  <div class="row white-space">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h3>Cross-Screen Interactions</h3>
+      <h4>Each page includes a cross-screen interaction that enables the player/reader to bring the illustrations and narrative to life. I captured a few of these interactions. The quality of this video isn't spectacular but hopefully it demonstrates the interactions.</h4>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/AvjiAWshMAk?ecver=1" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+
+<!-- Design Process -->
+<div class="row text-center">
+  <div class="row white-space">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h3>Ideation</h3>
+      <h4>Stone Soup evolved out of a desire to bring people together around screens. After reading Sherry Turkles's "Alone Together," I was inspired to create playful interactions that required multiple users in direct proximity to each other. This is the evolution of the project in images.</h4>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+
+  <!-- Four Square -->
+  <div class="row text-left">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h4>I developed a digital prototype of the classic playground game four-square on four smartphones. This was a throw-away prototype that I created for purposes of testing the cross-screen mechanic.</h4>
+      <div class="row">
+        <div class="col-md-6">
+          <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/FourSquare2.jpg" alt="">
+        </div>
+        <div class="col-md-6">
+          <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/FourSquare1.jpg" alt="">
         </div>
       </div>
     </div>
+    <div class="col-md-1"></div>
+  </div>
+
+  <!-- Screen Proximity and Orientation -->
+  <div class="row text-left">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h4>With this first prototype, I struck upon the idea of using the proximity and orientation of smartphones to create game mechanics.</h4>
+      <div class="row">
+        <div class="col-md-4">
+          <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/LocaliteFeatures_LocationBasedPlay.png" alt="">
+        </div>
+        <div class="col-md-4">
+          <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/LocaliteFeatures_SharedScreenPlay.png" alt="">
+        </div>
+        <div class="col-md-4">
+          <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/LocaliteFeatures_SwipeSync.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+
+  <!-- Idea Sketches -->
+  <div class="row text-left">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h4>From this seed of an idea, I created a multitude of diagrams to represent game ideas. Each idea leveraged screen proximity in a different way.</h4>
+      <div class="row">
+        <div class="col-md-6">
+          <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/GameIdeas01.png" alt="">
+        </div>
+        <div class="col-md-6">
+          <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/GameIdeas02.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+
+  <!-- High Fidelity Mockups -->
+  <div class="row text-left">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h4>Several of these ideas were then mocked up with higher fidelity to explore the game concepts in more detail.</h4>
+      <div class="row">
+        <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/LocaliteScreenHood.png" alt="">
+      </div>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/MadScienceGame.png" alt="">
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+
+<!-- Eclectic Potatos -->
+<div class="row text-left">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h4>With a small team, I set to work creating a game called Eclectic Potatos. It was about a band of eclectic electric potato musicians. The basic premise of the game was that each player was a different member of the band and they needed to share energy (electricity) to keep playing.</h4>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/EclecticPotatoes_InteractiveWireframe.jpg" alt="">
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Shape Game -->
+<div class="row text-left">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h4>I built and tested a prototype using a shape-matching mechanic across the screen. Players had to find other players in the room with matching shapes then activate the edges of the screen upon finding someon.</h4>
+    <div class="row">
+      <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/Localite_TwisterMechanics.png" alt="">
+    </div>
+    <div class="row">
+      <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/TomfoolerIMG.png" alt="">
+    </div>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/IMG_1172.PNG" alt="">
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Battle of the Bands -->
+<div class="row text-left">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h4>The shape-matching game required too many players and was extremely chaotic. I kept the premise of the game (potato) but turned it into a 2-player battle of the bands game. The game was similar to foosball but on tablets with dynamically generated music.</h4>
+    <div class="row">
+      <div class="col-md-6">
+        <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/FirefoxScreenSnapz002.png" alt="">
+      </div>
+      <div class="col-md-6">
+        <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/FirefoxScreenSnapz001.png" alt="">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/BG%2BCh_Test_v2_102613.png" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Egg Demo -->
+<div class="row text-left">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h4>I found myself looking at pop-up books in the childrens section of a bookstore one day and thought that it might be interesting to apply the cross-screen technology that I developed to a multi-user storybook. I quickly created this experiment:</h4>
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/n82JdUpSfA8?ecver=1" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+<!-- StoryPops -->
+<div class="row text-left">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h4>The egg demo was a breakthrough! It was way more engaging than the potato game. After 4 months of development, my team and I agreed to put Eclectic Potatoes to rest and focus on a new format of cross-screen storytelling. We invented StoryPops!</h4>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/newlogo.png" alt="">
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+<!-- Storyboards -->
+<div class="row text-left">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h4>The next design challenge was to create various cross-screen interactions for each page. I worked with a screenwriter to adapt the classic folktale of Stone Soup such that each page could feature an interaction. Here are examples of ROUGH storyboards for interactions.</h4>
+    <div class="row">
+      <div class="col-md-6">
+        <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/IMG_1863.JPG" alt="">
+        <h5 class="text-left">Readers use the handheld device to create wind that blows across the main tablet.</h5>
+      </div>
+      <div class="col-md-6">
+        <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/IMG_1870.JPG" alt="">
+        <h5 class="text-left">The reader can create a fire to keep the raccoons warm.</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/IMG_1873.JPG" alt="">
+        <h5 class="text-left">By shaking the handheld device, the reader can add stones to the soup. This is a key part of the folktale.</h5>
+      </div>
+      <div class="col-md-6">
+        <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/IMG_1874.JPG" alt="">
+        <h5 class="text-left">Readers can add salt and pepper to the soup for seasoning.</h5>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+<!-- Prototypes -->
+<div class="row text-left">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h4>I prototyped many of the interactions that would be used on different pages. These rough, throwaway prototypes enabled me to test the mechanics and learn from the designs before investing time in the full page illustrations.</h4>
+    <div class="row">
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/0wPbaCLLR6g?ecver=1" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="row">
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/7O-jV9ehSq4?ecver=1" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+<!-- Illustrations -->
+<div class="row text-left">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h4>After the cross-screen interactions were finalized, we brought the pages to life with illustration, audio, story-text and touch-interactions. Most of these page exports don't include the text and dynamic content.</h4>
+    <div class="row">
+      <div class="col-md-6">
+        <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/pages/page_01.png" alt="">
+      </div>
+      <div class="col-md-6">
+        <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/pages/page_04.png" alt="">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/pages/page_05.png" alt="">
+      </div>
+      <div class="col-md-6">
+        <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/pages/page_06.png" alt="">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/pages/page_08.png" alt="">
+      </div>
+      <div class="col-md-6">
+        <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/pages/page_10.png" alt="">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/pages/page_13.png" alt="">
+      </div>
+      <div class="col-md-6">
+        <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/pages/page_12.png" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+<!-- Awards -->
+<div class="row text-center">
+  <div class="row white-space">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h3>Awards + V.20</h3>
+      <h4>I was invited to demo the project in the IndieCade E3 (Electronic Entertainment Exposition) in downtown Los Angeles shortly after completing it. I did not go on to publish the storybook because I went to work with Disney! Hopefully the project will find a home on the web (rather than iOS) someday soon.</h4>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/IMG_2433.JPG" alt="">
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/StoneSoup_IMG/process/indiecade_pic.jpg" alt="">
+    </div>
+    <div class="col-md-3"></div>
   </div>
 </div>
