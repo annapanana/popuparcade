@@ -80,9 +80,18 @@
      };
 
      vm.navToProject = function() {
-       var win = window.open('http://greetingsfromtheinternet.surge.sh/', '_blank');
+       var win = window.open('http://www.greetingsfromtheinter.net/', '_blank');
        win.focus();
      };
 
+       vm.openVideoLink = function(videoLink) {
+         var win = window.open(videoLink, '_blank');
+         win.focus();
+      };
+
+      vm.openLegacyProject = function() {
+        var win = window.open('http://greetingsfromtheinternet.surge.sh/', '_blank');
+        win.focus();
+      };
     }
 })();

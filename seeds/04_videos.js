@@ -5,6 +5,12 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       return Promise.all([
         // Inserts seed entries
+
+        knex('videos').insert({
+          project_id: 28, // Doc 2
+          video_url: 'https://youtu.be/MiLvNmPxw3k',
+          video_title: 'Video Walkthrough'
+        }),
         knex('videos').insert({
           project_id: 21, // Doc 2
           video_url: 'https://youtu.be/Le-PKJBVkhw',

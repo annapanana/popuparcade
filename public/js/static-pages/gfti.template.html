@@ -29,7 +29,7 @@
     <div ng-if="$ctrl.project.live_link">
       <button type="button" class="btn" ng-click="$ctrl.navToProject()"><h4>View Live Project</h4></button>
     </div>
-    <div ng-if="$ctrl.project.videos.length" class="external-link-container">
+    <div ng-if="$ctrl.project.videos.length" class="external-link-container" style="padding-top:20px;">
       <div class="" ng-repeat="video in $ctrl.project.videos">
         <div class="external-link">
           <a href="#" ng-click="$ctrl.openVideoLink(video.url)"><img style="width:75px" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Buttons/video_button.svg" alt=""></a>
@@ -37,6 +37,32 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="white-space">
+    <h3 class="text-center">Editing Tool</h3>
+    <h4 class="text-center">The editing tool, where the user designs his or her postcard, was a layout challenge. The final interface looked like this:</h4>
+  </div>
+  <div class="col-md-2"></div>
+  <div class="col-md-8 col-xs-12">
+    <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/gfti_laptop.png" alt="editing-tool">
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+<!-- Hello World -->
+<div class="row">
+  <div class="white-space">
+    <h3 class="text-center">Hello World!</h3>
+    <h4 class="text-center">After many hours of development, I finally recieved my first test postcard in the mail.</h4>
+  </div>
+  <div class="col-md-6 col-xs-12">
+    <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/Image+uploaded+from+iOS+(3).jpg" alt="card-front">
+  </div>
+  <div class="col-md-6 col-xs-12">
+    <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/Image+uploaded+from+iOS+(2).jpg" alt="card-back">
   </div>
 </div>
 
@@ -93,32 +119,6 @@
       <h5>Step 5: Pay and Mail</h5>
       <p>When you have completed your postcard, you can mail it. You will recieve an estimated delivery date. Each postcard costs $1.50 to send, which includes printing and postage. I use Stripe for secure payments.</p>
     </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="white-space">
-    <h3 class="text-center">Editing Tool</h3>
-    <h4 class="text-center">The editing tool, where the user designs his or her postcard, was a layout challenge. The final interface looked like this:</h4>
-  </div>
-  <div class="col-md-2"></div>
-  <div class="col-md-8 col-xs-12">
-    <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/gfti_laptop.png" alt="editing-tool">
-  </div>
-  <div class="col-md-2"></div>
-</div>
-
-<!-- Hello World -->
-<div class="row">
-  <div class="white-space">
-    <h3 class="text-center">Hello World!</h3>
-    <h4 class="text-center">After many hours of development, I finally recieved my first test postcard in the mail.</h4>
-  </div>
-  <div class="col-md-6 col-xs-12">
-    <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/Image+uploaded+from+iOS+(3).jpg" alt="card-front">
-  </div>
-  <div class="col-md-6 col-xs-12">
-    <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/Image+uploaded+from+iOS+(2).jpg" alt="card-back">
   </div>
 </div>
 
@@ -199,19 +199,18 @@
     <p>The site was made in 2-weeks! While most of the assets are originals, I did end up using a few assets from Creative Market due to project deadlines. Given the unique nature of the front end design and the robust back end that supports the postcard creation tool, I've very proud of how it turned out.</p>
   </div>
 </div>
-
 <!-- Project History -->
 <div class="row text-center">
   <div class="white-space">
     <h3 class="text-center">Project History</h3>
-    <h4 class="text-center">The current version of GFTI is a remake of a static project I made at the very beginning of my web-developer career.</h4>
+    <h4 class="text-center">The current version of GFTI is a remake of a static project I made in my early days of web development.</h4>
     <h4 class="text-center">This is documentation about the original project.</h4>
   </div>
   <div class="col-md-2 col-xs-1"></div>
   <div class="col-md-8 col-xs-10">
     <div class="row text-center">
       <h4>Visit the original GFTI:</h4>
-      <button type="button" class="btn" ng-click="$ctrl.navToProject()"><h4>View Live Project</h4></button>
+      <button type="button" class="btn" ng-click="$ctrl.openLegacyProject()"><h4>View Original Project</h4></button>
     </div>
     <div class="row text-center">
       <h4>Postcard Design</h4>
@@ -224,7 +223,7 @@
           <img class="image-fill" ng-src="https://postcardmuseum.files.wordpress.com/2011/10/oceancity_0005.jpg" alt="">
         </div>
       </div>
-      <h4>This is the design that I ended up with:</h4>
+      <h4>This is the design that I came up with:</h4>
       <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
@@ -247,13 +246,11 @@
       <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/Screen+Shot+2017-02-18+at+7.25.11+PM.png" alt="">
     </div>
     <div class="row">
-      <h3>P5.js Generative Art Library</h3>
-      <p>I relied on a canvas-based JS library called p5.js for masking the images with letters and composing the postcard. This library is based off of the Processing development environment.</p>
+      <h4>P5.js Generative Art Library</h4>
+      <p>I relied on a canvas-based JS library called p5.js for masking the images with letters and composing the postcard. This library is based off of the Processing development environment. I did not use this library for the final project but instead manually manipulated SVG layout data using Angular's data binding.</p>
       <div class="row">
-        <div class="col-md-4 col-xs-2"></div>
-        <div class="col-md-4 col-xs-8">
-          <a href="https://p5js.org/"><img class="image-fill" ng-src="https://pbs.twimg.com/profile_images/502135348663578624/-oslcYof.png" alt=""></a>
-        </div>
+        <img class="image-fill" src="
+        https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/Banners/banner-features_04.png" alt="old-banner">
       </div>
     </div>
   </div>
