@@ -4,7 +4,31 @@ exports.seed = function(knex, Promise) {
   return knex('projects_tags').del()
     .then(function () {
       return Promise.all([
-        // Inserts seed entries
+        // GFTI
+        knex('projects_tags').insert({
+          project_id: 28,
+          tag_id: 1 // JS
+        }),
+        knex('projects_tags').insert({
+          project_id: 28,
+          tag_id: 2 // HTML/CSS
+        }),
+        knex('projects_tags').insert({
+          project_id: 28,
+          tag_id: 6 // Express
+        }),
+        knex('projects_tags').insert({
+          project_id: 28,
+          tag_id: 4 // Node
+        }),
+        knex('projects_tags').insert({
+          project_id: 28,
+          tag_id: 30 // Angular
+        }),
+        knex('projects_tags').insert({
+          project_id: 28,
+          tag_id: 7 // Digital/Physical
+        }),
         // GATHERED Gardens
         knex('projects_tags').insert({
           project_id: 27,
@@ -61,22 +85,22 @@ exports.seed = function(knex, Promise) {
         }),
 
         //GFTI
-        knex('projects_tags').insert({
-          project_id: 25,
-          tag_id: 7 // Digital/Physical
-        }),
-        knex('projects_tags').insert({
-          project_id: 25,
-          tag_id: 1 // JS
-        }),
-        knex('projects_tags').insert({
-          project_id: 25,
-          tag_id: 2 // HTML/CSS
-        }),
-        knex('projects_tags').insert({
-          project_id: 25,
-          tag_id: 3 // Galvanize
-        }),
+        // knex('projects_tags').insert({
+        //   project_id: 25,
+        //   tag_id: 7 // Digital/Physical
+        // }),
+        // knex('projects_tags').insert({
+        //   project_id: 25,
+        //   tag_id: 1 // JS
+        // }),
+        // knex('projects_tags').insert({
+        //   project_id: 25,
+        //   tag_id: 2 // HTML/CSS
+        // }),
+        // knex('projects_tags').insert({
+        //   project_id: 25,
+        //   tag_id: 3 // Galvanize
+        // }),
 
         // The Greenhouse
         knex('projects_tags').insert({

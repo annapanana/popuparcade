@@ -6,6 +6,19 @@ exports.seed = function(knex, Promise) {
       return Promise.all([
         // Inserts seed entries
         knex('projects').insert({
+          id: 28,
+          name: 'Greetings from the Internet',
+          brief: 'Greetings from the Internet is a travel-themed postcard creation tool.',
+          description: 'Greetings from the Internet is a travel-themed postcard creation tool. Users can design and mail a postcard from the GFTI site. Greetings from the Internet is an original project by Anna Lotko. She designed and developed it as her capstone project for the Boulder Galvanize Full-Stack Web Development program. The project started out as a simple 1-week static site. After spending a few months leveling up her web development skills, Anna decided to embark on the adventure of creating a full-stack version of the project.',
+          type: 'web',
+          role: 'Designer / Developer',
+          date: 'March, 2017',
+          live_link: 'https://www.greetingsfromtheinter.net',
+          thumbnail: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/GFTI_Thumb.png',
+          featured_state: 'gfti',
+          banner_feature: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/banner_01.png'
+        }),
+        knex('projects').insert({
           id: 27,
           name: 'Gathered Gardens',
           brief: 'Gathered Gardens is a data visualization and community development site for members of the Growing Gardens organization in Boulder.',
@@ -31,19 +44,19 @@ exports.seed = function(knex, Promise) {
           featured_state: 'fridgeFace',
           banner_feature: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/Banners/banner-features_01.jpg'
         }),
-        knex('projects').insert({
-          id: 25,
-          name: 'Greetings from the Internet',
-          brief: 'GFTI is a web-based postcard creation tool that uses the Flickr API for collage-composition.',
-          description: 'Greetings from the Internet (gfti) is a web-based postcard creation tool that allows users to select a greeting, search for images, compose postcard graphics and include a custom message. The aesthetic of gfti is an homage to Teich greetings postcards. Gfti uses the Flickr API to supply users with images and the Lob API to send postcards. The project is a client-side website that I created as my first project for the Galvanize Web Immersive program. The project was completed in 5-days after only several weeks of web-development instruction. Click the link below to view the live site.',
-          type: 'web',
-          role: 'Designer / Developer',
-          date: 'November, 2016',
-          featured_state: 'gfti',
-          live_link: 'http://greetingsfromtheinternet.surge.sh/',
-          thumbnail: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/gfti_thumb.png',
-          banner_feature: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/Banners/banner-features_04.png'
-        }),
+        // knex('projects').insert({
+        //   id: 25,
+        //   name: 'Greetings from the Internet',
+        //   brief: 'GFTI is a web-based postcard creation tool that uses the Flickr API for collage-composition.',
+        //   description: 'Greetings from the Internet (gfti) is a web-based postcard creation tool that allows users to select a greeting, search for images, compose postcard graphics and include a custom message. The aesthetic of gfti is an homage to Teich greetings postcards. Gfti uses the Flickr API to supply users with images and the Lob API to send postcards. The project is a client-side website that I created as my first project for the Galvanize Web Immersive program. The project was completed in 5-days after only several weeks of web-development instruction. Click the link below to view the live site.',
+        //   type: 'web',
+        //   role: 'Designer / Developer',
+        //   date: 'November, 2016',
+        //   featured_state: 'gfti',
+        //   live_link: 'http://greetingsfromtheinternet.surge.sh/',
+        //   thumbnail: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Thumbs/gfti_thumb.png',
+        //   banner_feature: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/Banners/banner-features_04.png'
+        // }),
         knex('projects').insert({
           id: 24,
           name: 'The Greenhouse',

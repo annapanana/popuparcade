@@ -4,6 +4,28 @@ exports.seed = function(knex, Promise) {
   return knex('images').del()
     .then(function () {
       return Promise.all([
+        //GFTI 2
+        // GFTI
+        knex('images').insert({
+          project_id: 28,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/Screen+Shot+2016-11-03+at+5.36.05+PM.png'
+        }),
+        knex('images').insert({
+          project_id: 28,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/post_card_01_example.png'
+        }),
+        knex('images').insert({
+          project_id: 28,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/post_card_04_example.png'
+        }),
+        knex('images').insert({
+          project_id: 28,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/card_front_01.png'
+        }),
+        knex('images').insert({
+          project_id: 28,
+          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/card_front_02.png'
+        }),
         // Gathered Gardens
         knex('images').insert({
           project_id: 27,
@@ -30,23 +52,7 @@ exports.seed = function(knex, Promise) {
           project_id: 26,
           image_url: 'http://res.cloudinary.com/dgt2xab7d/image/upload/v1481823491/rsxogqtay8rrchd8cv4e.jpg'
         }),
-        // GFTI
-        knex('images').insert({
-          project_id: 25,
-          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/Screen+Shot+2016-11-03+at+5.36.05+PM.png'
-        }),
-        knex('images').insert({
-          project_id: 25,
-          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/Screen+Shot+2016-11-03+at+5.44.38+PM.png'
-        }),
-        knex('images').insert({
-          project_id: 25,
-          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/post_card_01_example.png'
-        }),
-        knex('images').insert({
-          project_id: 25,
-          image_url: 'https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/post_card_04_example.png'
-        }),
+
         // The Greenhouse
         knex('images').insert({
           project_id: 24,

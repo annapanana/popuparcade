@@ -145,6 +145,13 @@ p {
   font-weight: lighter;
 }
 
+@font-face {
+    font-family: 'Day Poster';
+    src: url('https://s3-us-west-2.amazonaws.com/gftiresources/assets/Dayposter_Black.TTF');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .btn {
   /*margin-left: 15px;*/
   padding-right: 20px;

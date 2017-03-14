@@ -40,50 +40,182 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="white-space">
+    <h3 class="text-center">Postcard Creation</h3>
+    <h4 class="text-center">There are several steps that the user must complete in order to create a postard.</h4>
+  </div>
+  <div class="col-md-6 col-xs-12 white-space">
+    <div class="col-xs-3">
+      <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/icons/step_1.svg" alt="">
+    </div>
+    <div class="col-xs-9">
+      <h5>Step 1: Theme Selection</h5>
+      <p>I carefully crafted 4 different themes to choose from. Each theme includes different customization assets that will give a different visual identity to the postcard.</p>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-xs-12 white-space">
+    <div class="col-xs-3">
+      <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/icons/step_2.svg" alt="">
+    </div>
+    <div class="col-xs-9">
+      <h5>Step 2: Photo Upload</h5>
+      <p>If you are using this site on a mobile device, you can take a photo and directly upload it to the site. Alternatively, you can upload a photo from your desktop or provide an image URL.</p>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-xs-12 white-space">
+    <div class="col-xs-3">
+      <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/icons/step_3.svg" alt="">
+    </div>
+    <div class="col-xs-9">
+      <h5>Step 3: Edit Design</h5>
+      <p>You can use 5 different widgets to customize your design. Tools include image filters, border themes, color selection, font selection and subtext customization.</p>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-xs-12 white-space">
+    <div class="col-xs-3">
+      <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/icons/step_4.svg" alt="">
+    </div>
+    <div class="col-xs-9">
+      <h5>Step 4: Message & Address</h5>
+      <p>Fill in a custom message and address the card for mailing. You can save your design and share it with the GFTI community. This app uses the Lob API to send the postcard using the USPS.</p>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-xs-12 white-space">
+    <div class="col-xs-3">
+      <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/icons/step_5.svg" alt="">
+    </div>
+    <div class="col-xs-9">
+      <h5>Step 5: Pay and Mail</h5>
+      <p>When you have completed your postcard, you can mail it. You will recieve an estimated delivery date. Each postcard costs $1.50 to send, which includes printing and postage. I use Stripe for secure payments.</p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="white-space">
+    <h3 class="text-center">Editing Tool</h3>
+    <h4 class="text-center">The editing tool, where the user designs his or her postcard, was a layout challenge. The final interface looked like this:</h4>
+  </div>
+  <div class="col-md-2"></div>
+  <div class="col-md-8 col-xs-12">
+    <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/gfti_laptop.png" alt="editing-tool">
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+<!-- Hello World -->
+<div class="row">
+  <div class="white-space">
+    <h3 class="text-center">Hello World!</h3>
+    <h4 class="text-center">After many hours of development, I finally recieved my first test postcard in the mail.</h4>
+  </div>
+  <div class="col-md-6 col-xs-12">
+    <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/Image+uploaded+from+iOS+(3).jpg" alt="card-front">
+  </div>
+  <div class="col-md-6 col-xs-12">
+    <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/Image+uploaded+from+iOS+(2).jpg" alt="card-back">
+  </div>
+</div>
+
 <!-- Wireframes -->
 <div class="row">
   <div class="white-space">
     <h3 class="text-center">Wireframes</h3>
-    <h4 class="text-center">This is an overview of preliminary wireframes that were used in the planning of Greetings From the Internet.</h4>
+    <h4 class="text-center">This is an overview of preliminary wireframes that were used in the planning of Greetings from the Internet. The structure of the site changed over the course of development as selected features were prioritized over stretch goals.</h4>
   </div>
   <div class="wireframe-container">
-    <div ng-repeat="slide in $ctrl.wireframes">
-      <div class="row">
-        <h4 class="text-center">{{slide.id+1}}</h4>
-        <a ng-click="$ctrl.openLightboxModal($ctrl.wireframes, slide.id)">
-          <img class="img-thumbnail" ng-src="{{slide.url}}" alt="">
-        </a>
-      </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-8 col-xs-12">
+      <embed src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/wireframes/wireframes.pdf" width="100%" height="800px" />
     </div>
-  </div>
-  <div class="row white-space">
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
-      <div ng-repeat="slide in $ctrl.wireframes">
-        <h5 class="wireframe-text"> <b>{{slide.id+1}} : </b>{{slide.text}}</h5>
-      </div>
-    </div>
-    <div class="col-md-1"></div>
+    <div class="col-md-2"></div>
   </div>
 </div>
 
-<!-- Postcard Design -->
-<div class="row text-center">
-  <div class="row white-space">
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
-      <h3>Postcard Design</h3>
-      <h4>My goal for the aesthetic of the project was to create postcards that are reminiscent of classic Teich postcards.</h4>
-    </div>
-    <div class="col-md-1"></div>
+<div class="row">
+  <div class="white-space">
+    <h3 class="text-center">Themes</h3>
+    <h4 class="text-center">GFTI is made unique by it's travel themes! The user is presented with different customization widgets, depending on the theme that is selected. When the user selects a theme, he or she is choosing from a suitcase to reinforce the travel theme. The assets below correspond to the theme that the user selects.</h4>
   </div>
-  <div class="row">
-    <div class="col-md-2"></div>
-    <!-- 4 Teich Postcards -->
-    <div class="col-md-8">
-      <div class="row">
-        <h4>Here are few examples of the Teich cards:</h4>
-      </div>
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/suitcase_classic_open.png" alt="classic-open">
+    <h3 class="text-center">Classic Colors:</h3>
+    <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/classic_colors.svg" alt="">
+    <h3 class="text-center" style="font-family:Day Poster">Classic Font 1</h3>
+    <h3 class="text-center" style="font-family:Shrikhand">Classic Font 2</h3>
+    <h3 class="text-center" style="font-family:Yellowtail">Classic Font 3</h3>
+  </div>
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/suitcase_modern_open.png" alt="modern-open">
+    <h3 class="text-center">Modern Colors:</h3>
+    <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/modern_colors.svg" alt="">
+    <h3 class="text-center" style="font-family:Fredoka One">Modern Font 1</h3>
+    <h3 class="text-center" style="font-family:Spinnaker">Modern Font 2</h3>
+    <h3 class="text-center" style="font-family:Quicksand">Modern Font 3</h3>
+  </div>
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/suitcase_playful_open.png" alt="playful-open">
+    <h3 class="text-center">Playful Colors:</h3>
+    <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/playful_colors.svg" alt="">
+    <h3 class="text-center" style="font-family:Pacifico">Playful Font 1</h3>
+    <h3 class="text-center" style="font-family:Sacramento">Playful Font 2</h3>
+    <h3 class="text-center" style="font-family:Amatic SC">Playful Font 3</h3>
+  </div>
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/suitcase_wild_open.png" alt="wild-open">
+    <h3 class="text-center">Wild Colors:</h3>
+    <img class="image-fill" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/wild_colors.svg" alt="">
+    <h3 class="text-center" style="font-family:Rubik Mono One">Wild Font 1</h3>
+    <h3 class="text-center" style="font-family:Carter One">Wild Font 2</h3>
+    <h3 class="text-center" style="font-family:Cabin Sketch">Wild Font 3</h3>
+  </div>
+</div>
+
+<!-- Technical Challenges -->
+<div class="row">
+  <div class="white-space">
+    <h3 class="text-center">Technical Challenges</h3>
+    <h4 class="text-center">There were many technical challenges that arose over the course of development</h4>
+  </div>
+  <div class="row col-xs-12">
+    <h4>Interpolating User Data Into HTML Templates:</h4>
+    <p>I encountered difficulties when I sought to merge user settings with HTML templates on a NodeJS server before pushing all data to the Lob API. Lob is great (!!) but very particular about the format in which it receives data. Each SVG frame is a different template. When users make adjustments to their design in the image composition page of the tool, these settings get pushed as key value pairs to my server. The server then handles the logic for how the data gets interpolated into the HTML custom templates.</p>
+  </div>
+  <div class="row col-xs-12">
+    <h4>Dynamic Layouts:</h4>
+    <p>Dynamic layouts were a challenge. There is a tension between wanting to give the user ultimate control over the aesthetic of the postcard and keeping the settings limited for content management reasons. The site strikes a nice balance between allowing for customization and variety while still presenting a consistent aesthetic across the different themes.</p>
+  </div>
+  <div class="row col-xs-12">
+    <h4>Modern Design With Character:</h4>
+    <p>The site marries modern web-design with an old-world aesthetic. I developed a visual language for the site that uses modern, responsive design while making the user feel like he or she is in Wes Anderson's living room. One of the greatest challenges of this design was to give the site character while preventing it from conflicting with postcard themes that the user can select. Ultimately the site feels fresh and user friendly but it is quite distinct.</p>
+  </div>
+  <div class="row col-xs-12">
+    <h4>Two Weeks of Work!</h4>
+    <p>The site was made in 2-weeks! While most of the assets are originals, I did end up using a few assets from Creative Market due to project deadlines. Given the unique nature of the front end design and the robust back end that supports the postcard creation tool, I've very proud of how it turned out.</p>
+  </div>
+</div>
+
+<!-- Project History -->
+<div class="row text-center">
+  <div class="white-space">
+    <h3 class="text-center">Project History</h3>
+    <h4 class="text-center">The current version of GFTI is a remake of a static project I made at the very beginning of my web-developer career.</h4>
+    <h4 class="text-center">This is documentation about the original project.</h4>
+  </div>
+  <div class="col-md-2 col-xs-1"></div>
+  <div class="col-md-8 col-xs-10">
+    <div class="row text-center">
+      <h4>Visit the original GFTI:</h4>
+      <button type="button" class="btn" ng-click="$ctrl.navToProject()"><h4>View Live Project</h4></button>
+    </div>
+    <div class="row text-center">
+      <h4>Postcard Design</h4>
+      <p>My goal for the aesthetic of the original GFTI was to create postcards that are reminiscent of classic Teich postcards. Here are a few examples:</p>
       <div class="row">
         <div class="col-md-6">
           <img class="image-fill" ng-src="https://s-media-cache-ak0.pinimg.com/originals/a9/d8/f6/a9d8f63b4a718db8eebbac61122efe7b.jpg" alt="">
@@ -92,16 +224,7 @@
           <img class="image-fill" ng-src="https://postcardmuseum.files.wordpress.com/2011/10/oceancity_0005.jpg" alt="">
         </div>
       </div>
-    </div>
-    <div class="col-md-2"></div>
-  </div>
-  <div class="row">
-    <div class="col-md-2"></div>
-    <!-- 4 Teich Postcards -->
-    <div class="col-md-8">
-      <div class="row">
-        <h4>This is what I ended up producing:</h4>
-      </div>
+      <h4>This is the design that I ended up with:</h4>
       <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
@@ -110,64 +233,28 @@
         <div class="col-md-2"></div>
       </div>
       <div class="row">
-        <img class="image-fill" ng-src="" alt="">
-        <h4>Due to the unpredictable nature of dynamically populating letters with images, I kept the backgrounds fairly simple. Each letter is filled with a different image, which the user selects from a gallery of search results.</h4>
+        <p>Due to the unpredictable nature of dynamically populating letters with images, I kept the backgrounds fairly simple. Each letter is filled with a different image, which the user selects from a gallery of search results.</p>
       </div>
     </div>
-    <div class="col-md-2"></div>
-  </div>
-</div>
-
-<!-- Flickr API library -->
-<div class="row text-center">
-  <div class="row white-space">
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
-      <h3>Flickr API</h3>
-      <h4>Before this project, I had never queried an API. I used the Flickr API to source images for filling in postcard letters. This is an example view of search results from San Francisco. Users must select the number of images needed to fill each letter in the greeting.</h4>
+    <div class="row">
+      <h4>Original Wireframes</h4>
+      <p>For every project, I create rough wireframes to help me figure out the required features and to plan my time accordingly. Here are the original GFTI wireframes.</p>
+      <embed src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/wireframes/gfti_wireframes.pdf" width="100%" height="800px" />
     </div>
-    <div class="col-md-1"></div>
-  </div>
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
+    <div class="row">
+      <h4>Flickr API</h4>
+      <p>Before this project, I had never queried an API. I used the Flickr API to source images for filling in postcard letters. This is an example view of search results from San Francisco. Users must select the number of images needed to fill each letter in the greeting.</p>
       <img class="image-fill" ng-src="https://s3-us-west-2.amazonaws.com/popuparcade.com/GFTI_IMG/Screen+Shot+2017-02-18+at+7.25.11+PM.png" alt="">
     </div>
-    <div class="col-md-2"></div>
-  </div>
-</div>
-
-<!-- p5.js library -->
-<div class="row text-center">
-  <div class="row white-space">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
+    <div class="row">
       <h3>P5.js Generative Art Library</h3>
-      <h4>I relied on a canvas-based JS library called p5.js for masking the images with letters and composing the postcard. This library is based off of the Processing development environment.</h4>
+      <p>I relied on a canvas-based JS library called p5.js for masking the images with letters and composing the postcard. This library is based off of the Processing development environment.</p>
+      <div class="row">
+        <div class="col-md-4 col-xs-2"></div>
+        <div class="col-md-4 col-xs-8">
+          <a href="https://p5js.org/"><img class="image-fill" ng-src="https://pbs.twimg.com/profile_images/502135348663578624/-oslcYof.png" alt=""></a>
+        </div>
+      </div>
     </div>
-    <div class="col-md-2"></div>
   </div>
-  <div class="row">
-    <div class="col-md-5"></div>
-    <div class="col-md-2">
-      <a href="https://p5js.org/"><img class="image-fill" ng-src="https://pbs.twimg.com/profile_images/502135348663578624/-oslcYof.png" alt=""></a>
-    </div>
-    <div class="col-md-5"></div>
-  </div>
-</div>
-
-<!-- Next Iteration -->
-<div class="row text-center">
-  <div class="row white-space">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <h3>Version 2.0</h3>
-      <h4>For my capstone with Galvanize I am making a full-stack web app version of Greetings from the Internet. It will be hosted at www.greetingsfromtheinter.net. Stay tuned for more details soon!</h4>
-    </div>
-    <div class="col-md-2"></div>
-  </div>
-</div>
-
-<div class="row text-center">
-  <button type="button" class="btn" ng-click="$ctrl.navToProject()"><h4>View Live Project</h4></button>
 </div>

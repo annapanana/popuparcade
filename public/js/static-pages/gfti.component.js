@@ -20,7 +20,7 @@
       vm.active = 0;
 
       vm.$onInit = function() {
-        $http.get(`/app/archive/25`)
+        $http.get(`/app/archive/28`)
           .then(function(result) {
             vm.project = result.data;
 
