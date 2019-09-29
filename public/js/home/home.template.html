@@ -1,61 +1,33 @@
-<div class="row">
-  <div class="col-md-1"></div>
-  <div class="col-md-10 text-center">
-    <!-- Featured Project Carousel -->
-    <div>
-      <div uib-carousel active="$ctrl.active" interval="$ctrl.myInterval" no-wrap="$ctrl.noWrapSlides">
-        <div uib-slide ng-repeat="slide in $ctrl.slides track by slide.id" index="slide.id">
-          <img class="featured-gallery" ng-src="{{slide.image}}" style="margin:auto;">
-          <div class="carousel-caption">
-            <!-- TODO Make this a lin -->
-            <h3>{{slide.text}}</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10">
-        <h3>Featured Projects</h3>
-        <p>These projects are the latest and greatest examples of Anna's creative + technical work.</p>
-        <div class="row">
-          <button type="button" class="btn" ui-sref="featured"><h4>Explore Projects</h4></button>
-        </div>
-      </div>
-      <div class="col-md-1"></div>
-    </div>
-  </div>
-  <div class="col-md-1"></div>
-</div>
 <!-- Archive and About Nav -->
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-5 text-center">
-    <!-- Archive with Superimposed Button -->
-    <img class="featured-gallery" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/nav_image_archive.png" alt="">
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-10">
-        <h3>Archive</h3>
-        <p>View all of Anna's projects, from rough physical computing prototypes to published mobile games.</p>
+        <div class="featured-gallery" style="background: url(https://storage.googleapis.com/annapanana/Alan/Screen%20Shot%202019-09-28%20at%203.12.44%20PM.png) 50% 50% no-repeat;">
+        </div>
+        <h3>Data Viz</h3>
+        <p>Explore some of the data vizualizations that Alan built while at Uplight / Simple Energy and Zayo</p>
       </div>
       <div class="row">
-        <button type="button" class="btn" ui-sref="archive"><h4>Archived Projects</h4></button>
+        <button type="button" class="btn" ui-sref="archive"><h4>Data Viz Projects</h4></button>
       </div>
       <div class="col-md-1"></div>
     </div>
   </div>
   <div class="col-md-5 text-center">
     <!-- About Page with Superimposed Button -->
-    <img class="featured-gallery" src="https://s3-us-west-2.amazonaws.com/popuparcade.com/Featured/nav_image_about.png" alt="">
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-10">
-        <h3>About Anna</h3>
-        <p>Interested in Anna's work? Want to learn more about her background or download her resume?</p>
+        <div class="featured-gallery" style="background: url(https://storage.googleapis.com/annapanana/Alan/caretakr.png) 50% 50% no-repeat;">
+        </div>
+        <h3>Personal Projects</h3>
+        <p>Explore some of the personal projects that Alan built to level up his dev skills.</p>
       </div>
       <div class="row">
-        <button type="button" class="btn" ui-sref="about"><h4>About Anna</h4></button>
+        <button type="button" class="btn" ui-sref="about"><h4>Personal Projects</h4></button>
       </div>
       <div class="col-md-1"></div>
     </div>

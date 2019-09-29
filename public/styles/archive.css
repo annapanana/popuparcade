@@ -7,7 +7,9 @@
 }
 
 .navbar {
-  background-color: #6DCCC3;
+  padding: 10px 0;
+  background-color: #248888;
+  border-bottom: #f0d879 10px solid;
 }
 
 .navbar-brand {
@@ -23,14 +25,14 @@
 .nav-button {
   color: #FFF !important;
   z-index: 5;
-  margin: 5px;
+  margin-right: 10px;
   border-radius: 2px;
   border-style: solid;
   border-width: thin;
   border-color: #FFF;
   font-family: 'Josefin Sans', sans-serif;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .nav-button:hover {
@@ -93,14 +95,15 @@
 }
 
 .fade {
+   filter: brightness(100%);
    opacity: 1;
-   transition: opacity .25s ease-in-out;
-   -moz-transition: opacity .25s ease-in-out;
-   -webkit-transition: opacity .25s ease-in-out;
+   transition: all .25s ease-in-out;
+   -moz-transition: all .25s ease-in-out;
+   -webkit-transition: all .25s ease-in-out;
  }
 
 .fade:hover {
-  opacity: .5;
+  filter: brightness(80%);
 }
 
 .card-img-top {
@@ -120,7 +123,7 @@
 
 /*Fonts*/
 a {
-  color: #707070;
+  color: #248888;
   text-decoration: none;
 }
 
@@ -159,16 +162,16 @@ p {
   border-radius: 2px;
   border-style: solid;
   border-width: thin;
-  border-color: #6DCCC3;
+  border-color: #248888;
   background-color: #FFF;
-  color: #6DCCC3;
+  color: #248888;
 }
 
 .btn:active,
 .btn:hover {
-  background-color: #6DCCC3;
+  background-color: #248888;
   color: #FFF;
-  border-color: #6DCCC3 !important;
+  border-color: #248888 !important;
 }
 
 
@@ -202,8 +205,8 @@ p {
 
 /*Featured*/
 .featured-gallery {
-  max-height: 400px;
-  width: 100%;
+  width: 400px;
+  height: 400px;
 }
 
 /*TODO Make this responsive*/
@@ -292,9 +295,9 @@ p {
 }
 
 .filter-button-active {
-  background-color: #6DCCC3;
+  background-color: #248888;
   color: #FFF;
-  border-color: #6DCCC3 !important;
+  border-color: #248888 !important;
 }
 
 .icon-flex {

@@ -19,19 +19,19 @@ exports.seed = function(knex, Promise) {
         }),
         knex('tags').insert({
           id: 4,
-          tag_name: 'node'
+          tag_name: 'uplight'
         }),
         knex('tags').insert({
           id: 5,
-          tag_name: 'psql'
+          tag_name: 'zayo'
         }),
         knex('tags').insert({
           id: 6,
-          tag_name: 'express'
+          tag_name: 'data-viz'
         }),
         knex('tags').insert({
           id: 7,
-          tag_name: 'digital/physical'
+          tag_name: 'typescript'
         }),
         knex('tags').insert({
           id: 8,
@@ -42,97 +42,25 @@ exports.seed = function(knex, Promise) {
           tag_name: 'education'
         }),
         knex('tags').insert({
-          id: 10,
-          tag_name: 'freelance'
-        }),
-        knex('tags').insert({
           id: 11,
           tag_name: 'project management'
         }),
         knex('tags').insert({
           id: 12,
-          tag_name: 'connected play'
+          tag_name: 'react'
         }),
         knex('tags').insert({
           id: 13,
-          tag_name: 'disney'
+          tag_name: 'angular'
         }),
         knex('tags').insert({
           id: 14,
-          tag_name: 'user research'
-        }),
-        knex('tags').insert({
-          id: 15,
-          tag_name: 'unity3d'
-        }),
-        knex('tags').insert({
-          id: 16,
-          tag_name: 'c#'
-        }),
-        knex('tags').insert({
-          id: 17,
-          tag_name: 'prototyping'
-        }),
-        knex('tags').insert({
-          id: 18,
-          tag_name: 'festival'
-        }),
-        knex('tags').insert({
-          id: 19,
-          tag_name: 'sound design'
-        }),
-        knex('tags').insert({
-          id: 20,
-          tag_name: 'narrative design'
-        }),
-        knex('tags').insert({
-          id: 21,
-          tag_name: 'performance art'
-        }),
-        knex('tags').insert({
-          id: 22,
-          tag_name: 'usc'
-        }),
-        knex('tags').insert({
-          id: 23,
-          tag_name: 'serious game'
-        }),
-        knex('tags').insert({
-          id: 24,
-          tag_name: 'maya'
-        }),
-        knex('tags').insert({
-          id: 25,
-          tag_name: 'arduino'
-        }),
-        knex('tags').insert({
-          id: 26,
-          tag_name: 'processing'
-        }),
-        knex('tags').insert({
-          id: 27,
-          tag_name: 'java'
-        }),
-        knex('tags').insert({
-          id: 28,
-          tag_name: 'kinect'
-        }),
-        knex('tags').insert({
-          id: 29,
-          tag_name: 'dartmouth'
-        }),
-        knex('tags').insert({
-          id: 30,
           tag_name: 'angularJS'
         }),
         knex('tags').insert({
-          id: 31,
-          tag_name: 'mysql'
+          id: 15,
+          tag_name: 'C3JS'
         }),
-        knex('tags').insert({
-          id: 32,
-          tag_name: 'data viz'
-        })
       ]);
     })
     .then(() => {

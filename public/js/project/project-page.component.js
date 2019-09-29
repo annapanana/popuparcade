@@ -22,7 +22,6 @@
 
         vm.project = $http.get('/app/archive/'+$stateParams.projectId)
           .then(function(result){
-            console.log(result.data);
             vm.project = result.data;
             vm.slides = [];
             for (var i = 0; i < result.data.images.length; i++) {
@@ -43,7 +42,6 @@
 
      // Open project page in a new tab
      vm.navToProject = function() {
-       console.log(vm.project.live_link);
        var win = window.open(vm.project.live_link, '_blank');
        win.focus();
      };
