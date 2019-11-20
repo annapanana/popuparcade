@@ -4,7 +4,7 @@
   "description": "anna's personal portfolio",
   "main": "server.js",
   "dependencies": {
-    "angular": "^1.6.1",
+    "angular": "^1.7.9",
     "angular-moment": "^1.0.1",
     "angular-ui-router": "^1.0.0-beta.3",
     "body-parser": "^1.15.2",
